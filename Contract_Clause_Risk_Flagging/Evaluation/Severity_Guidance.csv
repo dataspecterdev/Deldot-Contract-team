@@ -1,0 +1,6 @@
+level,working_definition,examples,note
+Critical,Explicit mandatory external requirement or applicability rule is missing/contradicted in a way designed to be unambiguous for challenge scoring.,FHWA-1273 only referenced on a covered federal-aid contract; Buy America explicitly marked applicable but draft says it does not apply.,Challenge severity only; not a legal conclusion.
+High,"Material required contract/bid protection, document, percentage, or workflow is missing or substantially weakened.",10% bid guaranty changed to 5%; bond coverage reduced; licensing requirement removed; written-change process bypassed.,Requires human contract review.
+Medium,"Meaningful procedural, deadline, record-retention, claims, time, or pricing deviation requiring review.",Audit retention shortened; claim deadline altered; unsupported liquidated-damages rate.,Requires human contract review.
+Low,Minor non-substantive reference or drafting issue that should be corrected but does not change the intended substantive requirement in the challenge dataset.,Minor cross-reference typo or stale descriptive reference deliberately included in future versions.,May be used sparingly.
+Info,Equivalent/benign wording difference or no issue. Used to test false-positive burden.,Reordered wording that retains the same requirement.,Do not escalate.

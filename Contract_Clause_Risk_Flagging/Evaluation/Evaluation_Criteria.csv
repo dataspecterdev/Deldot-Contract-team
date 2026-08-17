@@ -1,0 +1,7 @@
+metric,purpose,weight
+Applicability accuracy,Correct APPLIES / DOES_NOT_APPLY decisions; penalizes over-flagging absent non-applicable clauses,20%
+Finding detection (precision + recall),Find material deviations without unsupported flags,25%
+Cross-document precedence resolution,Select correct governing document when proposal/special provisions/Addenda conflict,20%
+Semantic deviation discrimination,Separate material changes from equivalent/paraphrased wording,15%
+Evidence and citation correctness,Draft evidence and authoritative reference must actually support the decision,15%
+Severity agreement,Reasonable agreement with challenge severity labels,5%

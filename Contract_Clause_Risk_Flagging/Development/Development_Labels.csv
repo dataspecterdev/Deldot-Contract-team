@@ -1,0 +1,109 @@
+﻿Package_ID,Requirement_ID,Expected_Applicability,Expected_Label,Expected_Severity,Rationale
+DEV-PINE-GROVE,CC-01,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-PINE-GROVE,CC-02,APPLIES,FLAG,High,5% bid guaranty
+DEV-PINE-GROVE,CC-03,APPLIES,FLAG,High,certification made optional
+DEV-PINE-GROVE,CC-04,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-PINE-GROVE,CC-05,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-PINE-GROVE,CC-06,APPLIES,FLAG,High,registration allowed after work begins
+DEV-PINE-GROVE,CC-07,APPLIES,FLAG,High,business-license evidence removed / subcontractor timing extended
+DEV-PINE-GROVE,CC-08,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-PINE-GROVE,CC-09,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-PINE-GROVE,CC-10,APPLIES,NO_FLAG,Info,Hierarchy restated in equivalent wording.
+DEV-PINE-GROVE,CC-11,APPLIES,FLAG,High,oral direction immediately changes scope/price/time
+DEV-PINE-GROVE,CC-12,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-PINE-GROVE,CC-13,APPLIES,FLAG,Medium,retention shortened to 1 year and subcontractor records excluded
+DEV-PINE-GROVE,CC-14,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-PINE-GROVE,CC-15,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-PINE-GROVE,CC-16,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-PINE-GROVE,CC-17,APPLIES,FLAG,Medium,"flat $10,000/day rate regardless of governing schedule"
+DEV-PINE-GROVE,CC-18,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-HARBOR-CROSSING,CC-01,APPLIES,FLAG,Critical,FHWA-1273 referenced only; attachment absent
+DEV-HARBOR-CROSSING,CC-02,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-HARBOR-CROSSING,CC-03,APPLIES,NO_FLAG,Info,Certification wording/capitalization changed only.
+DEV-HARBOR-CROSSING,CC-04,APPLIES,NO_FLAG,Info,Proposal says 75% bonds; Addendum 2 explicitly revises to 100%.
+DEV-HARBOR-CROSSING,CC-05,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-HARBOR-CROSSING,CC-06,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-HARBOR-CROSSING,CC-07,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-HARBOR-CROSSING,CC-08,APPLIES,FLAG,High,proposal acknowledges Addenda 1-2 but Addendum 3 is issued
+DEV-HARBOR-CROSSING,CC-09,APPLIES,FLAG,Critical,draft says Buy America/BABA does not apply
+DEV-HARBOR-CROSSING,CC-10,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-HARBOR-CROSSING,CC-11,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-HARBOR-CROSSING,CC-12,APPLIES,NO_FLAG,Info,Proposal says 30-day follow-up; Addendum 3 revises to 7 days.
+DEV-HARBOR-CROSSING,CC-13,APPLIES,NO_FLAG,Info,Audit clause paraphrased but keeps scope and 3-year retention.
+DEV-HARBOR-CROSSING,CC-14,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-HARBOR-CROSSING,CC-15,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-HARBOR-CROSSING,CC-16,APPLIES,FLAG,Medium,automatic extension for any delay without reference conditions
+DEV-HARBOR-CROSSING,CC-17,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-HARBOR-CROSSING,CC-18,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-STONE-CREEK,CC-01,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-STONE-CREEK,CC-02,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-STONE-CREEK,CC-03,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-STONE-CREEK,CC-04,APPLIES,NO_FLAG,Info,Proposal says 75% bonds; Addendum 1 revises to 100%.
+DEV-STONE-CREEK,CC-05,APPLIES,FLAG,High,execution deadline extended to 45 days and insurance evidence omitted
+DEV-STONE-CREEK,CC-06,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-STONE-CREEK,CC-07,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-STONE-CREEK,CC-08,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-STONE-CREEK,CC-09,APPLIES,NO_FLAG,Info,BABA language paraphrased but applicability preserved.
+DEV-STONE-CREEK,CC-10,APPLIES,NO_FLAG,Info,Proposal states reverse hierarchy; Addendum 1 deletes/replaces it with the provided DelDOT hierarchy.
+DEV-STONE-CREEK,CC-11,APPLIES,FLAG,High,oral direction changes scope/price/time
+DEV-STONE-CREEK,CC-12,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-STONE-CREEK,CC-13,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-STONE-CREEK,CC-14,APPLIES,FLAG,High,80% subcontracting allowed without approval and prime responsibility weakened
+DEV-STONE-CREEK,CC-15,APPLIES,FLAG,Medium,claim process/deadline materially relaxed
+DEV-STONE-CREEK,CC-16,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-STONE-CREEK,CC-17,APPLIES,FLAG,Medium,"unresolved flat $10,000/day rate"
+DEV-STONE-CREEK,CC-18,APPLIES,FLAG,Medium,changed-work pricing replaced by fixed 25% markup
+DEV-NORTHFIELD,CC-01,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-NORTHFIELD,CC-02,APPLIES,FLAG,High,5% bid guaranty
+DEV-NORTHFIELD,CC-03,APPLIES,NO_FLAG,Info,Certification paraphrase only.
+DEV-NORTHFIELD,CC-04,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-NORTHFIELD,CC-05,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-NORTHFIELD,CC-06,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-NORTHFIELD,CC-07,APPLIES,NO_FLAG,Info,License language reorganized without changing requirement.
+DEV-NORTHFIELD,CC-08,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-NORTHFIELD,CC-09,APPLIES,FLAG,Critical,draft says BABA does not apply
+DEV-NORTHFIELD,CC-10,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-NORTHFIELD,CC-11,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-NORTHFIELD,CC-12,APPLIES,FLAG,High,written follow-up changed to 30 days
+DEV-NORTHFIELD,CC-13,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-NORTHFIELD,CC-14,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-NORTHFIELD,CC-15,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-NORTHFIELD,CC-16,APPLIES,FLAG,Medium,automatic time extension
+DEV-NORTHFIELD,CC-17,APPLIES,FLAG,Medium,"flat $10,000/day rate"
+DEV-NORTHFIELD,CC-18,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-MAPLE-RIDGE,CC-01,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-MAPLE-RIDGE,CC-02,APPLIES,NO_FLAG,Info,"After Addendum correction, 10% requirement is preserved."
+DEV-MAPLE-RIDGE,CC-03,APPLIES,NO_FLAG,Info,Equivalent wording.
+DEV-MAPLE-RIDGE,CC-04,APPLIES,NO_FLAG,Info,Proposal says 75% bonds; Addendum 1 revises to 100%.
+DEV-MAPLE-RIDGE,CC-05,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-MAPLE-RIDGE,CC-06,APPLIES,NO_FLAG,Info,Registration language paraphrased but requires pre-work compliance.
+DEV-MAPLE-RIDGE,CC-07,APPLIES,NO_FLAG,Info,Proposal allows 60-day subcontractor license submission; Addendum 1 restores the reference timing.
+DEV-MAPLE-RIDGE,CC-08,APPLIES,FLAG,High,proposal acknowledgment omits issued Addendum 1
+DEV-MAPLE-RIDGE,CC-09,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-MAPLE-RIDGE,CC-10,APPLIES,NO_FLAG,Info,Hierarchy expressed as a numbered list with same order.
+DEV-MAPLE-RIDGE,CC-11,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-MAPLE-RIDGE,CC-12,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-MAPLE-RIDGE,CC-13,APPLIES,FLAG,Medium,record retention shortened to 1 year
+DEV-MAPLE-RIDGE,CC-14,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-MAPLE-RIDGE,CC-15,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-MAPLE-RIDGE,CC-16,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-MAPLE-RIDGE,CC-17,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-MAPLE-RIDGE,CC-18,DOES_NOT_APPLY,NO_FLAG,Info,Requirement does not apply under supplied project metadata.
+DEV-RIVERBEND,CC-01,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-02,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-03,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-04,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-05,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-06,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-07,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-08,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-09,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-10,APPLIES,NO_FLAG,Info,Equivalent hierarchy wording.
+DEV-RIVERBEND,CC-11,APPLIES,NO_FLAG,Info,Proposal permits oral change direction; Addendum 1 replaces it with the required written-process language.
+DEV-RIVERBEND,CC-12,APPLIES,FLAG,High,change follow-up changed to 30 days
+DEV-RIVERBEND,CC-13,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-14,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-15,APPLIES,FLAG,Medium,claim deadline/workflow materially extended
+DEV-RIVERBEND,CC-16,APPLIES,FLAG,Medium,automatic extension without reference conditions
+DEV-RIVERBEND,CC-17,APPLIES,NO_FLAG,Info,No material deviation present.
+DEV-RIVERBEND,CC-18,APPLIES,FLAG,Medium,fixed 25% markup replaces reference change-pricing workflow

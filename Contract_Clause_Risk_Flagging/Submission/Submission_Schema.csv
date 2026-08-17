@@ -1,0 +1,16 @@
+field,required,description
+document_id,Yes,Challenge package identifier.
+requirement_id,Yes,One of the supplied reference check IDs; submit one row for every document x requirement pair.
+applicability_decision,Yes,APPLIES or DOES_NOT_APPLY.
+applicability_reason,Yes,Short reason grounded in project metadata/reference applicability rule.
+predicted_label,Yes,"FLAG or NO_FLAG. For DOES_NOT_APPLY, use NO_FLAG."
+severity,Yes,"Critical, High, Medium, Low, or Info - challenge taxonomy only."
+governing_document,Yes,Package document that controls the analyzed requirement after precedence/Addendum resolution.
+draft_location,Yes for FLAG; expected for precedence cases,File + section/heading/page-like location in reviewed package.
+draft_evidence,Yes for FLAG; expected for precedence cases,Exact or concise reviewed-document evidence supporting the decision.
+reference_id,Yes,Reference requirement ID.
+reference_location,Yes,Reference section/page or checklist location.
+reference_evidence,Yes,Concise reference requirement used for comparison.
+explanation,Yes,"Why the text is material, benign, superseded, or not applicable."
+confidence,Yes,0.00 to 1.00.
+recommended_human_action,Yes,Review/confirm/no action; no automatic legal conclusion.
