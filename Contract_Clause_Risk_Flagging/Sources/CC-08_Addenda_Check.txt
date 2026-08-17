@@ -1,0 +1,9 @@
+Reference: DelDOT proposal + solicitation record
+Source: Attachments / Addenda
+Requirement ID: CC-08
+
+Check submitted document by the user if they have an addenda and/or Q&A.
+
+Review Expectation: Verify the reviewed package acknowledges the current addenda/Q&A and does not treat the original proposal as self-updating.
+
+Challenge Reference Rule: Use the latest provided Addendum/package version. A draft that ignores a later issued Addendum is a finding.

@@ -1,0 +1,15 @@
+Reference: Delaware public works licensing statute + DelDOT proposal
+Source: 29 Del. C. § 6967
+Requirement ID: CC-07
+
+§ 6967. Requirement of occupational and business license [For application of (b) and (c), see 79 Del. Laws, c. 401, § 4].
+
+(a) All contractors, subcontractors and independent contractors shall have a proper and current occupational and/or business license, as required by Title 30, to enter or perform work under a public works contract. It is the responsibility of a contractor to verify and make a record that all subcontractors or independent contractors working for such contractor pursuant to a public works contract shall have their occupational and/or business licenses, as required by Title 30.
+
+(b) No agency shall accept a proposal for a public works contract unless such contractor has provided a proper and current copy of its occupational and/or business license, as required by Title 30, to such agency.
+
+(c) Any contractor that enters a public works contract must provide to the agency to which it is contracting, within 30 days of entering such public works contract, copies of all occupational and business licenses of subcontractors and/or independent contractors that will perform work for such public works contract. However, if a subcontractor or independent contractor is hired or contracted more than 20 days after the contractor entered the public works contract the occupational or business license of such subcontractor or independent contractor shall be provided to the agency within 10 days of being contracted or hired.
+
+(d) Any contractor, subcontractor or independent contractor that does not have a proper and current occupational and/or business license, as required by Title 30, while working under a public works contract shall be subject to a civil penalty not to exceed $1,000. Such penalty shall be enforced by the Director of Revenue and administered in accordance with Chapters 3 and 5 of Title 30. This penalty shall be in addition to any other penalties imposed pursuant to Title 30.
+
+79 Del. Laws, c. 401, § 1;

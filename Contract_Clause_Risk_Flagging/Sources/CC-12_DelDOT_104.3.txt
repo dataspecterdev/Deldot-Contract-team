@@ -1,0 +1,70 @@
+Reference: DelDOT Standard Specifications
+Source: Section 104.3
+Requirement ID: CC-12
+
+104.3 Notification of Contract Changes.
+
+A. Immediately notify the engineer of the need for a change. Provide the notification in either
+written or oral form.
+
+B. Perform work associated with a change only after receiving written direction from the engineer.
+
+C. Within 7 calendar days of the initial notification, provide the engineer with the following
+information in writing:
+1. The date, nature, and circumstances of the occurrence that constitutes the alleged change.
+2. The name, title, and activity of each Department representative aware of the alleged change.
+3. Copies or descriptions of documents and written accounts of oral communications associated
+with the alleged change.
+4. The basis for the position that the work associated with the alleged change is not already
+included in the contract.
+5. The elements for which the contractor is seeking compensation, including:
+a. Affected pay items.
+b. Additional labor requirements.
+c. Idle labor.
+d. Additional equipment.
+e. Idle equipment.
+f. Additional, eliminated, or wasted materials.
+g. Delays.
+h. Accelerated performance.
+i. Estimated increases or decreases to the contract price or contract time.
+j. Estimated time within which the Department must respond to prevent delays or minimize
+costs.
+
+D. The Department will consider the contractor's failure to provide the required notice in accordance
+with this section as a waiver of entitlement to an increase in the contract price or time due to the
+alleged change, provided, however, that if the estimated increase in the contract price is under
+$50,000, the Department can waive any of the notice and written information requirements
+under this section upon the submission of a written request by the contractor within 30 days of
+the recognition of the need for a change.
+
+E. Within 10 calendar days after the receipt of notice, the engineer will respond in writing to the
+contractor by:
+1. Confirming that there is a change or that a change order is needed and providing direction or
+indicating when the Department will provide direction.
+2. Denying that there is a change.
+3. Advising the contractor that the engineer will need more time to evaluate the alleged change.
+4. Advising the contractor that it did not submit enough information for the engineer to determine
+if a change exists. The engineer will describe the information needed and identify the date by
+which the additional information is needed. The contractor is not entitled to an increase in the
+contract price or time for costs or delays resulting from the time the contractor spends
+providing the additional required information after the identified date as provided by the
+engineer.
+5. Advising the contractor that the Department concurs there is a change, but that more
+information is required to determine the appropriate increase or decrease in the contract price
+or time. The engineer will describe the information needed to make a determination and will
+identify the date by which the contractor needs to provide the additional information. If the
+engineer does not specify a time for submitting the additional information, submit the
+information within 30 calendar days of the date the engineer informed the contractor that
+additional information was required.
+
+F. If the contractor disagrees with the engineer's final written response or the engineer's response is
+untimely, the contractor may pursue a claim in accordance with Section 105.15, Claims
+Resolution. The contractor's failure to comply with the requirements of Section 104.3, Notification
+of Contract Changes, is a waiver of the contractor's right to file a claim, provided, however, that if
+the increase in the contract price is under $50,000, the Department can waive any of the
+requirements under this section upon the submission of a written request by the contractor
+within 30 days of the recognition of the need for a change.
+
+G. Submit a waiver request to the Department prior to submitting a claim in accordance with Section
+105.15, Claims Resolution. The Department will not consider a waiver request once the
+notification of claim as been made in accordance with Section 105.15, Claims Resolution

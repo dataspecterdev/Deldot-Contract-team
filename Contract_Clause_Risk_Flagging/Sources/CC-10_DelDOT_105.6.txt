@@ -1,0 +1,38 @@
+Reference: DelDOT Standard Specifications
+Source: Section 105.6
+Requirement ID: CC-10
+
+105.6 Coordination of the Contract Documents.
+
+A. Each individual contract document is an essential part of the contract and a requirement occurring
+in one is binding as though occurring in all. The contract documents are complementary and
+describe and provide for a complete contract. In the case of a conflict between the contract
+documents, the order of precedence is as follows:
+1. General Description
+2. General Notices
+3. Plans
+4. Special Provisions
+5. Standard Construction Details
+6. Standard Specifications
+7. Electronic Design Data Files
+
+B. Do not take advantage of any apparent error or omission in the contract. Upon discovery of an
+error or omission, promptly notify the engineer. The engineer will make corrections and
+interpretations as necessary to fulfill the intent of the contract.
+
+C. Plan dimensions take precedence over scaled measurements.
+
+D. Prior to performing the associated work, issue a written Request For Information (RFI) if any
+questions arise during the project, if interference or conflict is caused by the design, or if errors
+and omissions exist in the contract. The engineer will respond to each RFI in writing clearly
+indicating any applicable design revisions.
+
+E. Upon identification of a deviation from the specified sampling or testing procedures or contract by
+the contractor, inspector, or any representative thereof, submit for approval a written non-
+conformance report (NCR), including its associated corrective actions and plans on how to prevent
+future non-conformance events, covering such deviation. Include in the NCR, a description of
+construction activity and the location by specification.
+
+F. The Department will require 3 working days from receipt of the written notice to review and
+respond to an RFI. The Department will respond by answering the RFI question or by informing the
+contractor that the Department will need additional time to review the RFI question
