@@ -1,0 +1,24 @@
+name: CI sanity check
+
+
+# Trigger of the workflow, runs on push and PR
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# Define tasks
+jobs:
+  sanity-check:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Pull code from your repository into the runner
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Step 2: Print repository structure
+      - name: Show repository structure
+        run: |
+          echo "Repository contents:"
+          ls -R .
