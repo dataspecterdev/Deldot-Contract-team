@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-10",
+    "tier": "Baseline",
+    "requirement_name": "Coordination / order of precedence",
+    "reference_source": "DelDOT Standard Specifications",
+    "section": "DelDOT 105.6",
+    "severity_guidance": "High"
+  }
+}

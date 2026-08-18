@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-17",
+    "tier": "Advanced",
+    "requirement_name": "Liquidated damages schedule / rate logic",
+    "reference_source": "DelDOT Standard Specifications",
+    "section": "DelDOT 108.9",
+    "severity_guidance": "Medium"
+  }
+}

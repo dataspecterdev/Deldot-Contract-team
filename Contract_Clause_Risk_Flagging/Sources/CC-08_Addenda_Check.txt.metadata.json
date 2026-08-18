@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-08",
+    "tier": "Baseline",
+    "requirement_name": "Addenda and Q&A currency",
+    "reference_source": "DelDOT proposal + solicitation record",
+    "section": "Attachments / Addenda",
+    "severity_guidance": "High"
+  }
+}

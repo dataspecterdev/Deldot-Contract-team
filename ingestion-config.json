@@ -1,0 +1,10 @@
+{
+    "chunkingConfiguration": {
+        "chunkingStrategy": "SEMANTIC",
+        "semanticChunkingConfiguration": {
+            "maxTokens": 512,
+            "bufferSize": 0,
+            "breakpointPercentileThreshold": 95
+        }
+    }
+}
