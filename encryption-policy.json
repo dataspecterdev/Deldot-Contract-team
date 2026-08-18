@@ -1,0 +1,9 @@
+{
+    "Rules": [
+        {
+            "ResourceType": "collection",
+            "Resource": ["collection/deldot-kb-vectors"]
+        }
+    ],
+    "AWSOwnedKey": true
+}

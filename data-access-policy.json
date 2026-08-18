@@ -1,0 +1,31 @@
+[
+    {
+        "Rules": [
+            {
+                "ResourceType": "index",
+                "Resource": ["index/deldot-kb-vectors/*"],
+                "Permission": [
+                    "aoss:CreateIndex",
+                    "aoss:UpdateIndex",
+                    "aoss:DescribeIndex",
+                    "aoss:ReadDocument",
+                    "aoss:WriteDocument"
+                ]
+            },
+            {
+                "ResourceType": "collection",
+                "Resource": ["collection/deldot-kb-vectors"],
+                "Permission": [
+                    "aoss:CreateCollectionItems",
+                    "aoss:UpdateCollectionItems",
+                    "aoss:DescribeCollectionItems"
+                ]
+            }
+        ],
+        "Principal": [
+            "arn:aws:iam::777761317151:role/DelDOTRef",
+            "arn:aws:iam::777761317151:role/WSParticipantRole",
+            "arn:aws:sts::777761317151:assumed-role/WSParticipantRole/Participant"
+        ]
+    }
+]

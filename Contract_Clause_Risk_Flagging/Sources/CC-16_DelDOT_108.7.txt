@@ -161,13 +161,20 @@ extend contract time by 1-day for each weather day that exceeds the total number
 anticipated weather days for the project.
 
 Table 108.7-1. Anticipated Weather Days per Month
-Month Weather Days Month Weather Days
-January 20 July 4
-February 20 August 4
-March 15 September 5
-April 10 October 6
-May 5 November 10
-June 5 December 20
+
+Month | Weather Days
+January | 20
+February | 20
+March | 15
+April | 10
+May | 5
+June | 5
+July | 4
+August | 4
+September | 5
+October | 6
+November | 10
+December | 20
 
 5. If a non-excusable delay extends the performance of the work beyond the contract time, the
 contractor is not entitled to time extensions for weather days or seasonal conditions

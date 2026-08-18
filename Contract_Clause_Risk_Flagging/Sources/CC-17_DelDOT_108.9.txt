@@ -8,20 +8,20 @@ A. The specific rates for assessment of liquidated damages, which are based on a
 additional costs the Department and the traveling public may incur, are as follows:
 
 Table 108.9-1. Schedule of Liquidated Damages
-Awarded Contract Value Daily Charge
-For More Than To and Including Working Day Calendar Day
-$0 $100,000 $770.00 $550.00
-$100,000 $500,000 $1,190.00 $850.00
-$500,000 $1,000,000 $1,420.00 $1020.00
-$1,000,000 $2,000,000 $2,210.00 $1,580.00
-$2,000,000 $5,000,000 $2,520.00 $1,800.00
-$5,000,000 $10,000,000 $2,680.00 $1,920.00
-$10,000,000 $15,000,000 $3,100.00 $2,220.00
-$15,000,000 $20,000,000 $4,670.00 $3,340.00
-$20,000,000 $25,000,000 $6,040.00 $4,320.00
-$25,000,000 $30,000,000 $7,750.00 $5,540.00
-$30,000,000 $35,000,000 $9,730.00 $6,950.00
-$35,000,000 $50,000,000 $12,600.00 $9,000.00
+
+Awarded Contract Value - For More Than | Awarded Contract Value - To and Including | Daily Charge - Working Day | Daily Charge - Calendar Day
+$0 | $100,000 | $770.00 | $550.00
+$100,000 | $500,000 | $1,190.00 | $850.00
+$500,000 | $1,000,000 | $1,420.00 | $1,020.00
+$1,000,000 | $2,000,000 | $2,210.00 | $1,580.00
+$2,000,000 | $5,000,000 | $2,520.00 | $1,800.00
+$5,000,000 | $10,000,000 | $2,680.00 | $1,920.00
+$10,000,000 | $15,000,000 | $3,100.00 | $2,220.00
+$15,000,000 | $20,000,000 | $4,670.00 | $3,340.00
+$20,000,000 | $25,000,000 | $6,040.00 | $4,320.00
+$25,000,000 | $30,000,000 | $7,750.00 | $5,540.00
+$30,000,000 | $35,000,000 | $9,730.00 | $6,950.00
+$35,000,000 | $50,000,000 | $12,600.00 | $9,000.00
 
 B. The Department may designate rates for assessment of liquidated damages for contracts with an
 awarded contract value exceeding $35,000,000 by Special Provision.

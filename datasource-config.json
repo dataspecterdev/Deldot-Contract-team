@@ -1,0 +1,7 @@
+{
+    "type": "S3",
+    "s3Configuration": {
+        "bucketArn": "arn:aws:s3:::deldot-contract-references-777761317151",
+        "inclusionPrefixes": ["sources/"]
+    }
+}

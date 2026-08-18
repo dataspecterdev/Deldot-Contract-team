@@ -1,0 +1,12 @@
+{
+    "type": "OPENSEARCH_SERVERLESS",
+    "opensearchServerlessConfiguration": {
+        "collectionArn": "arn:aws:aoss:us-east-1:777761317151:collection/s706j4a490o2w56i0l9h",
+        "vectorIndexName": "bedrock-knowledge-base-default-index",
+        "fieldMapping": {
+            "vectorField": "bedrock-knowledge-base-default-vector",
+            "textField": "AMAZON_BEDROCK_TEXT_CHUNK",
+            "metadataField": "AMAZON_BEDROCK_METADATA"
+        }
+    }
+}

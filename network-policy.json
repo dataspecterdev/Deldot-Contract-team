@@ -1,0 +1,15 @@
+[
+    {
+        "Rules": [
+            {
+                "ResourceType": "collection",
+                "Resource": ["collection/deldot-kb-vectors"]
+            },
+            {
+                "ResourceType": "dashboard",
+                "Resource": ["collection/deldot-kb-vectors"]
+            }
+        ],
+        "AllowFromPublic": true
+    }
+]
