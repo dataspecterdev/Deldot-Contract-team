@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request, UploadFile, File
@@ -44,6 +45,36 @@ app.add_middleware(
 
 # Thread pool for running analysis in background without blocking
 _executor = ThreadPoolExecutor(max_workers=2)
+# Track running analysis futures for cancellation
+_running_analyses: dict[str, asyncio.Future] = {}
+
+
+# Background task: clean up stale incognito projects every 30 minutes
+async def _incognito_cleanup_loop():
+    """Delete incognito projects older than 2 hours."""
+    while True:
+        await asyncio.sleep(1800)  # every 30 min
+        try:
+            projects = project_manager.list_projects()
+            now = datetime.now(timezone.utc)
+            for proj in projects:
+                if proj.get("mode") != "incognito":
+                    continue
+                created = proj.get("created_at", "")
+                try:
+                    created_dt = datetime.fromisoformat(created)
+                    age_hours = (now - created_dt).total_seconds() / 3600
+                    if age_hours > 2:
+                        project_manager.delete_project(proj["id"])
+                except (ValueError, KeyError):
+                    continue
+        except Exception:
+            pass
+
+
+@app.on_event("startup")
+async def startup():
+    asyncio.create_task(_incognito_cleanup_loop())
 
 
 # --- Project CRUD ---
@@ -70,6 +101,18 @@ async def get_project(project_id: str):
 @app.delete("/api/projects/{project_id}", status_code=204)
 async def delete_project(project_id: str):
     project_manager.delete_project(project_id)
+
+
+# Beacon-friendly cleanup endpoint (sendBeacon can only POST, not DELETE)
+@app.post("/api/projects/{project_id}/cleanup", status_code=204)
+async def cleanup_project(project_id: str):
+    """Delete an incognito project. Called via sendBeacon on tab close."""
+    try:
+        meta = project_manager.get_project(project_id)
+        if meta.get("mode") == "incognito":
+            project_manager.delete_project(project_id)
+    except FileNotFoundError:
+        pass  # Already gone — that's fine
 
 
 # --- File Upload ---
@@ -117,6 +160,25 @@ async def list_files(project_id: str):
         return project_manager.list_uploads(project_id)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Project not found")
+
+
+@app.get("/api/projects/{project_id}/files/{file_path:path}")
+async def view_file(project_id: str, file_path: str):
+    """Serve an uploaded file (PDF or JSON) for viewing in the browser."""
+    try:
+        upload_dir = project_manager.get_upload_dir(project_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Project not found")
+
+    full_path = upload_dir / file_path
+    if not str(full_path.resolve()).startswith(str(upload_dir.resolve())):
+        raise HTTPException(status_code=400, detail="Invalid file path")
+    if not full_path.exists():
+        raise HTTPException(status_code=404, detail="File not found")
+
+    media_types = {".pdf": "application/pdf", ".json": "application/json"}
+    media_type = media_types.get(full_path.suffix.lower(), "application/octet-stream")
+    return FileResponse(path=str(full_path), media_type=media_type)
 
 
 @app.delete("/api/projects/{project_id}/files/{file_path:path}")
@@ -243,7 +305,7 @@ async def list_packages(project_id: str):
 # --- Analysis ---
 
 @app.post("/api/projects/{project_id}/analyze")
-async def trigger_analysis(project_id: str):
+async def trigger_analysis(project_id: str, body: dict | None = None):
     try:
         meta = project_manager.get_project(project_id)
     except FileNotFoundError:
@@ -255,11 +317,38 @@ async def trigger_analysis(project_id: str):
     if meta["file_count"] == 0:
         raise HTTPException(status_code=400, detail="No files uploaded")
 
+    # Optional model override from request body
+    model_id = (body or {}).get("model_id") or None
+
     # Run analysis in background thread
     loop = asyncio.get_event_loop()
-    loop.run_in_executor(_executor, run_analysis, project_id)
+    future = loop.run_in_executor(_executor, run_analysis, project_id, model_id)
+    _running_analyses[project_id] = future
+
+    # Clean up tracking when done
+    def _cleanup(fut):
+        _running_analyses.pop(project_id, None)
+    future.add_done_callback(_cleanup)
 
     return {"status": "analyzing", "message": "Analysis started"}
+
+
+@app.post("/api/projects/{project_id}/cancel")
+async def cancel_analysis(project_id: str):
+    """Cancel a running analysis."""
+    future = _running_analyses.get(project_id)
+    if future is None:
+        raise HTTPException(status_code=404, detail="No running analysis found")
+
+    cancelled = future.cancel()
+    # Also update the project status so the UI stops polling
+    try:
+        project_manager.update_status(project_id, "ready")
+    except FileNotFoundError:
+        pass
+
+    _running_analyses.pop(project_id, None)
+    return {"cancelled": cancelled, "message": "Analysis cancelled" if cancelled else "Analysis could not be cancelled (may have already completed)"}
 
 
 @app.get("/api/projects/{project_id}/status")
@@ -269,11 +358,32 @@ async def get_status(project_id: str):
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Project not found")
 
-    return {
+    result = {
         "project_id": project_id,
         "status": meta["status"],
         "error": meta.get("error"),
+        "tokens": None,
     }
+
+    # Include token usage if analysis is complete
+    if meta["status"] == "complete":
+        import json as _json
+        summary_path = project_manager.get_output_dir(project_id) / "run_summary.json"
+        if summary_path.exists():
+            try:
+                summary = _json.loads(summary_path.read_text(encoding="utf-8"))
+                result["tokens"] = {
+                    "input": summary.get("tokens_in", 0),
+                    "output": summary.get("tokens_out", 0),
+                    "total": summary.get("tokens_in", 0) + summary.get("tokens_out", 0),
+                }
+                result["packages_analyzed"] = summary.get("packages_analyzed", 1)
+                result["total_flags"] = summary.get("totals", {}).get("flags", 0)
+                result["total_findings"] = summary.get("totals", {}).get("total_findings", 0)
+            except (ValueError, OSError):
+                pass
+
+    return result
 
 
 # --- Outputs ---
@@ -284,6 +394,44 @@ async def list_outputs(project_id: str):
         return project_manager.list_outputs(project_id)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Project not found")
+
+
+@app.get("/api/projects/{project_id}/outputs/download-all")
+async def download_all_outputs(project_id: str):
+    """Zip all output files and return as a single download."""
+    import io
+    import zipfile
+    from fastapi.responses import StreamingResponse
+
+    try:
+        output_dir = project_manager.get_output_dir(project_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Project not found")
+
+    # Collect all output files
+    output_files = [f for f in output_dir.iterdir() if f.is_file()]
+    if not output_files:
+        raise HTTPException(status_code=404, detail="No output files to download")
+
+    # Create zip in memory
+    zip_buffer = io.BytesIO()
+    with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zf:
+        for f in sorted(output_files):
+            zf.write(f, f.name)
+    zip_buffer.seek(0)
+
+    # Use project name for the zip filename
+    try:
+        meta = project_manager.get_project(project_id)
+        zip_name = f"{meta['name'].replace(' ', '_')}_outputs.zip"
+    except Exception:
+        zip_name = f"{project_id}_outputs.zip"
+
+    return StreamingResponse(
+        zip_buffer,
+        media_type="application/zip",
+        headers={"Content-Disposition": f'attachment; filename="{zip_name}"'},
+    )
 
 
 @app.get("/api/projects/{project_id}/outputs/{file_name}")
@@ -297,11 +445,52 @@ async def download_output(project_id: str, file_name: str):
     if not file_path.exists():
         raise HTTPException(status_code=404, detail="Output file not found")
 
-    media_type = "application/json" if file_path.suffix == ".json" else "text/csv"
+    media_types = {".json": "application/json", ".csv": "text/csv", ".pdf": "application/pdf"}
+    media_type = media_types.get(file_path.suffix, "application/octet-stream")
     return FileResponse(
         path=str(file_path),
         filename=file_name,
         media_type=media_type,
+    )
+
+
+# --- Download All ---
+
+@app.get("/api/projects/{project_id}/outputs/download-all")
+async def download_all_outputs(project_id: str):
+    """Download all output files as a single zip archive."""
+    import zipfile
+    import tempfile
+
+    try:
+        output_dir = project_manager.get_output_dir(project_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Project not found")
+
+    # Get project name for the zip filename
+    try:
+        meta = project_manager.get_project(project_id)
+        project_name = meta.get("name", project_id).replace(" ", "_")
+    except FileNotFoundError:
+        project_name = project_id
+
+    output_files = [f for f in output_dir.iterdir() if f.is_file()]
+    if not output_files:
+        raise HTTPException(status_code=404, detail="No output files to download")
+
+    # Create a temporary zip file
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".zip")
+    with zipfile.ZipFile(tmp.name, "w", zipfile.ZIP_DEFLATED) as zf:
+        for f in sorted(output_files):
+            # Put files inside a folder named after the project
+            arcname = f"{project_name}_results/{f.name}"
+            zf.write(str(f), arcname)
+    tmp.close()
+
+    return FileResponse(
+        path=tmp.name,
+        filename=f"{project_name}_results.zip",
+        media_type="application/zip",
     )
 
 
@@ -310,6 +499,42 @@ async def download_output(project_id: str, file_name: str):
 @app.get("/api/health")
 async def health():
     return {"status": "ok", "service": "DORA"}
+
+
+# --- Models ---
+
+@app.get("/api/models")
+async def list_models():
+    """Return available Bedrock models for the analysis."""
+    from .config import BEDROCK
+    return {
+        "default": BEDROCK.model_id,
+        "models": [
+            {"id": "us.anthropic.claude-sonnet-4-6", "name": "Claude Sonnet 4.6", "description": "Best accuracy, recommended"},
+            {"id": "us.anthropic.claude-sonnet-4-20250514", "name": "Claude Sonnet 4", "description": "Strong accuracy, faster"},
+            {"id": "us.anthropic.claude-haiku-4-20250514", "name": "Claude Haiku 4", "description": "Fastest, lower cost"},
+            {"id": "us.amazon.nova-pro-v1:0", "name": "Amazon Nova Pro", "description": "AWS native model"},
+            {"id": "us.amazon.nova-lite-v1:0", "name": "Amazon Nova Lite", "description": "Lightweight, fast"},
+        ],
+    }
+
+
+# --- Settings / Models ---
+
+@app.get("/api/models")
+async def list_models():
+    """List available Bedrock models for analysis."""
+    from .config import BEDROCK
+    return {
+        "default": BEDROCK.model_id,
+        "models": [
+            {"id": "us.anthropic.claude-sonnet-4-6", "name": "Claude Sonnet 4.6", "description": "Best accuracy, moderate speed"},
+            {"id": "us.anthropic.claude-sonnet-4-5-20250514", "name": "Claude Sonnet 4.5", "description": "Balanced accuracy and speed"},
+            {"id": "us.anthropic.claude-haiku-4-5-20250514", "name": "Claude Haiku 4.5", "description": "Fastest, lower cost, good accuracy"},
+            {"id": "us.amazon.nova-pro-v1:0", "name": "Amazon Nova Pro", "description": "AWS native model, fast"},
+            {"id": "us.amazon.nova-lite-v1:0", "name": "Amazon Nova Lite", "description": "Lightweight, lowest cost"},
+        ],
+    }
 
 
 # --- Serve React Frontend (production build) ---

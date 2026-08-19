@@ -12,11 +12,30 @@ Two files are produced:
 from __future__ import annotations
 
 import csv
+import re
 from pathlib import Path
 
 from .checklist import submission_fields
 from .config import FLAG
 from .models import ContractPackage, Finding
+
+
+def _sanitize(text: str) -> str:
+    """Normalize non-ASCII characters to their plain-text equivalents."""
+    # Em/en dashes to hyphens
+    text = text.replace("\u2014", "-").replace("\u2013", "-")
+    # Curly quotes to straight
+    text = text.replace("\u2018", "'").replace("\u2019", "'")
+    text = text.replace("\u201c", '"').replace("\u201d", '"')
+    # Section symbol
+    text = text.replace("\u00a7", "Section")
+    # Arrows
+    text = text.replace("\u2192", "->").replace("\u2190", "<-")
+    # Ellipsis
+    text = text.replace("\u2026", "...")
+    # Bullet
+    text = text.replace("\u2022", "-")
+    return text
 
 EVIDENCE_TRACE_FIELDS = (
     "document_id",
@@ -40,23 +59,31 @@ EVIDENCE_TRACE_FIELDS = (
 )
 
 
+def _sanitize_csv_value(value: str) -> str:
+    """Remove newlines/control chars and normalize non-ASCII to plain-text equivalents."""
+    # Non-ASCII normalization
+    value = _sanitize(value)
+    # Control characters
+    return value.replace("\n", " ").replace("\r", "").strip()
+
+
 def _submission_row(finding: Finding) -> dict[str, str]:
     return {
-        "document_id": finding.document_id,
+        "document_id": _sanitize_csv_value(finding.document_id),
         "requirement_id": finding.requirement_id,
         "applicability_decision": finding.applicability_decision,
-        "applicability_reason": finding.applicability_reason,
+        "applicability_reason": _sanitize_csv_value(finding.applicability_reason),
         "predicted_label": finding.predicted_label,
         "severity": finding.severity,
-        "governing_document": finding.governing_document,
-        "draft_location": finding.draft_location,
-        "draft_evidence": finding.draft_evidence,
+        "governing_document": _sanitize_csv_value(finding.governing_document),
+        "draft_location": _sanitize_csv_value(finding.draft_location),
+        "draft_evidence": _sanitize_csv_value(finding.draft_evidence),
         "reference_id": finding.reference_id,
-        "reference_location": finding.reference_location,
-        "reference_evidence": finding.reference_evidence,
-        "explanation": finding.explanation,
+        "reference_location": _sanitize_csv_value(finding.reference_location),
+        "reference_evidence": _sanitize_csv_value(finding.reference_evidence),
+        "explanation": _sanitize_csv_value(finding.explanation),
         "confidence": f"{finding.confidence:.2f}",
-        "recommended_human_action": finding.recommended_human_action,
+        "recommended_human_action": _sanitize_csv_value(finding.recommended_human_action),
     }
 
 
@@ -112,25 +139,25 @@ def write_evidence_trace(
 
             writer.writerow(
                 {
-                    "document_id": finding.document_id,
+                    "document_id": _sanitize_csv_value(finding.document_id),
                     "requirement_id": finding.requirement_id,
                     "predicted_label": finding.predicted_label,
                     "severity": finding.severity,
                     "applicability_decision": finding.applicability_decision,
-                    "governing_document": finding.governing_document,
+                    "governing_document": _sanitize_csv_value(finding.governing_document),
                     "evidence_file": "; ".join(files),
                     "evidence_pages": ", ".join(str(p) for p in pages),
                     "evidence_line_numbers": ", ".join(str(n) for n in numbers),
                     # Separated with "; " because the ids themselves contain "|".
                     "evidence_line_ids": "; ".join(finding.cited_line_ids),
-                    "evidence_section_heading": heading,
-                    "draft_evidence_quote": finding.draft_evidence,
+                    "evidence_section_heading": _sanitize_csv_value(heading),
+                    "draft_evidence_quote": _sanitize_csv_value(finding.draft_evidence),
                     "evidence_match_percent": f"{finding.evidence_match_percent:.1f}",
                     "rag_retrieval_score_percent": f"{finding.retrieval_score_percent:.1f}",
                     "rag_reference_sources": "; ".join(dict.fromkeys(finding.retrieved_sources)),
                     "model_confidence_percent": f"{finding.confidence * 100:.0f}",
                     "verification_status": _verification_status(finding),
-                    "notes": finding.notes,
+                    "notes": _sanitize_csv_value(finding.notes),
                 }
             )
     return path

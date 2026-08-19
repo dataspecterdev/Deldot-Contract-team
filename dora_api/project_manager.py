@@ -141,7 +141,7 @@ def list_outputs(project_id: str) -> list[dict[str, Any]]:
     for f in sorted(output_dir.iterdir()):
         if f.is_file():
             ext = f.suffix.lstrip(".")
-            file_type = ext if ext in ("csv", "json") else "other"
+            file_type = ext if ext in ("csv", "json", "pdf") else "other"
             files.append({
                 "file_name": f.name,
                 "file_type": file_type,

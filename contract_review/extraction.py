@@ -115,8 +115,13 @@ def load_package(package_dir: Path) -> ContractPackage:
     metadata_path = package_dir / "Project_Metadata.json"
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
 
+    raw_id = str(metadata.get("package_id", package_dir.name))
+    # Sanitize: strip commas, newlines, and excess length that would break CSV output
+    clean_id = raw_id.replace(",", "").replace("\n", " ").replace("\r", "")
+    clean_id = "_".join(clean_id.split())[:60] or package_dir.name
+
     package = ContractPackage(
-        package_id=metadata.get("package_id", package_dir.name),
+        package_id=clean_id,
         directory=package_dir,
         metadata=metadata,
     )

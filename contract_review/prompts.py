@@ -118,7 +118,15 @@ Field rules:
 - If the requirement is satisfied, still cite the lines that show compliance.
 - If the required text is absent from the whole package, say so in explanation,
   set draft_evidence to the closest related text you did find (or "" if nothing
-  is related), and cite the lines you checked."""
+  is related), and cite the lines you checked.
+- If you fill governing_document with a specific file name, your
+  recommended_human_action must not hedge about whether that document governs.
+  State your precedence resolution as settled — do not say "confirm whether
+  the Addendum applies" when you have already determined it does.
+- cited_line_ids must contain ONLY lines that evidence THIS requirement's
+  deviation or compliance. Do not cite lines from adjacent clauses that belong
+  to other requirements, even if they appear nearby in the same document or
+  were part of the same Addendum revision addressing a different provision."""
 
 
 def _severity_block(requirement: Requirement) -> str:

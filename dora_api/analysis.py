@@ -20,6 +20,27 @@ from typing import Any
 from . import project_manager
 
 
+def _sanitize_package_id(raw: str) -> str:
+    """Sanitize package_id to be CSV-safe and human-readable.
+
+    Strips commas, newlines, and excess whitespace that would break CSV output.
+    Truncates to a reasonable length.
+    """
+    if not raw or not isinstance(raw, str):
+        return "unknown_package"
+    # Remove characters that break CSV
+    cleaned = raw.replace(",", "").replace("\n", " ").replace("\r", "")
+    # Collapse whitespace
+    cleaned = " ".join(cleaned.split())
+    # Replace spaces with underscores for IDs
+    cleaned = cleaned.strip().replace(" ", "_")
+    # Truncate to something reasonable (max 60 chars)
+    if len(cleaned) > 60:
+        cleaned = cleaned[:60]
+    # If it's empty after cleaning, fallback
+    return cleaned if cleaned else "unknown_package"
+
+
 # ---------------------------------------------------------------------------
 # Package detection
 # ---------------------------------------------------------------------------
@@ -123,22 +144,29 @@ def _find_or_create_metadata(source_dir: Path, package_name: str, pdfs: list[Pat
     meta_path = source_dir / "Project_Metadata.json"
     if meta_path.exists():
         try:
-            return json.loads(meta_path.read_text(encoding="utf-8"))
+            data = json.loads(meta_path.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                data["package_id"] = _sanitize_package_id(data.get("package_id", package_name))
+                return data
         except (json.JSONDecodeError, OSError):
             pass
 
     # Any JSON with package_id or project_title
     for jf in sorted(source_dir.rglob("*.json")):
+        # Skip files that are clearly not metadata (too large, or named oddly)
+        if jf.stat().st_size > 50000:
+            continue
         try:
             data = json.loads(jf.read_text(encoding="utf-8"))
             if isinstance(data, dict) and ("package_id" in data or "project_title" in data):
+                data["package_id"] = _sanitize_package_id(data.get("package_id", package_name))
                 return data
         except (json.JSONDecodeError, OSError):
             continue
 
     # Default metadata
     return {
-        "package_id": package_name.replace(" ", "_"),
+        "package_id": _sanitize_package_id(package_name),
         "project_title": package_name.replace("_", " "),
         "federal_aid": True,
         "buy_america_baba_applicable": True,
@@ -157,17 +185,20 @@ def _find_or_create_metadata(source_dir: Path, package_name: str, pdfs: list[Pat
 # Main analysis runner
 # ---------------------------------------------------------------------------
 
-def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
+def run_analysis(project_id: str, model_id: str | None = None, progress_callback=None) -> dict[str, Any]:
     """Run the contract_review pipeline on uploaded PDFs.
 
     Detects multiple packages (subfolders) and runs each independently.
     Results are combined into unified output files with per-package grouping.
     """
     from contract_review.bedrock_client import BedrockClient
+    from contract_review.config import BEDROCK
     from contract_review.json_report import write_json_report
+    from contract_review.pdf_report import write_pdf_report
     from contract_review.models import ContractPackage, Finding
     from contract_review.pipeline import ReviewPipeline
     from contract_review import reporting
+    from dataclasses import replace
 
     project_manager.update_status(project_id, "analyzing")
 
@@ -189,7 +220,12 @@ def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
         if not has_any_pdfs:
             raise ValueError("No PDF files found in any package folder.")
 
-        client = BedrockClient()
+        # Use specified model or default
+        config = BEDROCK
+        if model_id:
+            config = replace(config, model_id=model_id)
+
+        client = BedrockClient(config)
         pipeline = ReviewPipeline(
             client=client,
             max_workers=4,
@@ -205,7 +241,12 @@ def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
             if source == upload_dir:
                 pkg_name = project_manager.get_project(project_id)["name"]
             else:
-                pkg_name = source.name
+                # Don't use generic folder names like "Docs" as the package ID
+                folder_name = source.name
+                if folder_name.lower() in ("docs", "documents", "pdfs", "files", "uploads"):
+                    pkg_name = project_manager.get_project(project_id)["name"]
+                else:
+                    pkg_name = folder_name
 
             pdfs_in_source = list(source.rglob("*.pdf"))
             if not pdfs_in_source:
@@ -250,6 +291,9 @@ def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
         json_path = write_json_report(
             all_findings, package_map, output_dir / "findings_report.json"
         )
+        pdf_path = write_pdf_report(
+            all_findings, package_map, output_dir / "findings_summary.pdf"
+        )
 
         # Write run summary
         summary = {
@@ -266,6 +310,7 @@ def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
                 submission_path.name,
                 trace_path.name,
                 json_path.name,
+                pdf_path.name,
             ],
         }
         (output_dir / "run_summary.json").write_text(

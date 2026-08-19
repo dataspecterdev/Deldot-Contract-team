@@ -120,11 +120,15 @@ def main(argv: list[str] | None = None) -> int:
     trace_path = reporting.write_evidence_trace(all_findings, package_map, out_dir / "evidence_trace.csv")
     json_path = write_json_report(all_findings, package_map, out_dir / "findings_report.json")
 
+    from .pdf_report import write_pdf_report
+    pdf_path = write_pdf_report(all_findings, package_map, out_dir / "findings_summary.pdf")
+
     print(reporting.summarize(all_findings))
     print()
     print(f"submission     -> {submission_path}")
     print(f"evidence trace -> {trace_path}")
     print(f"findings JSON  -> {json_path}")
+    print(f"findings PDF   -> {pdf_path}")
     print(
         f"tokens: {pipeline.client.input_tokens:,} in / {pipeline.client.output_tokens:,} out"
     )

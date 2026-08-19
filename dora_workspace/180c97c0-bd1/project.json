@@ -3,5 +3,6 @@
   "name": "Testing All",
   "mode": "standard",
   "created_at": "2026-08-19T00:19:41.825922+00:00",
-  "status": "complete"
+  "status": "complete",
+  "error": "cannot schedule new futures after interpreter shutdown"
 }

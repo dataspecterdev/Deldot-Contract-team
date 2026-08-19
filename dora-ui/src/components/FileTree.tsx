@@ -3,6 +3,7 @@ import { useState } from 'react'
 interface FileTreeProps {
   files: { file_name: string; size_bytes: number }[]
   onDelete: (filePath: string) => void
+  onFileClick?: (filePath: string) => void
 }
 
 interface TreeNode {
@@ -54,7 +55,7 @@ function buildTree(files: { file_name: string; size_bytes: number }[]): TreeNode
   return root
 }
 
-export default function FileTree({ files, onDelete }: FileTreeProps) {
+export default function FileTree({ files, onDelete, onFileClick }: FileTreeProps) {
   const tree = buildTree(files)
 
   if (tree.length === 0) return null
@@ -62,13 +63,13 @@ export default function FileTree({ files, onDelete }: FileTreeProps) {
   return (
     <div className="text-xs">
       {tree.map((node) => (
-        <TreeNodeItem key={node.path} node={node} onDelete={onDelete} depth={0} />
+        <TreeNodeItem key={node.path} node={node} onDelete={onDelete} onFileClick={onFileClick} depth={0} />
       ))}
     </div>
   )
 }
 
-function TreeNodeItem({ node, onDelete, depth }: { node: TreeNode; onDelete: (path: string) => void; depth: number }) {
+function TreeNodeItem({ node, onDelete, onFileClick, depth }: { node: TreeNode; onDelete: (path: string) => void; onFileClick?: (path: string) => void; depth: number }) {
   const [expanded, setExpanded] = useState(true)
 
   if (node.isFolder) {
@@ -99,7 +100,7 @@ function TreeNodeItem({ node, onDelete, depth }: { node: TreeNode; onDelete: (pa
         {expanded && (
           <div>
             {node.children.map((child) => (
-              <TreeNodeItem key={child.path} node={child} onDelete={onDelete} depth={depth + 1} />
+              <TreeNodeItem key={child.path} node={child} onDelete={onDelete} onFileClick={onFileClick} depth={depth + 1} />
             ))}
           </div>
         )}
@@ -109,10 +110,12 @@ function TreeNodeItem({ node, onDelete, depth }: { node: TreeNode; onDelete: (pa
 
   // File node
   const isJson = node.name.toLowerCase().endsWith('.json')
+  const isPdf = node.name.toLowerCase().endsWith('.pdf')
   return (
     <div
-      className="flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-slate-50 group"
+      className={`flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-slate-50 group ${onFileClick ? 'cursor-pointer' : ''}`}
       style={{ paddingLeft: `${depth * 12 + 20}px` }}
+      onClick={() => onFileClick?.(node.path)}
     >
       <div className="flex items-center gap-2 min-w-0">
         {isJson ? (

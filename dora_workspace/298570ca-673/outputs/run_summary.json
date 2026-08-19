@@ -1,0 +1,60 @@
+{
+  "packages_analyzed": 6,
+  "packages": [
+    {
+      "package_id": "DEV-HARBOR-CROSSING",
+      "package_name": "Harbor_Crossing",
+      "total_findings": 18,
+      "flags": 4,
+      "compliant": 14
+    },
+    {
+      "package_id": "DEV-MAPLE-RIDGE",
+      "package_name": "Maple_Ridge",
+      "total_findings": 18,
+      "flags": 2,
+      "compliant": 16
+    },
+    {
+      "package_id": "DEV-NORTHFIELD",
+      "package_name": "Northfield",
+      "total_findings": 18,
+      "flags": 5,
+      "compliant": 13
+    },
+    {
+      "package_id": "DEV-PINE-GROVE",
+      "package_name": "Pine_Grove",
+      "total_findings": 18,
+      "flags": 7,
+      "compliant": 11
+    },
+    {
+      "package_id": "DEV-RIVERBEND",
+      "package_name": "Riverbend",
+      "total_findings": 18,
+      "flags": 4,
+      "compliant": 14
+    },
+    {
+      "package_id": "DEV-STONE-CREEK",
+      "package_name": "Stone_Creek",
+      "total_findings": 18,
+      "flags": 6,
+      "compliant": 12
+    }
+  ],
+  "totals": {
+    "total_findings": 108,
+    "flags": 28,
+    "compliant": 80
+  },
+  "tokens_in": 437370,
+  "tokens_out": 43007,
+  "output_files": [
+    "submission.csv",
+    "evidence_trace.csv",
+    "findings_report.json",
+    "findings_summary.pdf"
+  ]
+}

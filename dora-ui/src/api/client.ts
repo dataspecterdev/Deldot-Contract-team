@@ -117,12 +117,52 @@ export function organizeFiles(projectId: string, groups: Record<string, string[]
 
 // --- Analysis ---
 
-export function triggerAnalysis(projectId: string) {
-  return request<{ status: string; message: string }>(`/projects/${projectId}/analyze`, { method: 'POST' })
+export function triggerAnalysis(projectId: string, modelId?: string) {
+  return request<{ status: string; message: string }>(`/projects/${projectId}/analyze`, {
+    method: 'POST',
+    body: JSON.stringify(modelId ? { model_id: modelId } : {}),
+  })
+}
+
+export function cancelAnalysis(projectId: string) {
+  return request<{ cancelled: boolean; message: string }>(`/projects/${projectId}/cancel`, { method: 'POST' })
+}
+
+// --- Models ---
+
+export interface ModelInfo {
+  id: string
+  name: string
+  description: string
+}
+
+export interface ModelsResponse {
+  default: string
+  models: ModelInfo[]
+}
+
+export function listModels() {
+  return request<ModelsResponse>('/models')
+}
+
+export interface StatusResponse {
+  project_id: string
+  status: string
+  error?: string
+  tokens?: { input: number; output: number; total: number } | null
+  packages_analyzed?: number
+  total_flags?: number
+  total_findings?: number
 }
 
 export function getStatus(projectId: string) {
-  return request<{ project_id: string; status: string; error?: string }>(`/projects/${projectId}/status`)
+  return request<StatusResponse>(`/projects/${projectId}/status`)
+}
+
+// --- File Viewing ---
+
+export function getFileViewUrl(projectId: string, filePath: string) {
+  return `${BASE}/projects/${projectId}/files/${filePath}`
 }
 
 // --- Outputs ---

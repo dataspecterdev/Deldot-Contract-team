@@ -2,9 +2,9 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import {
   getProject, deleteProject, uploadFiles, listFiles, deleteFile,
-  triggerAnalysis, getStatus, listOutputs, fetchOutputContent,
-  getOutputDownloadUrl, listPackages, organizeFiles,
-  type Project, type UploadedFile, type OutputFile, type PackagesInfo,
+  triggerAnalysis, cancelAnalysis, getStatus, listOutputs, fetchOutputContent,
+  getOutputDownloadUrl, getFileViewUrl, listPackages, organizeFiles, listModels,
+  type Project, type UploadedFile, type OutputFile, type PackagesInfo, type StatusResponse, type ModelInfo,
 } from '../api/client'
 import DocumentViewer from '../components/DocumentViewer'
 import FileTree from '../components/FileTree'
@@ -19,10 +19,15 @@ export default function WorkspacePage() {
   const [outputs, setOutputs] = useState<OutputFile[]>([])
   const [viewerContent, setViewerContent] = useState<string | null>(null)
   const [viewerFileName, setViewerFileName] = useState('')
+  const [pdfViewUrl, setPdfViewUrl] = useState<string | null>(null)
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState('')
   const [packagesInfo, setPackagesInfo] = useState<PackagesInfo | null>(null)
   const [showOrganizer, setShowOrganizer] = useState(false)
+  const [tokenInfo, setTokenInfo] = useState<StatusResponse['tokens']>(null)
+  const [analysisStats, setAnalysisStats] = useState<{ flags: number; findings: number; packages: number } | null>(null)
+  const [models, setModels] = useState<ModelInfo[]>([])
+  const [selectedModel, setSelectedModel] = useState<string>('')
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   // Resizable panels: horizontal (left/right split) and vertical (file list/viewer split)
@@ -46,6 +51,18 @@ export default function WorkspacePage() {
       if (pkgInfo.needs_grouping && !showOrganizer) {
         setShowOrganizer(true)
       }
+      // Load token info if analysis is already complete
+      if (proj.status === 'complete') {
+        const status = await getStatus(projectId)
+        if (status.tokens) {
+          setTokenInfo(status.tokens)
+          setAnalysisStats({
+            flags: status.total_flags || 0,
+            findings: status.total_findings || 0,
+            packages: status.packages_analyzed || 1,
+          })
+        }
+      }
     } catch {
       setError('Failed to load project')
     }
@@ -53,13 +70,21 @@ export default function WorkspacePage() {
 
   useEffect(() => { refresh() }, [refresh])
 
+  // Load available models
+  useEffect(() => {
+    listModels().then((res) => {
+      setModels(res.models)
+      setSelectedModel(res.default)
+    }).catch(() => {})
+  }, [])
+
   // Incognito cleanup on tab close
   useEffect(() => {
     if (!project || project.mode !== 'incognito') return
     const cleanup = () => {
       if (projectId) {
-        // Use sendBeacon for reliable cleanup
-        navigator.sendBeacon(`/api/projects/${projectId}`, '')
+        // sendBeacon sends a POST to the cleanup endpoint (sendBeacon can't do DELETE)
+        navigator.sendBeacon(`/api/projects/${projectId}/cleanup`)
       }
     }
     window.addEventListener('beforeunload', cleanup)
@@ -74,6 +99,15 @@ export default function WorkspacePage() {
         const status = await getStatus(projectId)
         if (status.status !== 'analyzing') {
           if (pollRef.current) clearInterval(pollRef.current)
+          // Capture token usage when complete
+          if (status.tokens) {
+            setTokenInfo(status.tokens)
+            setAnalysisStats({
+              flags: status.total_flags || 0,
+              findings: status.total_findings || 0,
+              packages: status.packages_analyzed || 1,
+            })
+          }
           refresh()
         }
       }, 3000)
@@ -188,9 +222,22 @@ export default function WorkspacePage() {
   const handleAnalyze = async () => {
     if (!projectId) return
     setError('')
+    setTokenInfo(null)
+    setAnalysisStats(null)
     try {
-      await triggerAnalysis(projectId)
+      await triggerAnalysis(projectId, selectedModel || undefined)
       setProject((prev) => prev ? { ...prev, status: 'analyzing' } : prev)
+    } catch (err: any) {
+      setError(err.message)
+    }
+  }
+
+  const handleCancel = async () => {
+    if (!projectId) return
+    try {
+      await cancelAnalysis(projectId)
+      setProject((prev) => prev ? { ...prev, status: 'ready' } : prev)
+      if (pollRef.current) clearInterval(pollRef.current)
     } catch (err: any) {
       setError(err.message)
     }
@@ -204,6 +251,7 @@ export default function WorkspacePage() {
 
   const handleViewOutput = async (fileName: string) => {
     if (!projectId) return
+    setPdfViewUrl(null)
     try {
       const content = await fetchOutputContent(projectId, fileName)
       setViewerContent(content)
@@ -250,6 +298,19 @@ export default function WorkspacePage() {
         </div>
         <div className="flex items-center gap-3">
           {error && <span className="text-xs text-dora-danger">{error}</span>}
+          {/* Model selector */}
+          {models.length > 0 && (
+            <select
+              value={selectedModel}
+              onChange={(e) => setSelectedModel(e.target.value)}
+              disabled={isAnalyzing}
+              className="px-2 py-1.5 border border-slate-300 rounded-lg text-xs bg-white focus:outline-none focus:ring-2 focus:ring-dora-sky focus:border-transparent disabled:opacity-50"
+            >
+              {models.map((m) => (
+                <option key={m.id} value={m.id}>{m.name}</option>
+              ))}
+            </select>
+          )}
           <button
             onClick={handleAnalyze}
             disabled={files.length === 0 || isAnalyzing}
@@ -272,6 +333,22 @@ export default function WorkspacePage() {
               </>
             )}
           </button>
+          {isAnalyzing && (
+            <button onClick={handleCancel} className="btn-secondary text-xs px-3 py-1.5 border-amber-300 text-amber-700 hover:bg-amber-50">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 7.5A2.25 2.25 0 017.5 5.25h9a2.25 2.25 0 012.25 2.25v9a2.25 2.25 0 01-2.25 2.25h-9a2.25 2.25 0 01-2.25-2.25v-9z" />
+              </svg>
+              Cancel
+            </button>
+          )}
+          {tokenInfo && (
+            <span className="text-[11px] text-slate-500 flex items-center gap-1" title={`Input: ${tokenInfo.input.toLocaleString()} | Output: ${tokenInfo.output.toLocaleString()}`}>
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
+              {tokenInfo.total.toLocaleString()} tokens
+            </span>
+          )}
           <button onClick={handleDeleteProject} className="btn-danger text-xs px-3 py-1.5">
             Delete
           </button>
@@ -356,7 +433,18 @@ export default function WorkspacePage() {
 
           {/* File tree */}
           <div className="flex-1 overflow-y-auto px-2 pb-3">
-            <FileTree files={files} onDelete={handleDeleteFile} />
+            <FileTree
+              files={files}
+              onDelete={handleDeleteFile}
+              onFileClick={(filePath) => {
+                if (!projectId) return
+                if (filePath.toLowerCase().endsWith('.pdf')) {
+                  setPdfViewUrl(getFileViewUrl(projectId, filePath))
+                  setViewerContent(null)
+                  setViewerFileName(filePath.split('/').pop() || filePath)
+                }
+              }}
+            />
           </div>
         </div>
 
@@ -373,12 +461,24 @@ export default function WorkspacePage() {
           <div className="panel-header bg-white flex items-center justify-between shrink-0">
             <span>Analysis Output</span>
             {isComplete && outputs.length > 0 && (
-              <span className="text-[10px] font-normal text-green-600 flex items-center gap-1">
-                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                </svg>
-                Complete
-              </span>
+              <div className="flex items-center gap-2">
+                <a
+                  href={`/api/projects/${projectId}/outputs/download-all`}
+                  download
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-medium text-dora-blue bg-dora-sky/10 hover:bg-dora-sky/20 transition-colors"
+                >
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  Download All
+                </a>
+                <span className="text-[10px] font-normal text-green-600 flex items-center gap-1">
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                  </svg>
+                  Complete
+                </span>
+              </div>
             )}
           </div>
 
@@ -400,7 +500,7 @@ export default function WorkspacePage() {
               {/* Output file list — resizable top section */}
               <div className="overflow-y-auto p-3 bg-dora-sand" style={{ height: `${vResize.size}%` }}>
                 <div className="grid gap-2">
-                  {outputs.map((output) => (
+                  {sortOutputFiles(outputs).map((output) => (
                     <div
                       key={output.file_name}
                       className={`card px-4 py-3 flex items-center justify-between transition-colors ${
@@ -439,13 +539,13 @@ export default function WorkspacePage() {
               </div>
 
               {/* Document viewer — fills remaining space */}
-              {viewerContent ? (
+              {viewerContent || pdfViewUrl ? (
                 <div className="flex-1 flex flex-col overflow-hidden">
                   {/* Sticky close bar */}
                   <div className="shrink-0 px-4 py-2 bg-white border-b border-slate-200 flex items-center justify-between shadow-sm">
                     <span className="text-xs font-mono text-slate-600">{viewerFileName}</span>
                     <button
-                      onClick={() => { setViewerContent(null); setViewerFileName('') }}
+                      onClick={() => { setViewerContent(null); setViewerFileName(''); setPdfViewUrl(null) }}
                       className="flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-medium text-slate-600 hover:text-white hover:bg-dora-danger transition-colors border border-slate-200 hover:border-transparent"
                     >
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -456,7 +556,15 @@ export default function WorkspacePage() {
                   </div>
                   {/* Scrollable content */}
                   <div className="flex-1 overflow-auto bg-white">
-                    <DocumentViewer content={viewerContent} fileName={viewerFileName} />
+                    {pdfViewUrl ? (
+                      <iframe
+                        src={pdfViewUrl}
+                        className="w-full h-full border-0"
+                        title={viewerFileName}
+                      />
+                    ) : viewerContent ? (
+                      <DocumentViewer content={viewerContent} fileName={viewerFileName} />
+                    ) : null}
                   </div>
                 </div>
               ) : (
@@ -485,12 +593,29 @@ export default function WorkspacePage() {
 }
 
 function FileIcon({ type }: { type: string }) {
-  const color = type === 'csv' ? 'text-green-600' : type === 'json' ? 'text-dora-sky' : 'text-slate-400'
+  const color = type === 'csv' ? 'text-green-600' : type === 'json' ? 'text-dora-sky' : type === 'pdf' ? 'text-red-500' : 'text-slate-400'
   return (
     <div className={`w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center ${color}`}>
       <span className="text-[10px] font-mono font-bold uppercase">{type}</span>
     </div>
   )
+}
+
+function sortOutputFiles(files: OutputFile[]): OutputFile[] {
+  // Order: summary PDF first, then submission CSV, evidence trace CSV, then JSON files, then anything else
+  const priority: Record<string, number> = {
+    'findings_summary.pdf': 1,
+    'run_summary.json': 2,
+    'submission.csv': 3,
+    'evidence_trace.csv': 4,
+    'findings_report.json': 5,
+  }
+  return [...files].sort((a, b) => {
+    const pa = priority[a.file_name] ?? 99
+    const pb = priority[b.file_name] ?? 99
+    if (pa !== pb) return pa - pb
+    return a.file_name.localeCompare(b.file_name)
+  })
 }
 
 function formatBytes(bytes: number): string {

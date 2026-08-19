@@ -49,11 +49,12 @@
     "flags": 28,
     "compliant": 80
   },
-  "tokens_in": 425502,
-  "tokens_out": 42873,
+  "tokens_in": 437370,
+  "tokens_out": 42714,
   "output_files": [
     "submission.csv",
     "evidence_trace.csv",
-    "findings_report.json"
+    "findings_report.json",
+    "findings_summary.pdf"
   ]
 }

@@ -117,6 +117,8 @@ class ReviewPipeline:
         reason: str,
         governing: precedence.GoverningDocument,
     ) -> Finding:
+        # Identify the metadata field that drove the exclusion
+        draft_loc, draft_ev = self._exclusion_evidence(requirement, package.metadata)
         return Finding(
             document_id=package.package_id,
             requirement_id=requirement.requirement_id,
@@ -125,8 +127,8 @@ class ReviewPipeline:
             predicted_label=NO_FLAG,
             severity="Info",
             governing_document=governing.file_name,
-            draft_location="",
-            draft_evidence="",
+            draft_location=draft_loc,
+            draft_evidence=draft_ev,
             reference_id=requirement.requirement_id,
             reference_location=f"{requirement.reference_source} - {requirement.section}",
             reference_evidence=requirement.challenge_reference_rule,
@@ -137,6 +139,32 @@ class ReviewPipeline:
             confidence=0.95,
             recommended_human_action="No action; confirm applicability against project metadata.",
             notes="applicability excluded by project metadata",
+        )
+
+    @staticmethod
+    def _exclusion_evidence(requirement: Requirement, metadata: dict) -> tuple[str, str]:
+        """Return (draft_location, draft_evidence) showing which metadata excluded this requirement."""
+        # Map requirement IDs to the metadata field that gates them
+        field_map: dict[str, str] = {
+            "CC-01": "federal_aid",
+            "CC-08": "issued_addenda",
+            "CC-09": "buy_america_baba_applicable",
+            "CC-14": "subcontracting_planned",
+            "CC-15": "claim_event",
+            "CC-16": "delay_event",
+            "CC-18": "changed_work_event",
+        }
+        field = field_map.get(requirement.requirement_id)
+        if field and field in metadata:
+            value = metadata[field]
+            return (
+                f"Project_Metadata.json - {field}: {value}",
+                f"{field} = {value}",
+            )
+        # Fallback: show that metadata was checked but field not mapped
+        return (
+            "Project_Metadata.json",
+            f"Applicability excluded by project metadata ({requirement.applicability_rule})",
         )
 
     def analyze_requirement(
@@ -232,10 +260,8 @@ class ReviewPipeline:
             draft_location=draft_location,
             draft_evidence=str(raw.get("draft_evidence") or "").strip(),
             reference_id=requirement.requirement_id,
-            reference_location=str(raw.get("reference_location") or "")
-            or f"{requirement.reference_source} - {requirement.section}",
-            reference_evidence=str(raw.get("reference_evidence") or "")
-            or requirement.challenge_reference_rule,
+            reference_location=f"{requirement.reference_source} - {requirement.section}",
+            reference_evidence=requirement.challenge_reference_rule,
             explanation=str(raw.get("explanation") or "").strip(),
             confidence=adjusted_confidence,
             recommended_human_action=str(raw.get("recommended_human_action") or "").strip()
