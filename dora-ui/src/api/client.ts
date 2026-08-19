@@ -65,7 +65,12 @@ export function deleteProject(id: string) {
 
 export async function uploadFiles(projectId: string, files: File[]) {
   const form = new FormData()
-  files.forEach((f) => form.append('files', f))
+  files.forEach((f) => {
+    // Preserve relative path for folder uploads so same-name files don't collide.
+    // webkitRelativePath is set when using folder picker / webkitdirectory.
+    const relativePath = (f as any).webkitRelativePath || (f as any)._relativePath || f.name
+    form.append('files', f, relativePath)
+  })
   const res = await fetch(`${BASE}/projects/${projectId}/upload`, {
     method: 'POST',
     body: form,
@@ -81,8 +86,33 @@ export function listFiles(projectId: string) {
   return request<UploadedFile[]>(`/projects/${projectId}/files`)
 }
 
-export function deleteFile(projectId: string, fileName: string) {
-  return request<{ deleted: string }>(`/projects/${projectId}/files/${fileName}`, { method: 'DELETE' })
+export function deleteFile(projectId: string, filePath: string) {
+  return request<{ deleted: string }>(`/projects/${projectId}/files/${filePath}`, { method: 'DELETE' })
+}
+
+// --- Package Grouping ---
+
+export interface PackageGroup {
+  name: string
+  file_count: number
+  files: string[]
+}
+
+export interface PackagesInfo {
+  packages: PackageGroup[]
+  loose_files: string[]
+  needs_grouping: boolean
+}
+
+export function listPackages(projectId: string) {
+  return request<PackagesInfo>(`/projects/${projectId}/packages`)
+}
+
+export function organizeFiles(projectId: string, groups: Record<string, string[]>) {
+  return request<{ moved: { from: string; to: string }[]; errors: string[] }>(`/projects/${projectId}/organize`, {
+    method: 'POST',
+    body: JSON.stringify({ groups }),
+  })
 }
 
 // --- Analysis ---

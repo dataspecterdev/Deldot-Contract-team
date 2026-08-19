@@ -1,0 +1,31 @@
+{
+  "packages_analyzed": 2,
+  "packages": [
+    {
+      "package_id": "DEV-HARBOR-CROSSING",
+      "package_name": "Harber",
+      "total_findings": 18,
+      "flags": 4,
+      "compliant": 14
+    },
+    {
+      "package_id": "DEV-MAPLE-RIDGE",
+      "package_name": "Maple Ridge",
+      "total_findings": 18,
+      "flags": 2,
+      "compliant": 16
+    }
+  ],
+  "totals": {
+    "total_findings": 36,
+    "flags": 6,
+    "compliant": 30
+  },
+  "tokens_in": 126914,
+  "tokens_out": 12902,
+  "output_files": [
+    "submission.csv",
+    "evidence_trace.csv",
+    "findings_report.json"
+  ]
+}

@@ -57,7 +57,7 @@ def get_project(project_id: str) -> dict[str, Any]:
     meta = _read_metadata(project_id)
     uploads_dir = _project_dir(project_id) / "uploads"
     meta["file_count"] = len([
-        f for f in uploads_dir.iterdir()
+        f for f in uploads_dir.rglob("*")
         if f.is_file() and (f.suffix.lower() in (".pdf", ".json"))
     ]) if uploads_dir.exists() else 0
     return meta
@@ -75,7 +75,7 @@ def list_projects() -> list[dict[str, Any]]:
                 meta = json.loads(meta_path.read_text(encoding="utf-8"))
                 uploads_dir = child / "uploads"
                 meta["file_count"] = len([
-                    f for f in uploads_dir.iterdir()
+                    f for f in uploads_dir.rglob("*")
                     if f.is_file() and (f.suffix.lower() in (".pdf", ".json"))
                 ]) if uploads_dir.exists() else 0
                 projects.append(meta)
@@ -114,18 +114,20 @@ def get_output_dir(project_id: str) -> Path:
 
 
 def list_uploads(project_id: str) -> list[dict[str, Any]]:
-    """List uploaded files (PDFs and JSONs) for a project."""
+    """List uploaded files (PDFs and JSONs) for a project, preserving folder paths."""
     uploads_dir = get_upload_dir(project_id)
     files = []
-    for f in sorted(uploads_dir.iterdir()):
+    for f in sorted(uploads_dir.rglob("*")):
         if not f.is_file():
             continue
         lower = f.name.lower()
         if not (lower.endswith(".pdf") or lower.endswith(".json")):
             continue
         stat = f.stat()
+        # Relative path from the uploads directory
+        rel_path = f.relative_to(uploads_dir).as_posix()
         files.append({
-            "file_name": f.name,
+            "file_name": rel_path,
             "size_bytes": stat.st_size,
             "uploaded_at": datetime.fromtimestamp(stat.st_mtime, tz=timezone.utc).isoformat(),
         })

@@ -86,24 +86,27 @@ async def upload_files(project_id: str, files: list[UploadFile] = File(...)):
     for file in files:
         if not file.filename:
             continue
-        # When uploading folders, browsers send paths like "folder/sub/file.pdf"
-        # Extract just the filename for storage and validation
-        basename = file.filename.replace("\\", "/").split("/")[-1]
+        # Preserve the relative path so same-name files in different folders don't collide.
+        # Browsers send paths like "folder/sub/file.pdf" for folder uploads.
+        relative_path = file.filename.replace("\\", "/")
+        basename = relative_path.split("/")[-1]
         lower_name = basename.lower()
         if not (lower_name.endswith(".pdf") or lower_name.endswith(".json")):
-            skipped.append(basename)
+            skipped.append(relative_path)
             continue
 
         content = await file.read()
         if len(content) > MAX_UPLOAD_SIZE:
             raise HTTPException(
                 status_code=413,
-                detail=f"File {basename} exceeds 50MB limit.",
+                detail=f"File {relative_path} exceeds 50MB limit.",
             )
 
-        dest = upload_dir / basename
+        # Store in subdirectory to preserve folder structure
+        dest = upload_dir / relative_path
+        dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_bytes(content)
-        uploaded.append({"file_name": basename, "size_bytes": len(content)})
+        uploaded.append({"file_name": relative_path, "size_bytes": len(content)})
 
     return {"uploaded": uploaded, "total": len(uploaded), "skipped": skipped}
 
@@ -116,18 +119,125 @@ async def list_files(project_id: str):
         raise HTTPException(status_code=404, detail="Project not found")
 
 
-@app.delete("/api/projects/{project_id}/files/{file_name}")
-async def delete_file(project_id: str, file_name: str):
+@app.delete("/api/projects/{project_id}/files/{file_path:path}")
+async def delete_file(project_id: str, file_path: str):
     try:
         upload_dir = project_manager.get_upload_dir(project_id)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Project not found")
 
-    file_path = upload_dir / file_name
-    if not file_path.exists():
+    full_path = upload_dir / file_path
+    # Security: ensure the resolved path is inside upload_dir
+    if not str(full_path.resolve()).startswith(str(upload_dir.resolve())):
+        raise HTTPException(status_code=400, detail="Invalid file path")
+    if not full_path.exists():
         raise HTTPException(status_code=404, detail="File not found")
-    file_path.unlink()
-    return {"deleted": file_name}
+    full_path.unlink()
+    # Clean up empty parent directories
+    parent = full_path.parent
+    while parent != upload_dir:
+        if not any(parent.iterdir()):
+            parent.rmdir()
+            parent = parent.parent
+        else:
+            break
+    return {"deleted": file_path}
+
+
+# --- Package Grouping ---
+
+@app.post("/api/projects/{project_id}/organize")
+async def organize_files(project_id: str, body: dict):
+    """Move files into named package groups (subfolders).
+
+    Body: { "groups": { "Harbor_Crossing": ["file1.pdf", "file2.pdf"], "Pine_Grove": ["file3.pdf"] } }
+    Files are moved from their current location into the named subfolder.
+    """
+    try:
+        upload_dir = project_manager.get_upload_dir(project_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Project not found")
+
+    groups = body.get("groups", {})
+    if not groups:
+        raise HTTPException(status_code=400, detail="No groups provided")
+
+    moved = []
+    errors = []
+    for group_name, file_paths in groups.items():
+        # Sanitize group name
+        safe_name = group_name.strip().replace("/", "_").replace("\\", "_")
+        if not safe_name:
+            continue
+        group_dir = upload_dir / safe_name
+        group_dir.mkdir(parents=True, exist_ok=True)
+
+        for file_path in file_paths:
+            source = upload_dir / file_path
+            if not source.exists():
+                errors.append(f"Not found: {file_path}")
+                continue
+            if not str(source.resolve()).startswith(str(upload_dir.resolve())):
+                errors.append(f"Invalid path: {file_path}")
+                continue
+            dest = group_dir / source.name
+            # If dest already exists (same name), make unique
+            if dest.exists() and dest != source:
+                stem = source.stem
+                suffix = source.suffix
+                counter = 1
+                while dest.exists():
+                    dest = group_dir / f"{stem}_{counter}{suffix}"
+                    counter += 1
+            source.rename(dest)
+            moved.append({"from": file_path, "to": dest.relative_to(upload_dir).as_posix()})
+
+        # Clean up empty parent directories of moved files
+        for file_path in file_paths:
+            parent = (upload_dir / file_path).parent
+            while parent != upload_dir and parent.exists():
+                if not any(parent.iterdir()):
+                    parent.rmdir()
+                    parent = parent.parent
+                else:
+                    break
+
+    return {"moved": moved, "errors": errors}
+
+
+@app.get("/api/projects/{project_id}/packages")
+async def list_packages(project_id: str):
+    """List detected package groups in the upload folder."""
+    try:
+        upload_dir = project_manager.get_upload_dir(project_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Project not found")
+
+    packages = []
+    loose_files = []
+
+    # Check for subfolders that contain PDFs
+    for child in sorted(upload_dir.iterdir()):
+        if child.is_dir():
+            pdfs = list(child.rglob("*.pdf"))
+            jsons = list(child.rglob("*.json"))
+            if pdfs or jsons:
+                packages.append({
+                    "name": child.name,
+                    "file_count": len(pdfs) + len(jsons),
+                    "files": [f.relative_to(upload_dir).as_posix() for f in sorted(pdfs + jsons)],
+                })
+
+    # Check for root-level loose files
+    for f in sorted(upload_dir.iterdir()):
+        if f.is_file() and f.suffix.lower() in (".pdf", ".json"):
+            loose_files.append(f.name)
+
+    return {
+        "packages": packages,
+        "loose_files": loose_files,
+        "needs_grouping": len(loose_files) > 0 and len(packages) > 0 or len(loose_files) > 1,
+    }
 
 
 # --- Analysis ---

@@ -1,0 +1,24 @@
+{
+  "packages_analyzed": 1,
+  "packages": [
+    {
+      "package_id": "DEV-MAPLE-RIDGE",
+      "package_name": "test2",
+      "total_findings": 18,
+      "flags": 2,
+      "compliant": 16
+    }
+  ],
+  "totals": {
+    "total_findings": 18,
+    "flags": 2,
+    "compliant": 16
+  },
+  "tokens_in": 49090,
+  "tokens_out": 5272,
+  "output_files": [
+    "submission.csv",
+    "evidence_trace.csv",
+    "findings_report.json"
+  ]
+}

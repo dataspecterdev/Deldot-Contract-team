@@ -1,7 +1,13 @@
 """Bridge between the DORA API and the contract_review pipeline.
 
-This module sets up the contract package structure from uploaded PDFs, runs the
-review pipeline, and writes outputs to the project's output directory.
+Supports both single-package and multi-package uploads:
+- If top-level subfolders contain PDFs (or a Project_Metadata.json), each is
+  treated as a separate contract package and analyzed independently.
+- If PDFs live directly in the upload root with no subfolder structure, they're
+  treated as a single package.
+
+Results are grouped by package_id in the JSON report and the submission CSV
+contains rows from all packages.
 """
 from __future__ import annotations
 
@@ -14,39 +20,83 @@ from typing import Any
 from . import project_manager
 
 
-def _prepare_package(project_id: str) -> Path:
-    """Build a contract package directory from uploaded PDFs.
+# ---------------------------------------------------------------------------
+# Package detection
+# ---------------------------------------------------------------------------
+
+def _detect_packages(upload_dir: Path) -> list[Path]:
+    """Detect separate contract packages within the uploads.
+
+    Strategy:
+    1. If any immediate child folder contains PDFs or a Project_Metadata.json,
+       each such folder is a separate package.
+    2. Otherwise the entire upload_dir is one package.
+    """
+    child_packages: list[Path] = []
+    for child in sorted(upload_dir.iterdir()):
+        if not child.is_dir():
+            continue
+        has_pdfs = any(child.rglob("*.pdf"))
+        has_meta = (child / "Project_Metadata.json").exists()
+        if has_pdfs or has_meta:
+            child_packages.append(child)
+
+    if child_packages:
+        # Also check: are there loose PDFs at root level alongside folders?
+        root_pdfs = [f for f in upload_dir.iterdir() if f.is_file() and f.suffix.lower() == ".pdf"]
+        if root_pdfs:
+            # Treat root-level PDFs as an additional unnamed package
+            child_packages.insert(0, upload_dir)
+        return child_packages
+
+    # No subfolder structure — everything is one package
+    return [upload_dir]
+
+
+# ---------------------------------------------------------------------------
+# Single package preparation
+# ---------------------------------------------------------------------------
+
+def _prepare_single_package(source_dir: Path, output_base: Path, package_name: str) -> Path:
+    """Build a contract package directory from a source folder.
 
     The contract_review pipeline expects:
-      project_dir/
+      package_dir/
         Project_Metadata.json
         Document_Index.csv
         Docs/
           *.pdf
     """
-    upload_dir = project_manager.get_upload_dir(project_id)
-    output_dir = project_manager.get_output_dir(project_id)
-
-    # Create a temporary package directory inside outputs
-    package_dir = output_dir / "_package"
+    package_dir = output_base / f"_pkg_{package_name}"
     if package_dir.exists():
         shutil.rmtree(package_dir)
-    package_dir.mkdir()
+    package_dir.mkdir(parents=True)
     docs_dir = package_dir / "Docs"
     docs_dir.mkdir()
 
-    # Copy PDFs to Docs/
-    pdfs = list(upload_dir.glob("*.pdf"))
+    # Collect PDFs recursively from source
+    pdfs = list(source_dir.rglob("*.pdf"))
     if not pdfs:
-        raise ValueError("No PDF files uploaded. Upload at least one contract PDF.")
+        return package_dir  # empty — will be skipped
 
     doc_rows: list[dict[str, str]] = []
+    seen_names: dict[str, int] = {}
     for pdf in sorted(pdfs):
-        shutil.copy2(pdf, docs_dir / pdf.name)
-        # Infer document type from filename
+        dest_name = pdf.name
+        if dest_name in seen_names:
+            seen_names[dest_name] += 1
+            parent_name = pdf.parent.name if pdf.parent != source_dir else ""
+            if parent_name and parent_name != "Docs":
+                dest_name = f"{parent_name}_{pdf.stem}{pdf.suffix}"
+            else:
+                dest_name = f"{pdf.stem}_{seen_names[pdf.name]}{pdf.suffix}"
+        else:
+            seen_names[dest_name] = 1
+
+        shutil.copy2(pdf, docs_dir / dest_name)
         doc_type = pdf.stem.replace("_", " ")
         doc_rows.append({
-            "File_Name": pdf.name,
+            "File_Name": dest_name,
             "Document_Type": doc_type,
             "Package_Status": "Current",
         })
@@ -58,39 +108,38 @@ def _prepare_package(project_id: str) -> Path:
         writer.writeheader()
         writer.writerows(doc_rows)
 
-    # Write a default Project_Metadata.json
-    # Users can customize this later; for now, provide sensible defaults
-    meta = _read_or_create_metadata(project_id, pdfs)
-    meta_path = package_dir / "Project_Metadata.json"
-    meta_path.write_text(json.dumps(meta, indent=2), encoding="utf-8")
+    # Write Project_Metadata.json
+    meta = _find_or_create_metadata(source_dir, package_name, pdfs)
+    (package_dir / "Project_Metadata.json").write_text(
+        json.dumps(meta, indent=2), encoding="utf-8"
+    )
 
     return package_dir
 
 
-def _read_or_create_metadata(project_id: str, pdfs: list[Path]) -> dict[str, Any]:
-    """Check if user uploaded a metadata JSON, otherwise create defaults."""
-    upload_dir = project_manager.get_upload_dir(project_id)
+def _find_or_create_metadata(source_dir: Path, package_name: str, pdfs: list[Path]) -> dict[str, Any]:
+    """Look for a Project_Metadata.json in the source, otherwise create defaults."""
+    # Direct metadata file
+    meta_path = source_dir / "Project_Metadata.json"
+    if meta_path.exists():
+        try:
+            return json.loads(meta_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            pass
 
-    # Check if the user uploaded a Project_Metadata.json
-    user_meta = upload_dir / "Project_Metadata.json"
-    if user_meta.exists():
-        return json.loads(user_meta.read_text(encoding="utf-8"))
-
-    # Also check for .json files alongside PDFs
-    json_files = list(upload_dir.glob("*.json"))
-    for jf in json_files:
+    # Any JSON with package_id or project_title
+    for jf in sorted(source_dir.rglob("*.json")):
         try:
             data = json.loads(jf.read_text(encoding="utf-8"))
-            if "package_id" in data or "project_title" in data:
+            if isinstance(data, dict) and ("package_id" in data or "project_title" in data):
                 return data
         except (json.JSONDecodeError, OSError):
             continue
 
-    # Default metadata — conservative assumptions
-    project_meta = project_manager.get_project(project_id)
+    # Default metadata
     return {
-        "package_id": project_meta["name"].replace(" ", "_"),
-        "project_title": project_meta["name"],
+        "package_id": package_name.replace(" ", "_"),
+        "project_title": package_name.replace("_", " "),
         "federal_aid": True,
         "buy_america_baba_applicable": True,
         "assumed_contract_value": 5000000,
@@ -104,13 +153,17 @@ def _read_or_create_metadata(project_id: str, pdfs: list[Path]) -> dict[str, Any
     }
 
 
-def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
-    """Run the contract_review pipeline on a project's uploaded PDFs.
+# ---------------------------------------------------------------------------
+# Main analysis runner
+# ---------------------------------------------------------------------------
 
-    Returns a summary dict with output file paths.
+def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
+    """Run the contract_review pipeline on uploaded PDFs.
+
+    Detects multiple packages (subfolders) and runs each independently.
+    Results are combined into unified output files with per-package grouping.
     """
     from contract_review.bedrock_client import BedrockClient
-    from contract_review.config import BEDROCK
     from contract_review.json_report import write_json_report
     from contract_review.models import ContractPackage, Finding
     from contract_review.pipeline import ReviewPipeline
@@ -119,12 +172,22 @@ def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
     project_manager.update_status(project_id, "analyzing")
 
     try:
-        package_dir = _prepare_package(project_id)
+        upload_dir = project_manager.get_upload_dir(project_id)
         output_dir = project_manager.get_output_dir(project_id)
 
         def _progress(msg: str) -> None:
             if progress_callback:
                 progress_callback(msg)
+
+        # Detect packages
+        package_sources = _detect_packages(upload_dir)
+        if not package_sources:
+            raise ValueError("No PDF files found. Upload at least one contract PDF.")
+
+        # Verify at least one package has PDFs
+        has_any_pdfs = any(any(src.rglob("*.pdf")) for src in package_sources)
+        if not has_any_pdfs:
+            raise ValueError("No PDF files found in any package folder.")
 
         client = BedrockClient()
         pipeline = ReviewPipeline(
@@ -133,29 +196,70 @@ def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
             progress=_progress,
         )
 
-        result = pipeline.run_package(package_dir)
+        all_findings: list[Finding] = []
+        package_map: dict[str, ContractPackage] = {}
+        package_summaries: list[dict[str, Any]] = []
 
-        # Write outputs
+        for source in package_sources:
+            # Determine package name from folder
+            if source == upload_dir:
+                pkg_name = project_manager.get_project(project_id)["name"]
+            else:
+                pkg_name = source.name
+
+            pdfs_in_source = list(source.rglob("*.pdf"))
+            if not pdfs_in_source:
+                continue
+
+            _progress(f"\n{'='*60}")
+            _progress(f"Processing package: {pkg_name} ({len(pdfs_in_source)} PDFs)")
+            _progress(f"{'='*60}")
+
+            package_dir = _prepare_single_package(source, output_dir, pkg_name)
+
+            # Skip if no PDFs were found
+            if not list((package_dir / "Docs").glob("*.pdf")):
+                shutil.rmtree(package_dir, ignore_errors=True)
+                continue
+
+            result = pipeline.run_package(package_dir)
+            all_findings.extend(result.findings)
+            package_map[result.package.package_id] = result.package
+
+            package_summaries.append({
+                "package_id": result.package.package_id,
+                "package_name": pkg_name,
+                "total_findings": len(result.findings),
+                "flags": sum(1 for f in result.findings if f.predicted_label == "FLAG"),
+                "compliant": sum(1 for f in result.findings if f.predicted_label == "NO_FLAG"),
+            })
+
+            # Clean up temp package dir
+            shutil.rmtree(package_dir, ignore_errors=True)
+
+        if not all_findings:
+            raise ValueError("No findings generated. Check that PDFs contain extractable text.")
+
+        # Write combined outputs
         submission_path = reporting.write_submission(
-            result.findings, output_dir / "submission.csv"
+            all_findings, output_dir / "submission.csv"
         )
         trace_path = reporting.write_evidence_trace(
-            result.findings,
-            {result.package.package_id: result.package},
-            output_dir / "evidence_trace.csv",
+            all_findings, package_map, output_dir / "evidence_trace.csv"
         )
         json_path = write_json_report(
-            result.findings,
-            {result.package.package_id: result.package},
-            output_dir / "findings_report.json",
+            all_findings, package_map, output_dir / "findings_report.json"
         )
 
-        # Write a run summary
+        # Write run summary
         summary = {
-            "package_id": result.package.package_id,
-            "total_findings": len(result.findings),
-            "flags": sum(1 for f in result.findings if f.predicted_label == "FLAG"),
-            "compliant": sum(1 for f in result.findings if f.predicted_label == "NO_FLAG"),
+            "packages_analyzed": len(package_summaries),
+            "packages": package_summaries,
+            "totals": {
+                "total_findings": len(all_findings),
+                "flags": sum(1 for f in all_findings if f.predicted_label == "FLAG"),
+                "compliant": sum(1 for f in all_findings if f.predicted_label == "NO_FLAG"),
+            },
             "tokens_in": client.input_tokens,
             "tokens_out": client.output_tokens,
             "output_files": [
@@ -167,9 +271,6 @@ def run_analysis(project_id: str, progress_callback=None) -> dict[str, Any]:
         (output_dir / "run_summary.json").write_text(
             json.dumps(summary, indent=2), encoding="utf-8"
         )
-
-        # Clean up the temporary package directory
-        shutil.rmtree(package_dir, ignore_errors=True)
 
         project_manager.update_status(project_id, "complete")
         return summary
