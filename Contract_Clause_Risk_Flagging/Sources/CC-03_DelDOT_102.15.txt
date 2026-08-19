@@ -1,0 +1,16 @@
+Reference: DelDOT Standard Specifications + General Notices
+Source: Section 102.15
+Requirement ID: CC-03
+
+102.15 Non-Collusive Bidding Certification.
+
+A. Provide the signed non-collusive bidding certification form provided in the bid proposal.
+
+B. The Department will not consider a proposal for award without the signed non-collusive bidding
+certification.
+
+C. The Department does not consider bid collusion to include the following:
+1. A bidder has published price lists, rates, or tariffs covering items in the proposal.
+2. A bidder has informed prospective customers of proposed or pending publication of new or
+revised price lists for proposal items.
+3. A bidder sold the same items to other customers at the same prices in the proposal.

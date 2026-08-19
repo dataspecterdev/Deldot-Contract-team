@@ -1,0 +1,148 @@
+Reference: DelDOT Standard Specifications + General Notices
+Source: Section 104.2
+Requirement ID: CC-11
+
+104.2 Contract Changes.
+
+A. General.
+1. The contract is not modified, altered, or otherwise changed by any oral promise, statement, or
+representation made either by the Department or the contractor, unless such modification,
+alteration, or change is reduced to writing in accordance with the contract.
+
+2. The Department reserves the right to change the contract at any time before the contractor's
+acceptance of the final estimate. After the contractor's acceptance of the final estimate, the
+Department may only change the contract based on the results of an audit performed in
+accordance with Section 107.15, Audits.
+
+3. Changes do not invalidate the contract or release the surety and the contractor agrees to
+perform the work as changed.
+
+4. Proceed with a change only after receiving written direction from the engineer.
+
+5. If the contractor believes it has encountered a change in accordance with Sections 104.2.B,
+Significant Changes in the Character of Work, 104.2.C, Differing Site Conditions, 104.2.D,
+Suspensions of Work Ordered by the Engineer, 104.2.E, Extra Work, or 104.2.F, Eliminated
+Items, provide notice as required by these clauses and as required by Section 104.3, Notification
+of Contract Changes.
+
+6. Failure to provide notice as specified by these clauses is a waiver of the contractor's entitlement
+to an increase in the contract price or contract time.
+
+7. If the contractor complies with the notice requirements of these clauses and the engineer
+determines that there is a change, the Department will compensate the contractor for the
+change in accordance with Section 109.4, Compensation for Changes, and provide a time
+extension in accordance with Section 108.7, Extensions of Contract Time.
+
+8. In Sections 104.2.B, Significant Changes in the Character of Work, 104.2.C, Differing Site
+Conditions, and 104.2.D, Suspensions of Work Ordered by the Engineer, the term "adjustment"
+means compensation in accordance with Section 109.4, Compensation for Changes, and the
+granting of a time extension in accordance with Section 108.7, Extensions of Contract Time.
+
+B. Significant Changes in the Character of Work.
+1. The Department reserves the right to make, in writing, at any time before the contractor's
+acceptance of the final estimate, changes in quantities and alterations to the work as are
+necessary to satisfactorily complete the project. After the contractor's acceptance of the final
+estimate, the Department may only make changes in the quantities and alternations in the work
+based on the results of an audit performed in accordance with Section 107.15, Audits. Changes
+in quantities and alterations will not invalidate the contract or release the surety, and the
+contractor agrees to perform the work as altered.
+
+2. The Department will make a contract adjustment, excluding anticipated profit, for alterations or
+changes in quantities that significantly change the character of the work or that cause other work to become significantly different in character. The Department and the contractor shall
+agree on the basis for the adjustment before the contractor performs the work. If the
+Department and the contractor cannot agree on a basis for the adjustment, the Department will
+make an adjustment either for or against the contractor in accordance with Sections 109.4,
+Compensation for Changes, and 108.7, Extensions for Contract Time.
+
+3. If the alterations or changes in quantities do not significantly change the character of the work,
+the Department will pay for the altered work as provided elsewhere in the contract.
+
+4. The Department will apply the term "significant change" only to the following circumstances:
+a. When the character of the work as altered differs materially in kind or nature from that
+involved or included in the original proposed construction; or
+b. When a major item of work, as defined elsewhere in the contract, is increased in excess of 125
+percent or decreased below 75 percent of the original contract quantity. Any allowance for an
+increase in quantity shall apply only to that portion in excess of 125 percent of original pay
+item quantity, or in case of a decrease below 75 percent, to the actual amount of work
+performed.
+c. When a specialty item of work, as defined elsewhere in the contract, is increased in excess of
+125 percent or decreased below 75 percent of the original contract quantity. Any allowance
+for an increase in quantity shall apply only to that portion in excess of 125 percent of original
+pay item quantity, or in case of a decrease below 75 percent, to the actual amount of work
+performed.
+
+C. Differing Site Conditions.
+1. During the progress of the work, if the Department or the contractor encounters subsurface or
+latent physical conditions at the site differing materially from those indicated in the contract or
+unknown physical conditions of an unusual nature, differing materially from those ordinarily
+encountered and generally recognized as inherent in the work provided for in the contract, the
+party discovering the conditions shall promptly notify the other party in accordance with Section
+104.3, Notification of Contract Changes, of the specific differing conditions before the site is
+disturbed and before the affected work is performed.
+
+2. Upon receipt of the notice provided in accordance with Section 104.3, Notification of Contract
+Changes, the engineer will investigate the conditions, and if it is determined that the conditions
+materially differ and cause an increase or decrease in the cost or time required for the
+performance of any work under the contract, the Department will make an adjustment,
+excluding anticipated profits, and will modify the contract in writing accordingly. The engineer
+will notify the contractor of the determination whether or not an adjustment is warranted.
+
+3. The Department will make no contract adjustment that results in a benefit to the contractor
+unless the contractor provided the required notice in accordance with Section 104.3,
+Notification of Contract Changes.
+
+D. Suspensions of Work Ordered by the Engineer.
+1. If the Department suspends or delays performance of all or any portion of the work in writing
+for an unreasonable period of time not originally anticipated, customary, or inherent to the
+construction industry and the contractor believes that additional compensation or contract time
+is due as a result of such suspension or delay, the contractor shall submit to the engineer notice
+in accordance with Section 104.3, Notification of Contract Changes. The contractor shall then submit a request for adjustment within 7 calendar days after receiving the notice to resume
+work. The contractor's request shall set forth the reasons and support for the adjustment.
+
+2. Upon receipt of notice, the engineer will evaluate the contractor's request. If the engineer
+agrees that the cost or time required for contract performance increased as a result of a
+suspension, and the suspension is excusable and compensable in accordance with Section 108.7,
+Extensions of Contract Time, the engineer will make an adjustment, excluding profit, and will
+modify the contract in writing accordingly. The engineer will notify the contractor of the
+determination whether or not an adjustment is warranted.
+
+3. The Department will make no contract adjustment unless the contractor submitted notice of the
+suspension in accordance with Section 104.3, Notification of Contract Changes, and submitted a
+request for adjustment within 7 calendar days of receipt of the notice to resume work.
+
+4. The Department will make no contract adjustment under this clause to the extent that the
+suspension or delay resulted from any other cause or for which an adjustment is provided or
+excluded under any other term or condition of the contract.
+
+E. Extra Work.
+1. The engineer may direct the contractor to perform extra work. Extra work is work added to the
+contract for which there is no pay item.
+
+2. The Department will pay for extra work in accordance with Section 109.4, Compensation for
+Changes, and will provide a time extension for this work in accordance with Section 108.7,
+Extensions of Contract Time.
+
+F. Eliminated Items.
+1. Should the Department find a pay item unnecessary for completion of the work, the engineer
+may eliminate the item from the contract.
+
+2. If the contractor completed a portion of the work associated with an eliminated pay item,
+before the Department eliminated the item, the Department will reimburse the contractor for
+the completed work as follows:
+a. For completed quantities of work, the Department will pay the contractor for each unit of
+completed work at the contract unit price. If the eliminated pay item is a major item and the
+reduction in quantity results in a significant change in the character of the work as defined in
+Section 104.2.B., Significant Changes in the Character of Work, the Department will pay the
+contractor for each unit of completed work in accordance with Section 104.2.B, Significant
+Changes in the Character of Work.
+b. For partially completed work, the Department will reimburse the contractor for the partially
+completed work in accordance with Section 109.4, Compensation for Changes.
+c. Materials the Department paid for will become the Department's property.
+
+3. The contractor is not entitled to reimbursement for an eliminated pay item in excess of 75
+percent of the bid amount for the pay item. The only exception to this limit is when the
+documented material costs alone exceed 75 percent of the bid amount of the eliminated pay
+item. If this occurs, then the contractor is entitled to the documented material cost but not
+entitled to reimbursement for an eliminated pay item in excess of 95 percent of the bid amount
+for the pay item. The material remains the property of the Department and will be delivered to
+the Department's district maintenance yard.

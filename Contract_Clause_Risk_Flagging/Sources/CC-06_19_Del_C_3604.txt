@@ -1,0 +1,9 @@
+Reference: Delaware Contractor Registration Act + DelDOT proposal
+Source: 19 Del. C. § 3604
+Requirement ID: CC-06
+
+§ 3604. Registration required.
+
+A contractor must register under this chapter before performing construction services or maintenance.
+
+(82 Del. Laws, c. 168, § 4; 82 Del. Laws, c. 291, § 2.)

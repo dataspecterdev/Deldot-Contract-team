@@ -1,0 +1,29 @@
+Reference: DelDOT Standard Specifications
+Source: Section 103.5
+Requirement ID: CC-04
+
+103.5 Performance and Payment Bonds.
+
+A. Provide a surety bond, or bonds, at the time of contract execution in a sum equal to 100 percent
+of the contract price. The bond is for the benefit of the Department, as well as for the use and
+benefit of Delaware's Division of Revenue in the case of claims under this bond for taxes due to
+the State. Provide a bond issued by a corporate surety authorized to do business in Delaware.
+
+B. Provide a bond conditioned upon the faithful compliance and performance of each and every
+term and condition of the contract, at the time and in the manner prescribed by the contract,
+including the payment in full to every person furnishing material or performing labor or services in
+the performance of the contract, and of all sums of money due for such labor, services, or
+material. Ensure that the bond contains the contractor's guarantee to indemnify and save
+harmless the State of Delaware, the Department of Transportation, its secretary and all officers,
+agents, employees, assigns, and servants from all costs, damages, and expenses growing out of,
+or by reason of, the contractor's failure to comply with applicable laws and regulations and failure to perform the work and complete the contract in accordance with the terms and conditions of
+the contract.
+
+C. Ensure that the bond states that every person furnishing materials or performing labor for the
+contractor under the contract may maintain an action on the bond for its own use in the name of
+the State in any court of competent jurisdiction, for recovery of such sum or sums of money due
+the person from the contractor.
+
+D. Obtain a release from the Division of Revenue on a form provided by the Department showing
+that all tax obligations are satisfied. Present this form to the Department as a condition for release
+of the bonds.

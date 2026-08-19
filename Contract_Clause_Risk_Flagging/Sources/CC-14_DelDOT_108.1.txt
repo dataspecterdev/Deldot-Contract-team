@@ -1,0 +1,98 @@
+Reference: DelDOT Standard Specifications
+Source: Section 108.1
+Requirement ID: CC-14
+
+108.1 Contract Subletting.
+
+A. Perform no less than 50 percent of total original contract price with the contractor's own
+organization, excluding designated specialty items. The Department will allow the contractor to
+perform specialty items by subcontract. The Department may deduct the amount of specialty
+items, performed by subcontractors, from the total original contract price before calculating the
+amount of work the contractor plans to perform using the contractor's own organization. The
+contract price that the Department will use as a basis to calculate the 50 percent requirement
+includes the cost of material and manufactured products that the contractor plans to purchase or
+produce. The Department will not require an adjustment of the calculated percentage due to
+adjustments in quantities or added or extra work.
+1. The cost of flagging operations, including overtime rates, when performed by others who are not
+the Contractor's employees, will not be included in the 50 percent subcontracting limit.
+
+B. The term "subcontractors" as used in the previous paragraph, does not include suppliers that
+deliver and deposit, but do not incorporate, material; suppliers or services that transport material;
+and work performed that does not physically advance the completion of the contract and is not
+considered as an item of work.
+
+C. The term "the contractor's own organization" refers to workers employed by or leased by the
+contractor and equipment owned or rented by the contractor with or without operators. The term
+does not include subcontractor employees or equipment, agents of the contractor, or any other
+assignees. The term may include payments for the costs of hiring leased employees from an
+employee leasing firm if the contractor:
+1. Controls the day-to-day activities of leased employees;
+2. retains responsibility for the quality of work performed by leased employees;
+3. retains all power to accept or exclude individual employees from work on the project; and
+4. remains responsible for payment of predetermined minimum wages, payroll submissions,
+compliance statements, and all other federal regulatory requirements.
+
+D. The Department will identify the specialty items in the contract.
+
+E. Do not sublet, sell, transfer, assign or otherwise dispose of any portion of the contract without the
+engineer's written consent. Consent, when given, does not relieve the contractor its responsibility
+to fulfill the contract requirements. Do not provide work or materials from an organization other
+than the contractor's own, or otherwise dispose of the contract or contracts or any portion
+thereof, or of its right, title or interest therein, without written consent from the engineer. The
+engineer will only provide written consent after assurance that each subcontract is in writing and
+that it contains the pertinent provisions and requirements of the contract.
+
+F. Outline the scope and value of work the contractor proposes to subcontract. If requested by the
+engineer, detail the cost of the materials included in the subcontractor's work. Include the cost of
+subcontractor materials in the value of the subcontracted work. Obtain the engineer's written
+permission before allowing a subcontractor to subcontract a portion of subcontracted work. In
+granting such permission, the engineer will require that the subcontractor seeking to subcontract a portion of its subcontract to perform no less than 50 percent of its subcontract with the
+subcontractor using its own organization.
+
+G. Perform traffic control work and related items with labor, equipment, and materials from the
+contractor's own organization and a single subcontractor unless approved by the engineer.
+
+H. When the contractor subcontracts a portion of the contract to a subcontractor, the Department
+will apply the subcontractor payment to fulfill the Disadvantaged Business Enterprise (DBE)
+contract requirements if the subcontractor is a DBE. The cost of the portion of the contract or bid
+item performed by a DBE will be included in the total amount of work subcontracted by the
+contractor in determining whether the contractor is performing at least 50 percent of the total
+contract bid price, as required by this section.
+
+I. Submit certified copies of subcontractor agreements and copies of the subcontractors' Delaware
+business licenses as a prerequisite to payment for work performed by a subcontractor, or on a
+subcontractor's behalf. Submit the information before a subcontractor performs work on the
+project. Submit contracts with suppliers or any other person, firm, or organization that will
+perform work on the project for review and approval by the engineer. Ensure that each
+subcontract clearly states that all provisions and requirements of the contract are included in the
+subcontract.
+
+J. The Department may also require the contractor to submit additional information concerning the
+prospective subcontractor or supplier. This information may include any required by the contract,
+by the Department, by the FHWA, or by other governmental agencies. This information may
+include:
+1. Evidence that the organization that performs the work is experienced and equipped for such
+work.
+2. Assurance by the contractor that the labor standards provisions set forth in this contract apply
+to labor performed on all work encompassed by the contract.
+3. Assurance that all civil rights provisions and DBE requirements have been satisfied.
+
+J. Include the following provisions in all subcontracts:
+1. Indemnification language that saves harmless the Department from the actions of the
+subcontractors or suppliers;
+2. provisions that provide for the binding arbitration of all disputes between the parties to the
+subcontract agreements; and
+3. provisions that save harmless and indemnify the Department for omissions in the subcontract
+agreement.
+
+K. Do not interpret Department reviews, permissions, or granted approvals under these
+specifications as approval of the work a subcontractor performs or of material provided by a
+supplier. Such reviews, permissions, or approvals by the Department do not relieve the contractor
+of the sole responsibility for satisfactory completion of the contract. Contracts, subcontracts,
+supplier agreements, sales, transfers, leases, assignments, or any other agreements applicable to
+this contract will in any case release the contractor of its sole responsibility and liability under the
+contract and bonds.
+
+L. The Department may refuse to pay for, or accept, all or part of the work or materials supplied by a
+subcontractor or materials supplier the contractor failed to submit to the Department for approval or by a subcontractor or material supplier that the contractor did submit that the
+Department did not approve

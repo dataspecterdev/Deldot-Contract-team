@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-06",
+    "tier": "Baseline",
+    "requirement_name": "Contractor Registration Act notice",
+    "reference_source": "Delaware Contractor Registration Act + DelDOT proposal",
+    "section": "19 Del. C. \u00a7 3604",
+    "severity_guidance": "High"
+  }
+}

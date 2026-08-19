@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-16",
+    "tier": "Advanced",
+    "requirement_name": "Extensions of contract time",
+    "reference_source": "DelDOT Standard Specifications + project metadata",
+    "section": "DelDOT 108.7",
+    "severity_guidance": "Medium"
+  }
+}

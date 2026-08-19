@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-02",
+    "tier": "Baseline",
+    "requirement_name": "Proposal guaranty / bid bond",
+    "reference_source": "DelDOT Standard Specifications + proposal",
+    "section": "DelDOT 102.8",
+    "severity_guidance": "High"
+  }
+}

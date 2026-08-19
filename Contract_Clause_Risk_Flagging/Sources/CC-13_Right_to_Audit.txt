@@ -1,0 +1,15 @@
+Reference: DelDOT proposal General Notices
+Source: Right to Audit
+Requirement ID: CC-13
+
+Note: The "Right to Audit" clause appears in the General Notices section of DelDOT proposals. The system should check the contract package's Proposal and General Notices document for this section.
+
+Challenge Reference Rule: For challenge scoring, relevant prime-contractor and subcontractor records supporting contract performance must be available for audit and retained for three years after final payment.
+
+Review Expectation: Verify audit rights are preserved and the stated records-retention period is not shortened.
+
+Key Requirements to Check:
+- Audit rights cover both prime contractor and subcontractor records
+- Records relate to contract performance
+- Retention period is three years after final payment
+- Records must be available for audit (not restricted or excluded)

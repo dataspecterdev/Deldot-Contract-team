@@ -1,0 +1,25 @@
+{
+  "packages_analyzed": 1,
+  "packages": [
+    {
+      "package_id": "The_Explora",
+      "package_name": "The Explora",
+      "total_findings": 18,
+      "flags": 5,
+      "compliant": 13
+    }
+  ],
+  "totals": {
+    "total_findings": 18,
+    "flags": 5,
+    "compliant": 13
+  },
+  "tokens_in": 61108,
+  "tokens_out": 7298,
+  "output_files": [
+    "submission.csv",
+    "evidence_trace.csv",
+    "findings_report.json",
+    "findings_summary.pdf"
+  ]
+}

@@ -1,0 +1,182 @@
+Reference: DelDOT Standard Specifications + project metadata
+Source: Section 108.7
+Requirement ID: CC-16
+
+108.7 Extensions of Contract Time.
+
+A. General.
+1. Prosecute the work continuously and effectively, with the least possible delay so as to complete
+all the work within the contract time.
+
+2. Upon encountering an excusable delay that meets the criteria specified in Sections 108.7.B,
+Excusable, Non-Compensable Delays, or 108.7.C, Excusable, Compensable Delays, submit a
+written request to the engineer for a contract time extension in accordance with Section 104.3,
+Notification of Contract Changes.
+
+3. Failure to provide timely notice of a delay, in accordance with Section 104.3, Notification of
+Contract Changes, constitutes a waiver of the right to a time extension for the delay.
+
+4. The Department will only extend the contract time if the contractor experiences an excusable
+delay to work on the critical path shown on the approved progress schedule that delays the
+scheduled substantial completion date based on the contract time.
+
+5. The Department will use the same criteria to extend the contract time for a milestone date as it
+uses to determine an extension of contract time for substantial completion.
+
+6. The engineer will evaluate delays and determine the time extension due based on the following:
+a. The progress schedules submitted to, and approved by, the Department. The engineer will not
+use schedules that were not submitted and approved by the Department or schedules the
+contractor created after the delay occurred.
+b. Failure to submit and receive approval of a progress schedule or failure to maintain the
+progress schedule in accordance with the requirements specified in Section 108.4, Progress
+Schedule, constitutes a waiver of entitlement to a time extension.
+c. The Department will only consider granting time extensions for delays to the critical path not
+caused by the contractor.
+d. The progress schedule relevant to the determination of a time extension is the progress
+schedule submitted to and approved by the Engineer that was in force when the delay was
+experienced. For example, if the Department determines that extra work is required and the
+change order for this work is dated June 2, then the contractor would use the last progress
+schedule submitted and approved by the Department prior to June 2 to show entitlement to a
+time extension.
+e. When submitting a request for a time extension, comply with the following requirements:
+i. Use time impact analysis (TIA) to identify and measure critical delays that have not yet
+occurred. Do not use this method to evaluate delays that have already occurred. In general
+terms, perform a TIA as follows:
+(1) Develop a "mini" schedule for the changed work. This schedule is known as a fragnet;
+(2) identify the current accepted schedule and record the scheduled completion date on that
+schedule;
+(3) insert the fragnet into the current schedule by properly linking the fragnet with the existing
+activities in the current accepted schedule;
+(4) recalculate the current schedule with the fragnet inserted and record this scheduled
+completion date;
+(5) the difference in the calculated scheduled completion dates between the current schedule
+and the schedule calculated with a properly inserted and properly composed fragnet is the
+delay attributable to the changed work. The engineer will base the time extension due, if
+any, on this delay.
+ii. Use a contemporaneous analysis when evaluating delays that have already occurred. In
+general terms, perform a contemporaneous analysis as follows:
+(1) Identify the most recent accepted schedule with a data date before the start of the
+delay being evaluated;
+(2) identify each accepted schedule in effect during the delay and the schedule with a data date
+that immediately follows the conclusion of the delay;
+(3) identify the critical path each day from immediately before the start of the delay to the
+schedule immediately following the delay;
+(4) determine whether the delay falls on the critical path;
+(5) if the delay does not fall on the critical path, then no project delay occurred and no time
+extension is due;
+(6) if the delay falls on the critical path, then determine the number of days the critical path is
+delayed. The engineer will base the time extension due, if any, on this delay.
+
+7. The engineer will review a time extension request and determine if a time extension is due.
+
+8. The engineer will measure contract time extensions using working days for working day
+contracts and calendar days for calendar day contracts.
+
+9. If approved, the engineer will prepare a change order to increase or decrease the contract time.
+
+B. Excusable, Non-Compensable Delays.
+1. Excusable, non-compensable delays are delays that neither the contractor nor the Department
+could have foreseen. These delays are not the fault or responsibility of the contractor or the
+Department.
+
+2. The Department will not compensate the contractor for the costs associated with an excusable,
+non-compensable delay.
+
+3. Excusable, non-compensable delays include delays due to:
+a. Unforeseen events such as hurricanes, fires, floods, tornadoes, lightning strikes, earthquakes,
+or epidemics.
+b. Material delivery delays resulting from events or actions that the contractor, its
+subcontractors, and suppliers could not foresee or avoid, and were not responsible for.
+c. Civil disturbances or terrorism.
+d. Labor strikes not caused by improper acts or omissions of the contractor, subcontractor, or
+supplier that are beyond the contractor's, subcontractor's, and supplier's power to settle.
+e. The added quantity of a major item of work where the added quantity exceeds 125 percent of
+the approximate quantity shown in the bid proposal.
+f. Utilities, including delays caused by the utility's failure to timely perform its work or
+unanticipated conflicts between the utility's facilities and the work.
+g. Railroads.
+h. Acts of government or political subdivisions other than the Department.
+j. All other delays not the contractor's or Department's fault or responsibility that could not
+have been reasonably foreseen by the contractor or the Department.
+
+4. Weather delays are non-compensable. The engineer will determine contract time extensions
+due to weather in accordance with Section 108.7.F, Weather Delays.
+
+C. Excusable, Compensable Delays.
+1. Excusable, compensable delays are the Department's responsibility.
+
+2. Excusable, compensable delays include:
+a. Changed work as specified in Sections 104.2.C, Differing Site Conditions, and 104.2.E, Extra
+Work.
+b. Changed work as specified in Section 104.2.B, Significant Changes in the Character of Work,
+except delays due to significant changes caused by increases in quantity, which are non-
+compensable.
+c. Delays due to an engineer-ordered suspension in accordance with Section 104.2.D,
+Suspensions of Work Ordered by the Engineer.
+
+D. Non-Excusable Delays.
+1. Non-excusable delays are the contractor's responsibility. Non-excusable delays are not
+compensable.
+
+2. Non-excusable delays include:
+a. Insolvency or mismanagement of the contractor, a subcontractor, or a supplier.
+b. Slow material delivery when the material was available in warehouse stock or when delivery
+was delayed for reasons of late ordering, or financial considerations.
+c. The contractor's failure to provide sufficient forces and equipment to maintain progress.
+d. Plant and equipment failure, failure to provide and maintain equipment in good mechanical
+condition, or failure to provide for immediate emergency repairs.
+e. Conditions on the project the contractor could have foreseen or anticipated, such as traffic.
+
+E. Concurrent Delays
+1. Concurrent delays are independent critical delays that occur on the same dates. When a non-
+excusable delay is concurrent with an excusable delay, there is no entitlement to a contract time
+extension for the time the non-excusable delay is concurrent with the excusable delay. When an
+excusable, non-compensable delay is concurrent with a compensable delay, there is entitlement to a contract time extension, but there is no entitlement to compensation for the period the
+non-compensable delay is concurrent with the compensable delay.
+
+F. Weather Delays
+1. A weather day is defined as a day that the contractor was planning to work in accordance with
+the contractor's progress schedule but could not work because of weather or seasonal
+conditions that prevented critical path work from occurring for more than half of the working
+day.
+
+2. Submit the dates and number of weather days in writing to the engineer weekly for the
+engineer's review. The engineer will respond either by accepting or rejecting the weather days
+alleged by the contractor. If the engineer rejects the alleged weather days, the engineer will
+provide a determination of weather days within 7 calendar days of receiving the list of claimed
+weather days. If there is disagreement with the Engineer's determination, submit a written
+justification within 7 calendar days of receiving the engineer's list of weather days. The engineer
+will review the written justification and will respond within 7 calendar days. If there is
+disagreement with the engineer's response, provide notice as required by Section 104.3,
+Notification of Contract Changes.
+
+3. Failure to submit weather days at the end of a week will result in the engineer determining the
+dates and number of weather days. The engineer will provide the determination of weather
+days in response to a written request.
+
+4. Provide for weather and seasonal conditions in the progress schedule in accordance with
+Section 108.4.A.2.j. Once the Notice to Proceed date has been established, utilize Table 108.7-1
+to determine the total number of anticipated weather days for the project. The Department will
+extend contract time by 1-day for each weather day that exceeds the total number of
+anticipated weather days for the project.
+
+Table 108.7-1. Anticipated Weather Days per Month
+
+Month | Weather Days
+January | 20
+February | 20
+March | 15
+April | 10
+May | 5
+June | 5
+July | 4
+August | 4
+September | 5
+October | 6
+November | 10
+December | 20
+
+5. If a non-excusable delay extends the performance of the work beyond the contract time, the
+contractor is not entitled to time extensions for weather days or seasonal conditions
+encountered beyond the contract time, even if the number of weather days exceeds the total
+number of weather days anticipated for the project

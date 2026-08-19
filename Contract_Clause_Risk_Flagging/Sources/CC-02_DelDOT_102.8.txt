@@ -1,0 +1,13 @@
+Reference: DelDOT Standard Specifications + proposal
+Source: Section 102.8
+Requirement ID: CC-02
+
+102.8 Proposal Guaranty.
+
+A. Provide either a bid bond from a corporate surety authorized to do business in Delaware or some
+form of financial security the bidder assigns to the Department. Bid securities include certified
+checks, cashier's checks, treasurer's checks, or other negotiable or transferable instruments
+evidencing an unconditional debt to the State or Department. Use the Department provided bond
+form. Provide a proposal guaranty equal to 10 percent of the total bid price. The bid bond does
+not need to cite a specific sum of money but does need to state that the bond equals 10 percent
+of the total bid price.

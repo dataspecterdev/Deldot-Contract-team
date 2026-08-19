@@ -1,0 +1,444 @@
+Reference: DelDOT Standard Specifications
+Source: Section 105.15
+Requirement ID: CC-15
+
+105.15 Claims Resolution.
+
+A. General.
+1. A claim is a written demand by the contractor seeking:
+a. The payment of money.
+b. A contract time extension.
+c. Other relief, including the modification of the contract terms.
+
+2. The contractor and the Department will resolve all contract changes arising under or related to
+the contract that the contractor and the Department do not resolve through the process set
+forth in Section 104.3, Notification of Contract Changes, using the process described in this
+section. Notify the engineer of the intent to file a claim within 10 days from the engineer's final
+response in accordance with Section 104.3, Notification of Contract Changes.
+
+3. The engineer will respond to the contractor within 10 days of receipt of the contractor's notice
+of intent to file a claim. In this response, the engineer will acknowledge receipt of the notice. In
+addition, if the engineer's position regarding the issue raised in the notice has changed since the
+engineer's response to the same issue at the conclusion of the process set forth in Section
+104.3, Notification of Contract Changes, the engineer will describe how its position has changed.
+Follow all the procedures established in this section for unresolved issues.
+
+4. Except as provided for in Section 7 and below, for all claims arising under, or related to, the
+contract, the contractor must complete every step in the procedures established in this section,
+including, but not limited to the timeframes and compliance with Section 104.3, Notification of
+Contract Changes. If the contractor fails to complete every step in the procedures established in
+this section and Section 104.3, Notification of Contract Changes, the contractor waives
+entitlement to compensation, an extension of contract time, or other relief for its claim.
+
+5. Continue the work, including the work associated with the claim, while the parties complete the
+procedures established in this section.
+
+6. Upon written request of the contractor, compliance with the requirements of Section 104.3,
+Notification of Contract Changes, may be waived by the Department if the increase in the
+contract price is under $50,000. Such written request must be made prior to filing a claim
+pursuant to Section 105.15, Claims Resolution. Any waiver requests made after the deadline to
+file a claim under Section 105.15, Claims Resolution, will not be considered by the Department.
+For the avoidance of doubt, only the requirements of Section 104.3, Notification of Contract
+Changes, may be waived and a contractor cannot cure any other deficiency in the requirements
+under this section by requesting a waiver.
+
+7. If the contractor submits a request in writing and the Department agrees in writing, the
+Department may extend the contractor's timeframes specified in this section. The Department
+may extend any timeframe that applies to the Department for any reason upon written notice
+to the contractor.
+
+8. The contractor has the burden of proof regarding establishing its entitlement to the payment of
+money, a contract time extension, or other relief being sought.
+
+9. The Department will not consider a claim submitted by a subcontractor unless the following
+conditions are established:
+a. The contractor, subcontractor, and the Department have attempted to resolve the issue
+through the notification and resolution process required by Section 104.3, Notification of
+Contract Changes.
+b. The contractor provided the Department with written certification by the contractor that the
+contractor reviewed the subcontractor's claim and verified that the claim was fully
+documented and supported in accordance with the claim certification requirements of Section
+105.15.C.7.
+c. The contractor agrees in writing to pay to the subcontractor the full amount of the
+subcontractor's certified claim.
+d. The subcontract and any releases or waivers the subcontractor executed do not bar payment
+to the subcontractor.
+e. The subcontractor's claim submission includes a copy of the executed subcontract, all changes
+or modifications to that subcontract, and all fully executed releases or waivers with the
+contractor.
+
+10. If the contractor refuses to certify a claim submitted by a subcontractor, then the contractor
+waives entitlement to compensation, an extension of contract time, or other relief from the
+Department for the subcontractor's claim.
+
+11. The Department will not review and will reject claims pursued by subcontractors or suppliers
+directly with the Department that the contractor refuses to certify.
+
+12. If it is determined that the contractor is entitled to compensation or a contract time extension,
+the Department will determine the compensation or the time due the contractor in accordance
+with Sections 109.4, Compensation for Changes, and 108.8, Failure to Complete on Time,
+respectively.
+
+B. Contractor Claim Notification.
+1. Notify the engineer orally and in writing of the intent to file a claim before beginning the
+affected work or within 15 calendar days of completing the process set forth in Section 104.3,
+Notification of Contract Changes, whichever is later.
+
+2. If the Department has previously agreed to waive all or part of the process set forth in Section
+104.3, Notification of Contract Changes, a contractor must notify the engineer orally and in
+writing of the intent to file a claim within 15 calendar days of completing the affected work, or
+within 15 calendar days of the Section 104.3, Notification and Contract Changes, waiver being
+granted, whichever is sooner.
+
+3. Unless waived in writing by the Department, before providing a notice of intent to file a claim,
+the contractor and the Department must complete the notification and resolution process
+required by Section 104.3, Notification of Contract Changes. If the contractor does not comply
+with the process in accordance with Section 104.3, Notification and Contract Changes, and does
+not request a waiver of the Section 104.3, Notification of Contract Changes process prior to
+completing the affected work, the contractor waives its entitlement to compensation, an
+extension of the contract time, or other relief for the issue.
+
+4. If the contractor has not provided the notification required by Section 104.3, Notification and
+Contract Changes, and has not completed the resolution process set forth in Section 104.3,
+Notification of Contract Changes, the Department has the right to evaluate the contractor's
+intent to file a claim in accordance with the requirements and processes set forth in Sections
+104.2, Contract Changes, and 104.3, Notification of Contract Changes, including the notification
+requirements of those provisions.
+
+5. If the contractor refuses to first address the resolution of the issue associated with the notice of
+intent in accordance with Section 104.3, Notification of Contract Changes, the contractor waives
+its entitlement to compensation, an extension of the contract time, or other relief for the issue.
+
+6. Provide the following information with the written intent to file a claim:
+a. The date of the occurrence and the nature and circumstances of the occurrence that
+constitutes a change to the contract.
+b. The name and title of the Department representatives knowledgeable of the facts, conditions,
+and circumstances that form the basis of the contractor's claim.
+c. The specific elements of the contract or the contractor's performance for which the
+contractor seeks compensation, an extension of the contract time, or other relief.
+
+7. If the contractor fails to submit written notification to the engineer within the time limits set
+forth in this section, the Contractor waives entitlement to compensation, a contract time
+extension, or other relief for the claim.
+
+8. Substantiate and document costs and delays for which the contractor is seeking compensation
+or a contract time extension.
+
+9. Provide the engineer with the proper facilities for keeping account of the costs and delays for
+which the contractor is seeking compensation or a contract time extension.
+
+10. If the contractor does not document costs and delays and the contractor does not provide the
+engineer with the proper facilities for keeping account of the costs or delays the contractor incurs, the contractor waives entitlement to compensation, a contract time extension, or other
+relief sought by the claim.
+
+11. Notice by the contractor, and the fact that the engineer has kept account of the costs or delays,
+does not establish the contractor's entitlement to the compensation, extension of contract
+time, or other relief sought by the claim.
+
+12. Nothing contained in this section establishes the contractor's entitlement to compensation or a
+contract time extension contrary to the terms of Sections 104.2, Contract Changes, 104.3,
+Notification of Contract Changes, 108.7, Extensions of Contract Time, 109.4, Compensation for
+Changes, or other contract provisions.
+
+C. Claim Submittal.
+1. A contractor must submit a written claim to the engineer within 30 calendar days after
+completing the work described in the notice of intent to file a claim.
+
+2. Prepare a written claim submittal containing at a minimum the following information.
+a. For claims less than or equal to $250,000:
+i. A narrative with sufficient information to allow a third party to understand the issue in
+dispute and its effect on the work.
+ii. A description of the nature and basis for the claim.
+iii. The facts the contractor relies on to support the claim.
+iv. The reasons why the contractor believes it is entitled to relief.
+v. The contract language the contractor relies on to support its claim for entitlement to
+compensation, a contract time extension, or other relief.
+vi. The compensation, contract time extension, or nature and extent of other relief the
+contractor believes it is entitled to.
+vii. Progress schedules and a schedule analysis prepared in accordance with Section 108.7,
+Extensions of Contract Time, when requesting a time extension.
+viii. When requesting compensation for acceleration, documentation and an analysis
+establishing that the contractor accelerated the work to mitigate a delay for which the
+contractor would otherwise be entitled to a time extension and establishing that this
+acceleration resulted in a time savings.
+ix. Documentation verifying the compensation the contractor seeks. Provide documentation in
+accordance with Section 109.4, Compensation for Changes.
+x. Daily logs or diaries, daily time sheets, timecards, foreman's daily reports, and similar
+records prepared by the contractor.
+xi. Meeting minutes, correspondence, photographs, and other documentation that support the
+claim.
+xii. Other information that supports the claim.
+b. For claims greater than $250,000, in addition to the information listed in Section 105.15.C.2.a.
+above:
+i. Union agreements the contractor has not already provided the Department.
+ii. Insurance policies, welfare and benefit records, and other records that document the
+actual benefits paid to, or on behalf of, the contractor's labor that the contractor has not
+already provided to the Department.
+iii. Payroll registers.
+iv. Job payroll ledger and individual employee earnings records.
+v. Payroll tax returns.
+vi. Material invoices, purchase orders, and material and supply contracts or purchase orders.
+vii. Material cost distribution worksheets.
+viii. Equipment records, including a list of contractor-owned or rented equipment, rates, daily
+equipment reports or logs, fueling logs or records, and equipment lease or purchase
+agreements.
+ix. Proof of purchase price and depreciation records on company equipment for which the
+contractor is seeking compensation.
+x. Rental agreements.
+xi. Subcontractor invoices.
+xii. Subcontracts.
+xiii. Subcontractor payment certificates.
+xiv. Canceled checks or other proof of payment.
+xv. Initial, final, and monthly job cost reports.
+xvi. Earnings reports and other related or similar reports.
+xvii. General ledger, general journal, and all subsidiary ledgers and journals together with all
+supporting documentation pertinent to entries made in these ledgers and journals.
+xviii. Cash disbursements journal.
+xix. Financial statements for all years from the bid opening date through the claim certification
+date.
+xx. Income tax returns for the year of the proposal due date through the claim certification
+date.
+xxi. All documents that show the contractor's actual profit and overhead for 5 years preceding
+the year of the proposal due date through the claim certification date.
+xxii. All documents and calculations related to the contractor's proposal preparation, including
+the final calculations the contractor based the bid on.
+xxiii. Electronic spreadsheets and workbooks in the native format the contractor used to
+prepare the claim submittal and calculate the claimed costs.
+xxiv. Other information requested by the Department.
+c. The contractor may request in writing a waiver of documents from the list set forth in Section
+105.15.C.2. The engineer will review the contractor's written request and respond in writing in
+10 calendar days.
+
+3. Submit 3 complete copies of the written claim and all supporting documentation to the
+engineer.
+
+4. Provide the claim and all supporting documentation electronically in native electronic formats, if
+requested by the Department. Provide schedules as P6 .XER files, spreadsheets as Excel.xlxs or
+.xls files, and narratives as Microsoft Word files.
+
+5. The Department may waive the contractor's obligation to submit some portion of the required
+documentation upon the contractor's submission of a written request to the engineer.
+
+6. In addition to the documentation requirements of a written claim, the Department has a right to
+conduct an audit of the contractor's records in accordance with Section 107, Legal Relations and
+Responsibility to the Public. The Department's decision to conduct an audit does not reduce the
+documentation requirements of a written claim.
+
+7. Provide the following claim certification with the claim documents:
+The undersigned is duly authorized to certify this claim on behalf of (the
+contractor). (The contractor) certifies that this claim is made in good
+faith, that the supporting data are accurate and complete to the best of
+the contractor's knowledge and belief, and that the amount requested
+accurately reflects the compensation, extension of contract time, or
+other relief for which (the contractor) believes that the Department is
+responsible.
+(THE CONTRACTOR)
+By: _______________________________________
+(Name) (Title)
+Date of Execution: ____________________________
+
+8. Unless waived by the Department under this section, if the contractor fails to submit the
+information, documentation, schedules, analyses, and certification listed above, the contractor
+waives its entitlement to compensation, an extension of contract time, or other relief for the
+claim.
+
+9. The contractor's entitlement to compensation and an extension of time for a claim is limited to
+the compensation allowed by Section 109.4, Compensation for Changes, and the time extension
+allowed by Section 108.7, Extensions of Contract Time.
+
+D. The Engineer's Review.
+1. Upon the receipt of the contractor's properly certified claim, the engineer will review the claim
+submittal to confirm that the submittal is complete and certified as required by Section
+105.15.C, Claim Submittal.
+
+2. If the engineer determines that the claim submittal is not complete and properly certified,
+within 10 days of engineer's receipt of the claim submittal, the engineer will notify that contractor in writing of the deficiencies in the submittal. Until the contractor remedies the
+deficiencies identified by the engineer, the Department will take no further action on the
+contractor's claim. If the contactor does not correct the deficiencies within 30 days of the
+engineer's written notice of deficiencies, the claim is considered to be withdrawn and the
+contractor has waived entitlement to compensation, an extension to the contract time, or other
+relief that was sought by the claim.
+
+3. Within 30 days of the receipt of the contractor's complete and properly certified claim
+submission, the engineer has 2 options:
+a. If the engineer's position regarding the claim has changed from the position held when the
+engineer received the contractor's notice of intent to file a claim, the engineer will notify the
+contractor in writing and schedule a meeting with the contractor to negotiate and resolve the
+claim.
+b. If the engineer's position regarding the claim has not changed, the engineer will notify the
+contractor in writing that the engineer's position regarding the claim is unchanged.
+
+4. Within 10 days of the engineer's written response, the contractor has 2 options:
+a. The contractor may agree to meet with the engineer to negotiate and resolve the claim if the
+engineer has offered this option.
+b. The contractor may refuse to meet with the engineer or accept the engineer's written
+response to the claim and appeal the claim to the District Engineer.
+
+5. If the contractor decides to appeal, submit the appeal within 30 days of receipt of the engineer's
+written response.
+
+E. District Review.
+1. The District Engineer will review the contractor's formal written appeal and the contractor's
+claim completed and properly certified claim submission if it is appealed timely.
+
+2. Within 30 calendar days after receiving the formal written appeal and claim, the District
+Engineer will meet with the contractor to present the results of the District's evaluation. The
+District and the contractor will attempt to reach agreement during the meeting and resolve all
+or part of the claim.
+
+3. If the District and the contractor are not able to resolve all or part of the claim, the District will
+issue a written decision regarding that portion of the claim that was not resolved within 15
+calendar days of the meeting. The District's written decision will include the amount of money
+or time, if any, that the District concludes the contractor is due, and the reasons why the
+contractor is not entitled to the full amount of time or money claimed.
+
+4. At the District's sole discretion, the District will notify the contractor if the District needs
+additional time to review the claim and to prepare the written decision.
+
+5. If mutually agreed, including agreement to the extension of applicable time limits, the parties
+may engage in non-binding alternate dispute resolution such as mediation to facilitate
+resolution of the appeal.
+
+6. The District and the contractor may conduct non-binding dispute resolution in addition to, or
+instead of, the District meeting with the contractor.
+
+7. If the meeting with the contractor and the non-binding dispute resolution are unsuccessful, the
+District Engineer will issue a written decision regarding the unresolved portion of the claim
+within 15 calendar days after the meeting, or the non-binding dispute resolution effort,
+whichever is completed later.
+
+F. Contractor's Appeal to the Claims Committee.
+1. If the amount of the unresolved portion of the claim is greater than $100,000 after the
+completion of the District's review, the contractor may appeal the District's decision to the
+Department's Claims Committee.
+
+2. If the amount of the unresolved portion of the claim is less than or equal to $100,000 after the
+completion of the District's review, the contractor may appeal the District's decision to the
+Secretary for the Secretary's Decision as set forth in Section 105.15.G, Secretary's Decision.
+
+3. Whether to the Claims Committee or the Secretary, submit the written notice of appeal within
+10 calendar days of the date of the District's decision.
+
+4. Failure to provide timely notice of an appeal constitutes a waiver of the contractor's right to
+appeal the District's decision regarding the claim. The contractor's entitlement to compensation,
+a contract time extension, or other relief is limited to the amounts set forth in the District
+Engineer's written decision regarding the claim.
+
+5. Pre-Meeting Conference.
+a. The Chair of the Claims Committee will designate either the Claims Committee or the claims
+committee's legal counsel to act as a Referee to hold a pre-meeting conference at least 5
+business days before the claims review meeting to expedite the meeting of the case by:
+i. Simplifying factual and legal issues by stipulation;
+ii. Advising both the Department and the contractor of the time limits set for the claims review
+meeting by the claims committee. Each side will be allocated an equal portion of time to
+present its case and each side may not exceed the time allotted without the express
+permission of the Claims Committee;
+iii. Resolving any preliminary or procedural matters; and
+iv. Pre-marking for identification and admission into evidence all exhibits.
+v. Failure of a party to participate in a pre-meeting conference may be a ground for the Chair
+to continue the hearing.
+
+6. Pre-Meeting Submissions.
+a. At least 5 business days prior to the pre-meeting conference, the parties shall exchange their
+proposed exhibits and witness lists with copies to the Referee, in electronic form.
+b. The claimant's exhibits should be clearly marked in a numbered sequence (1,2,3…) while the
+Department's exhibits should be clearly marked in a lettered sequence (A, B, C…)
+
+7. Pre-Meeting Order.
+a. If any preliminary or procedural matters are discussed at the pre-meeting conference, the
+Referee will make written recommendations to the Chair for review and approval. Approved
+recommendations will be incorporated into a Pre-Meeting Order signed by the Chair. The
+Claims Committee may decide any preliminary or procedural matters at the beginning of the
+claims review meeting or reserve ruling until after the hearing has been completed.
+
+8. Claim Review Meeting.
+a. The Claims Committee will hold a claim review meeting attended by representatives of the
+contractor and the District.
+b. The Chief Engineer may establish rules and procedures governing the claim review meeting.
+The Department will post such procedures on the Department's website and provided to the
+contractor after a notice of intent to file a claim is provided. These rules and procedures may
+be updated from time to time and updates will be posted on the Department's website and
+provided to any contractor who timely files a claim pursuant to this section.
+c. The Claims Committee will schedule the claim review meeting within 60 calendar days after
+the District receives the contractor's appeal notice.
+d. At the Claims Committee's sole discretion, the Claims Committee will notify the contractor if
+additional time is needed before conducting the claim review meeting.
+e. A court reporter will record the proceedings of the claim review meeting.
+f. The Department and the contractor will share the cost of the court reporter for the Claim
+Review meeting equally.
+g. The Contractor is responsible to obtain and pay for a copy of the transcript from the court
+reporter.
+h. A copy of the contract will form the record before the Claims Committee in addition to the
+claims, appeals, decisions, and documentation submitted in this process.
+
+9. Preliminary Decision.
+a. Within 45 calendar days after the claim review meeting, the Claims Committee will issue a
+preliminary written decision. The Claims Committee's preliminary written decision will include
+the money, time, or other relief, if any, that the Claims Committee concludes the contractor is
+due, and the reasons why the contractor is not entitled to the full amount of money, time, or
+other relief claimed.
+b. In the Claims Committee's sole discretion, the Claims Committee will notify the contractor if it
+needs additional time to review the claim or prepare the committee's preliminary written
+decision.
+
+10. Resolution Period and Final Decision.
+a. After the Claims Committee issues its preliminary written decision, the contractor and the
+District have a period of 15 calendar days to attempt a negotiated resolution to the claim. If
+after 15 calendar days the parties have not negotiated a resolution to the claim, the Claims
+Committee will issue its final written decision. The District may extend this 15-day period at its
+sole discretion.
+b. The contractor may appeal the Claims Committee's final written decision to the Secretary.
+
+G. Secretary's Decision
+1. Provide a written appeal notice to the Claims Committee chairperson within 10 calendar days
+after receiving the Claims Committee's final written decision.
+
+2. Failure by the contractor to provide timely notice of an appeal constitutes a waiver of the right
+to appeal. The contractor's entitlement to compensation, an extension of contract time, or
+other relief is limited to the amounts set forth in the Claims Committee's written claim decision.
+
+3. The Secretary will notify the parties, in writing, within 30 calendar days after receiving the
+written appeal notice that notice was received.
+
+4. The Secretary may designate a representative to fulfil all, or a portion of, the Secretary's
+obligations associated with Section 105.15.G, Secretary's Decision.
+
+5. The Secretary will review the record and may schedule a meeting or hearing with the parties to
+discuss the claim.
+
+6. Within 90 calendar days of receipt of the contractor's appeal notice, The Secretary may meet
+with the contractor to present the results of the Secretary's claim evaluation. The Secretary and
+the contractor may attempt to reach agreement during the meeting and resolve all or part of
+the claim.
+
+7. If the Secretary and the contractor are not able to resolve all or part of the claim, the Secretary
+will issue a written decision regarding the portion of the claim that was not resolved within 15
+calendar days of the meeting. The decision will include the amount of money or time, if any,
+that the contractor is due, and the reasons why the contractor is not entitled to the full amount
+of money or time claimed.
+
+8. At the Secretary's sole discretion, the Secretary will notify the contractor if additional time is
+needed to review the claim or prepare the Secretary's written decision.
+
+9. If the contractor and the Secretary agree, the parties will engage in a facilitated, non-binding
+mediation.
+
+10. If the parties agree to mediation, the Department will suspend all time limits until the mediation
+is completed.
+
+11. The Secretary and the contractor will jointly decide the time and place for mediation and will
+jointly select a mediator.
+
+12. The contractor and the Department will share mediator costs equally.
+
+13. The contractor and the Department may conduct a mediation in addition to, or instead of, the
+Secretary's meeting with the contractor.
+
+14. The parties may conduct the mediation in addition to the non-binding dispute resolution
+conducted at the District level.
+
+H. Contractor, Subcontractor, and Supplier Disputes
+Arbitration proceedings shall resolve disputes between the contractor and its subcontractors and
+suppliers concerning payments held in trust, as required by Chapter 8, Title 17 of the Delaware Code. The Department will not serve as the arbiter of such disputes, but will, in the absence of
+agreement between the parties, designate the American Arbitration Association to resolve the
+matter.

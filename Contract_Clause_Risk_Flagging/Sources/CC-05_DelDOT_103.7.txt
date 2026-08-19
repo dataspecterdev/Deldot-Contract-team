@@ -1,0 +1,19 @@
+Reference: DelDOT Standard Specifications
+Source: Section 103.7
+Requirement ID: CC-05
+
+103.7 Contract Execution and Approval; Proof of Insurance.
+
+A. Return the signed contract and contract bonds to the Department within 20 calendar days after
+the notice of award. If the Department has not executed the contract within 15 calendar days
+following receipt of the signed contract and bonds, the contractor has the right to withdraw the
+bid without penalty or liability.
+
+B. If the successful bidder is not a Delaware corporation, provide proof of compliance with the
+requirements of Subchapter XVI of Title 8 of the Delaware Code, and as further amended at the
+time of bid.
+
+C. Maintain insurance in compliance with the requirements of Sections 2502 and 2503, Title 18 of
+the Delaware Code. Provide a certificate of insurance to the Department before contract
+execution. Provide coverage for additional insureds if required by the contract. The Department
+will not execute the contract until the contractor provides acceptable proof of insurance.

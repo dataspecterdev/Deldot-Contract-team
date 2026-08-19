@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-07",
+    "tier": "Baseline",
+    "requirement_name": "Delaware business / subcontractor licenses",
+    "reference_source": "Delaware public works licensing statute + DelDOT proposal",
+    "section": "29 Del. C. \u00a7 6967",
+    "severity_guidance": "High"
+  }
+}

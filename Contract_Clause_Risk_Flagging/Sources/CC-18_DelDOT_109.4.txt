@@ -1,0 +1,345 @@
+Reference: DelDOT Standard Specifications
+Source: Section 109.4
+Requirement ID: CC-18
+
+109.4 Compensation for Changes.
+
+A. General
+1. If the Department changes the contract, as provided in Section 104.2, Contract Changes, and the
+contractor provides timely notice in accordance with Section 104.3, Notification of Contract
+Changes, the engineer will determine the pricing method for the change following the sequence
+specified below in Sections 109.4.B through D.
+
+2. Compensation for a change in accordance with Section 109.4, Compensation for Changes,
+constitutes full and complete compensation for performing the change.
+
+3. The Department reserves the right to provide the materials for performing the changed work.
+The contractor is not entitled to payment for the cost of these materials or mark ups on the
+value of these materials.
+
+4. If the change includes a time extension for compensable delays as provided by Section 108.7,
+Extensions of Contract Time, the Department will compensate the contractor for the costs
+associated with the time extension in accordance with Section 109.6, Compensation for Delay.
+
+5. The Department will not pay for non-allowable charges specified in Section 109.5, Non-
+Allowable Charges, or duplicate payments that may result from the application of Section 109.6,
+Compensation for Delay, or any other provisions of the contract.
+
+B. Unit Prices
+Before proceeding to another pricing method, the engineer will attempt to price and pay for the
+change using unit prices in the contractor's proposal. The Department will pay for the change
+using unit prices when the change incorporates work that does not differ significantly from the
+work in the original bid.
+
+C. Negotiated Prices
+1. If the engineer and the contractor cannot agree on compensation for the change in accordance
+with Section 109.4.B, Unit Prices, the engineer and the contractor will attempt to negotiate unit
+or lump sum prices for the changed work using 1 or more of the following methods:
+a. Unit bid prices for similar pay items adjusted for increased or decreased costs.
+b. Historical unit bid prices for similar work and quantities.
+c. Unit prices determined by the Department.
+d. Cost analysis of labor, material, equipment, and mark ups as allowed in Section 109.4.D, Force
+Account.
+
+2. Negotiated mark-ups for subcontractor work may not exceed that provided for in Section
+109.4.D.14, Subcontracting.
+
+3. Within 7 calendar days of the Department's request, submit a written proposal that includes
+pricing, cost justification, and a schedule for performing the changed work.
+
+4. The Department will respond within 7 calendar days after receiving the contractor's proposal.
+
+5. The Department and the contractor can mutually agree in writing to extend the 7-day time
+limits.
+
+D. Force Account.
+1. If the engineer and contractor are unable to agree to a price for a change in accordance with
+Sections 109.4.B, Unit Prices, or C, Negotiated Prices, the engineer may direct the contractor to
+perform all or part of the change using the force account pricing method. Obtain the engineer's
+written approval before proceeding with force account work.
+
+2. When the engineer directs the contractor to perform the change using the force account pricing
+method, the Department will pay the contractor as specified in Sections 109.4.D.5. through 14.
+
+3. Prior to starting work using the force account pricing method, the engineer will meet with the
+contractor to determine and agree on the labor, equipment, and materials needed to perform
+the change.
+
+4. The engineer will make the final determination concerning what labor, equipment, and
+materials are needed to perform the change.
+
+5. Follow the engineer's direction when performing the change.
+
+6. The Department will not pay for the change in excess of the agreed amount using the force
+account pricing method if the engineer was not given an opportunity to review and approve the
+labor, equipment, and materials proposed by the contractor to perform the change and if the
+contractor did not follow the engineer's direction when performing the change.
+
+7. Labor.
+a. The Department will compensate the contractor for labor at the actual rate of wage paid and
+shown on the certified payroll for every hour that the labor and working supervision worked
+exclusively on the changed work.
+b. The Department will pay for a foreman in charge of the changed work as direct labor and not
+in the overhead markup.
+c. The Department considers the cost of home office personnel, project executives, project
+managers, superintendents, general foreman, clerical personnel, assistants, and all other
+management and supervisory personnel as compensated by the mark ups allowed by Section
+109.4.D.12, Overhead.
+d. Unless already included in the wage rates paid, the Department will also pay the actual labor-
+related costs of health and welfare benefits, pension funds, or other benefits, provided those
+payments are required by a collective bargaining agreement or other employment contract
+generally applicable to the classes of labor employed to perform the change.
+
+8. Bond, Insurance, and Tax
+a. For bond premiums; property damage, liability, and workers compensation insurance
+premiums; unemployment insurance contributions; and social security taxes, the Department
+will compensate the contractor for the actual incremental cost necessarily and directly
+resulting from the performance of the change.
+b. Provide documentation, satisfactory to the Department, of the rate or rates paid for bonds,
+insurance, and taxes.
+
+9. Materials.
+a. The Department will compensate the contractor for the cost of materials the contractor
+provided and used for the changed work.
+b. The material purchaser is the entity that purchased the material to perform the change. For
+example, if the change requires fabrication of structural steel, the steel fabricator that
+purchased the steel to fabricate the structural steel for the change is the material purchaser,
+not the contractor.
+c. The cost of contractor-furnished materials is the cost to the purchaser, together with
+transportation charges paid by the purchaser, except as the following apply:
+i. If a cash or trade discount by the actual supplier of the material is offered or available to the
+purchaser, credit that amount to the Department even if the purchaser did not take the
+discount.
+ii. For materials obtained from a supplier or source owned wholly or in part by the purchaser,
+the Department will pay the lowest of the following:
+(1) The price of similar materials previously purchased from a supplier.
+(2) The price of materials used by the purchaser on other Department projects.
+iii. The Department will pay the current wholesale price for materials if it is lower than the
+contractor's purchase price from its wholly or partially owned supplier.
+d. If the purchaser procures materials by methods other than a direct purchase and direct billing
+from the supplier, the engineer will pay the price paid to the supplier, plus the costs incurred
+in the handling the materials.
+e. If the contractor uses materials to complete the change that were taken from the contractor's
+stock, submit an affidavit certifying that the materials came from the contractor's stock, the
+quantity was used in the changed work, and the price and transportation costs represent the
+contractor's actual costs.
+f. If the engineer determines that the cost of materials for the changed work is excessive or the
+contractor fails to provide substantiation for material costs from the supplier, the Department
+will pay the lowest current wholesale price for the materials. The Department will pay for the
+required quantities delivered to the project site, less available cash or trade discounts offered
+by the actual supplier of the material.
+
+10. Equipment.
+a. General.
+i. The Department will pay for each hour that the contractor uses an approved piece of
+equipment to perform the changed work.
+ii. Use equipment that the engineer agrees is in good operating condition.
+iii. Describe the equipment used in detail to document it for payment.
+iv. Select equipment of suitable size and suitable capacity for the changed work.
+v. The engineer will determine the suitability of the equipment.
+vi. In the event the contractor elects to use equipment of a higher rental or hourly ownership
+cost than is suitable for performing the work associated with the change, the Department
+will pay the rate applicable to the suitable equipment.
+vii. If there is a differential in the rate of pay of the operator of oversize or higher-rate
+equipment, the Department will pay the rate of an operator of the suitable equipment.
+viii. The Department will not pay for the use of small tools. Small tools are defined as tools or
+equipment with a daily ownership and operating cost or daily rental rate and operating cost
+of less than $5.00. The Department will not pay for owned equipment not listed in the
+Rental Rate Blue Book (Blue Book) published by EquipmentWatch that cost less than $1,500
+when new.
+ix. The Department will pay for subcontractor-owned equipment as "Owned Equipment," as
+set forth below. The Department will pay for leased or rented equipment or equipment
+hired from a subcontractor as "Leased, Rented, or Hired Equipment," as set forth below.
+x. The Department will not pay standby time for equipment that operated for more than 8
+hours in a day or 40-hours in a week.
+xi. The Department will pay standby time for equipment that operated less than 8-hours in a
+day or less than 40-hours in a week. The Department will base standby time on the
+difference between the operating time on a normal working day and 8 hours per day or the
+difference between the operating time in a normal work week and 40 hours per week.
+xii. The Department will not pay for the time equipment is idle on a day that is not a normal
+working day.
+b. Owned Equipment.
+i. The Department will compensate the contractor for contractor-owned equipment at a rate
+determined from the Blue Book.
+ii. Owned equipment is equipment and plant owned directly by the contractor or by entities
+that are divisions, affiliates, subsidiaries, or in any other way related to the contractor or its
+parent company.
+iii. Use the Blue Book in the following manner:
+(1) Determine the hourly rate by dividing the monthly rate by 176. Do not use the weekly,
+hourly, or daily rates.
+(2) The Department will pay for the number of hours that the equipment or plant is used to
+perform the changed work.
+(3) The Department will not pay for more than 176 hours per calendar month.
+(4) Use the current edition of the Blue Book to establish the rates. The applicable current
+edition is the one that is current as of the first day of work performed on the change. That
+rate applies throughout the time it takes to perform the changed work.
+(5) Make the area adjustment.
+(6) Make the equipment life adjustment in accordance with the Blue Book rate adjustment
+tables.
+(7) Charge the same rate for equipment used on overtime as charged for regular hours.
+(8) Use the Blue Book operating rate for each hour the equipment or plant was in operation for
+the change. The Blue Book operating rate does not apply to idle time regardless of the
+cause.
+(9) The Department will not compensate the contractor for equipment idle time unless the
+equipment was held on the project site at the engineer's written request.
+(10) The Department compensates for idle time at 1/2 the rate established in (1) through (6)
+above.
+(11) Compensation for idle time will not exceed 8-hours in a day and will not exceed 40-hours in
+a week.
+(12) The rates established above include the cost of fuel, oil, lubrication, supplies, attachments,
+repairs, overhaul, and maintenance of any kind, depreciation, storage, overhead, profits,
+insurance, incidentals, and all other costs.
+(13) Do not include operator costs in the hourly equipment or plant rate.
+(14) If the Blue Book does not have a rate for a piece of equipment, the engineer will establish a
+rate determined by audit in accordance with Section 107.15, Audits.
+iv. If owned equipment required for the changed work is not available at the project site, the
+Department will pay the move-in cost of transporting the equipment to the project site and
+the move-out cost of moving the equipment off the site in accordance with the following:
+(1) Obtain the engineer's approval of the equipment location before transporting the
+equipment to the project site.
+(2) If the contractor chooses to keep the equipment at the project site to perform work other
+than the work associated with the change, the Department will not pay for the move-out
+costs.
+(3) If the contractor chooses to return the equipment to a location other than the original
+location, the Department will pay a move-out cost that does not exceed the move-in cost.
+(4) Calculate the equipment transportation cost to and from the project site using the hourly
+rates for labor and equipment determined in accordance with the labor and equipment
+provisions of this specification. The Department will not pay moving costs that exceed the
+costs of moving the equipment using an independent hauler instead of the contractor's own
+forces.
+(5) If the contractor uses an independent hauler to transport contractor-owned equipment, the
+Department will pay the invoice price paid to the hauler and 50 percent of the hourly
+ownership costs as determined above in accordance with the Blue Book.
+(6) Transportation costs include loading and unloading.
+c. Rented Equipment
+i. If the contractor does not own the required equipment, inform the engineer of the need to
+rent the equipment and of the rental rate before mobilizing the equipment to the site and
+using it to perform the changed work.
+ii. The Department will compensate the contractor for the rented equipment by paying the
+rental rate for the time it is used to perform the changed work.
+iii. The Department will compensate the contractor for the cost of moving the rented
+equipment on and off the project if the moves are necessary only because of the changed
+work.
+iv. For idle rental equipment that must remain on the site because of the engineer's written
+directive, the Department will pay for the rented equipment at the rental rate established
+above for rented equipment, not to exceed 8-hours in a day or 40-hours in a week.
+v. The Department will not pay for rented equipment costs in excess of the actual cost paid for
+the rental.
+vi. Provide a copy of the paid receipt or canceled check for the rental expense incurred.
+vii. The Department will pay the operating costs of rented equipment used for the changed
+work based on the Blue Book operating costs for the same piece of equipment.
+
+11. Daily Records
+a. Use the Department's Daily Force Account form to document daily the labor, equipment, and
+materials used to perform the changed work.
+b. Complete the Daily Force Account form to provide a clear distinction between the changed
+work and all other work.
+c. Provide all information required by the Daily Force Account form, including:
+i. The name, classification, date, daily hours, total hours, rate, and extension for each laborer
+and foreman.
+ii. The designation, number, date, daily hours, total hours, rental rate, including a copy of the
+Blue Book pages used, and extension for each piece of equipment and associated
+attachments.
+iii. The quantities of materials, prices, and extensions. Substantiate material costs with copies
+of vendor's invoices. Submit vendor invoices with the Daily Force Account forms or, if not
+available that day, submit the invoices with subsequent Daily Force Account forms. Failure
+to submit vendor's invoices within 60 calendar days after the date of material delivery, or
+within 15 calendar days after completing the changed work, whichever occurs first, will
+result in the engineer establishing the material costs. The engineer will use the lowest
+current wholesale prices for similar materials, available in the quantities used for the
+changed work, delivered to the project, less any available discounts.
+iv. The cost of material transportation.
+v. The cost of insurance premiums for property damage, liability, and workers compensation
+insurances; unemployment insurance contributions; bonds; and social security taxes.
+d. At the end of each workday:
+i. The engineer will compare the records the engineer kept with the completed Daily Force
+Account form the contractor submitted.
+ii. The engineer and the contractor will review and attempt to reconcile differences with the
+Daily Force Account form record.
+iii. After the engineer and the contractor agree on the content of the Daily Force Account form
+submitted at the end of the workday, both parties will sign the form.
+e. The Department will use the completed and signed Daily Force Account form as the basis for
+determining the amount due the contractor. However, the Department may subsequently
+increase or decrease the compensation paid based on an audit of the contractor's records.
+Allow the Department access to force account compensation cost records for inspection or
+audit in accordance with Section 107.15, Audits.
+f. If the contractor fails to submit the Daily Force Account form daily or refuses to sign the Daily
+Force Account form, the Department will use the engineer's records for payment.
+
+12. Overhead.
+a. The Department defines overhead to include the following:
+i. Home office expenses, including the salaries and expenses of executive officers, area or
+regional managers, managers, supervisors, and engineering, estimating, administrative, and
+clerical personnel. Home office expenses are expenses incurred by the contractor not
+charged directly to any one project. These expenses are identified as general and
+administrative expenses.
+ii. Field office expenses, including project executives, project managers, general
+superintendents, superintendents, assistants, and non-working foremen. Field office
+expenses are expenses incurred by the contractor on a specific project but not charged to a
+particular item of work. For example, the cost of a job site trailer is a field office expense,
+but the cost of a cubic yard of concrete used in a bridge footing is not because there is an
+item, or items, for the bridge work.
+iii. Cost of small tools, such as shovels, picks, axes, saws, bars, sledges, lanterns, jacks, cables,
+pails, wrenches, and the cost of other miscellaneous supplies and services.
+iv. Computers, copiers, and other office equipment.
+b. The Department will compensate the contractor for overhead at 10 percent of the following:
+i. Bare material costs calculated in accordance with Item 9 above, not including freight on
+board (FOB) costs.
+ii. Direct labor costs calculated in accordance with Item 7 above.
+iii. Equipment costs calculated in accordance with Item 10 above.
+iv. The Department may pay for extraordinary overhead expenses, such as hiring of additional
+supervisory personnel or purchase of a specialty small tool the contractor has to purchase
+specifically for the changed work. The Department will only pay for extraordinary overhead
+expenses if the engineer agreed to the costs before the contractor incurred the costs.
+
+13. Profit.
+a. The Department will compensate the contractor for profit at five percent of the following:
+i. Bare material costs calculated in accordance with Item 9 above, not including FOB.
+ii. Direct labor costs calculated in accordance with Item 7 above.
+
+14. Subcontracting.
+a. For administration costs in connection with subcontract work, the Department will pay an
+amount equal to 10 percent for subcontractor work up to $100,000 and five percent on work
+exceeding $100,000 determined in accordance with Items 7 through 13 above.
+
+E. Acceleration.
+1. The engineer may direct the contractor, in writing, to accelerate the work.
+
+2. If the engineer directs the contractor to complete the work early or directs the contractor to
+accelerate to mitigate excusable delays and accelerating the work will result in added costs,
+provide notice of a change in accordance with Section 104.3, Notification of Contract Changes.
+
+3. The contractor is not entitled to compensation for the acceleration unless the contractor has:
+a. Provided notice in accordance with Section 104.3, Notification of Contract Changes.
+b. The engineer directed the acceleration in writing.
+c. The engineer directed the contractor to complete the work in less than the contract time or to
+mitigate an excusable delay instead of granting a time extension.
+
+4. The engineer will compensate the contractor for directed acceleration in accordance with
+Section 109.4, Compensation for Changes.
+
+5. If the Department uses the force account method to compensate the contractor for
+acceleration, the Department will modify Section 109.4.D, Force Account, as follows:
+a. If acceleration requires working overtime or additional shifts, the Department will pay for the
+overtime shift premium and the health and welfare benefits, pension fund, or other benefits
+costs directly related to the overtime shift premium. The Department will pay for benefits
+required by collective bargaining agreements or other employment contracts applicable to the
+classes of labor used for the changed work. The Department will also pay for workers
+compensation insurance premiums, unemployment insurance contributions, and social
+security taxes.
+b. The Department will not pay for additional supervision to oversee work during overtime hours
+or during additional shifts. Compensation for this supervision is included in the allowable labor
+overhead markup.
+c. The Department will pay for equipment used during overtime hours or on extended shifts at
+the same rate used for regular time or normal shifts.
+d. If the engineer requests the contractor to expedite material deliveries to accelerate the work,
+the Department will pay the expediting costs.
+
+F. Payments
+Compensation for changed work paid, in accordance with Section 109.4, Compensation for
+Changes, is full and complete compensation for the changed work, except to the extent that the
+contractor is also entitled to compensation for an excusable and compensable time extension due
+to the changed work. The Department will determine the contractor's entitlement to a
+compensable time extension in accordance with Section 108.7, Extensions of Contract Time. The
+Department will determine compensation for the time extension in accordance with Section
+109.6, Compensation for Delay.

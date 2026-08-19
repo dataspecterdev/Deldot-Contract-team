@@ -1,0 +1,11 @@
+Reference: Federal-aid DelDOT proposal General Notices
+Source: Buy America Requirement
+Requirement ID: CC-09
+
+Review Expectation: Verify Buy America/BABA applicability and certification language are not omitted or contradicted for a project explicitly marked as subject to the requirement.
+
+Challenge Reference Rule: Apply Buy America/BABA only when project metadata/reference indicates it applies; if applicable, a clause saying it does not apply is a finding.
+
+Applicability Rule: Federal-aid project whose proposal states Buy America/BABA requirements apply.
+
+Note: The full Buy America, Build America regulation is published in the Federal Register (FR-2025-01-14, Document 2024-31350). For challenge scoring purposes, the system checks whether a contract package contradicts or omits the Buy America/BABA applicability when metadata indicates it applies.

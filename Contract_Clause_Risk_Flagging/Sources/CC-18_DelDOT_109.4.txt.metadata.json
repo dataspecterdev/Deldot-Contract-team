@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-18",
+    "tier": "Advanced",
+    "requirement_name": "Compensation for changes",
+    "reference_source": "DelDOT Standard Specifications",
+    "section": "DelDOT 109.4",
+    "severity_guidance": "Medium"
+  }
+}

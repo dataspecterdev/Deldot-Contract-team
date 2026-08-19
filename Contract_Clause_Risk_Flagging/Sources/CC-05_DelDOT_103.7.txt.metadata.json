@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-05",
+    "tier": "Baseline",
+    "requirement_name": "Contract execution and proof of insurance",
+    "reference_source": "DelDOT Standard Specifications",
+    "section": "DelDOT 103.7",
+    "severity_guidance": "High"
+  }
+}

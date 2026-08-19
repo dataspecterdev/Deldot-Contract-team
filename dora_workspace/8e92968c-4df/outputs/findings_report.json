@@ -1,0 +1,1122 @@
+{
+  "report_metadata": {
+    "generated_at": "2026-08-19T15:27:10.116817+00:00",
+    "report_type": "contract_clause_risk_flagging",
+    "scoring_authority": "Reference_Checklist.csv — Challenge_Reference_Rule column",
+    "sources_role": "Confidence scoring only (not used as validation criteria)",
+    "description": "Each finding shows the exact contract text (file, page, line number) and the challenge_reference_rule it was judged against. Sources from the knowledge base are used ONLY to compute a retrieval confidence factor."
+  },
+  "summary": {
+    "total_packages": 1,
+    "total_requirements_checked": 18,
+    "total_flags": 5,
+    "total_compliant": 13
+  },
+  "packages": [
+    {
+      "package_id": "The_Explora",
+      "summary": {
+        "total_requirements_checked": 18,
+        "flags": 5,
+        "compliant": 13,
+        "flag_ids": [
+          "CC-01",
+          "CC-08",
+          "CC-09",
+          "CC-13",
+          "CC-14"
+        ]
+      },
+      "findings": [
+        {
+          "requirement_id": "CC-01",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Project metadata marks this a federal-aid contract funded under Title 23, so FHWA-1273 incorporation applies.",
+            "predicted_label": "FLAG",
+            "severity": "Critical",
+            "confidence": 0.84,
+            "explanation": "Project metadata confirms this is a federal-aid contract funded under Title 23, making FHWA-1273 physical incorporation mandatory. Searching the entire reviewed package — Addendum_A.pdf, General_Conditions.pdf, Proposal_and_General_Notices.pdf, and Special_Provisions.pdf — reveals no physical inclusion of FHWA-1273, nor any clause that references or incorporates it. Moreover, the Proposal_and_General_Notices.pdf affirmatively states 'Federal aid No' and 'Buy America/BABA applicable No' at lines Proposal_and_General_Notices.pdf|p1|L6 and L7, which directly conflicts with the project metadata establishing federal-aid applicability. No Addendum revises this provision. The form is entirely absent from the package, and the proposal summary affirmatively misrepresents the federal-aid status. This is a material deviation from the Challenge Reference Rule requiring physical incorporation.",
+            "recommended_action": "Human review required: FHWA-1273 is not physically incorporated anywhere in the contract package, and the proposal summary incorrectly states 'Federal aid No' contrary to project metadata. Confirm federal-aid status and ensure FHWA-1273 is physically inserted into the package before execution."
+          },
+          "criteria": {
+            "requirement_id": "CC-01",
+            "requirement_name": "FHWA-1273 physical incorporation",
+            "reference_source": "FHWA-1273 + federal-aid proposal",
+            "section": "FHWA-1273 I.1",
+            "challenge_reference_rule": "If federal-aid metadata makes FHWA-1273 applicable, the form must be physically included in the package; a reference-only statement is insufficient for challenge scoring.",
+            "review_expectation": "Flag a covered contract that only references FHWA-1273 instead of physically including the form.",
+            "severity_guidance": "Critical"
+          },
+          "contract_evidence": {
+            "governing_document": "Proposal_and_General_Notices.pdf",
+            "draft_location": "Proposal_and_General_Notices.pdf, p1, lines 6-7 (section \"Federal aid No\")",
+            "draft_quote": "Federal aid No\nBuy America/BABA applicable No",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 6,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L6",
+                "text": "Federal aid No",
+                "section_heading": "Federal aid No"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 7,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L7",
+                "text": "Buy America/BABA applicable No",
+                "section_heading": "Buy America/BABA applicable No"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.84,
+            "retrieval_score_percent": 57.2,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-01_FHWA-1273.txt",
+              "CC-09_Buy_America_BABA.txt",
+              "CC-15_DelDOT_105.15.txt",
+              "CC-08_Addenda_Check.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-02",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "DelDOT bid package governed by Section 102.8 proposal-guaranty requirements.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.92,
+            "explanation": "The governing document (Proposal_and_General_Notices.pdf) states the bid security must 'total one-tenth (10%) of the bid amount.' One-tenth (10%) of the bid amount is substantively identical to 10% of the total bid price required by the Challenge Reference Rule. The phrasing 'one-tenth (10%)' and 'bid amount' versus 'total bid price' is a restatement in different words that preserves the same obligation and percentage. No Addendum revises this provision. The clause is fully compliant with the reference requirement.",
+            "recommended_action": "No action required — the proposal guaranty clause in Proposal_and_General_Notices.pdf satisfies the 10% requirement. Human reviewer should confirm the physical bid bond instrument accompanying the proposal is present and equals 10% of the submitted bid price."
+          },
+          "criteria": {
+            "requirement_id": "CC-02",
+            "requirement_name": "Proposal guaranty / bid bond",
+            "reference_source": "DelDOT Standard Specifications + proposal",
+            "section": "DelDOT 102.8",
+            "challenge_reference_rule": "Where applicable, proposal guaranty must equal 10% of total bid price.",
+            "review_expectation": "Verify acceptable proposal guaranty is provided and equals 10% of total bid price.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "Proposal_and_General_Notices.pdf",
+            "draft_location": "Proposal_and_General_Notices.pdf, p1, lines 11-13 (section \"Proposal guaranty / bid bond\")",
+            "draft_quote": "Bid Security. Security accompanying the proposal must be in an acceptable form and total one-tenth (10%) of the bid amount.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 11,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L11",
+                "text": "Proposal guaranty / bid bond",
+                "section_heading": "Proposal guaranty / bid bond"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 12,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L12",
+                "text": "Bid Security. Security accompanying the proposal must be in an acceptable form and total one-tenth (10%) of",
+                "section_heading": "Proposal guaranty / bid bond"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 13,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L13",
+                "text": "the bid amount.",
+                "section_heading": "Proposal guaranty / bid bond"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.92,
+            "retrieval_score_percent": 80.8,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-02_DelDOT_102.8.txt",
+              "CC-04_DelDOT_103.5.txt",
+              "CC-03_DelDOT_102.15.txt",
+              "CC-14_DelDOT_108.1.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-03",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "DelDOT proposal, so the Section 102.15 non-collusive bidding certification applies.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.88,
+            "explanation": "The governing document (Proposal_and_General_Notices.pdf) contains a heading 'Non-collusive bidding certification' and the clause states 'The required certification is to be completed and included with the proposal.' This carries the requirement forward by mandating that the certification be completed and included. The capitalization difference ('NON-COLLUSION CERTIFICATION' vs. 'non-collusive bidding certification') is a harmless formatting variation expressly excluded from being a deviation under the Challenge Reference Rule. No Addendum revises this provision. The clause is consistent with the reference requirement and does not negate, narrow, or conflict with it.",
+            "recommended_action": "Review to confirm the signed non-collusive bidding certification form is physically present in the executed proposal package; the clause language is compliant on its face."
+          },
+          "criteria": {
+            "requirement_id": "CC-03",
+            "requirement_name": "Non-collusive bidding certification",
+            "reference_source": "DelDOT Standard Specifications + General Notices",
+            "section": "DelDOT 102.15",
+            "challenge_reference_rule": "Required non-collusive bidding certification must be present; harmless formatting/capitalization changes are not deviations.",
+            "review_expectation": "Verify the signed non-collusive bidding certification is included where required.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "Proposal_and_General_Notices.pdf",
+            "draft_location": "Proposal_and_General_Notices.pdf, p1, lines 14-16 (section \"Non-collusive bidding certification\")",
+            "draft_quote": "NON-COLLUSION CERTIFICATION - The required certification is to be completed and included with the proposal.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 14,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L14",
+                "text": "Non-collusive bidding certification",
+                "section_heading": "Non-collusive bidding certification"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 15,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L15",
+                "text": "NON-COLLUSION CERTIFICATION - The required certification is to be completed and included with the",
+                "section_heading": "Non-collusive bidding certification"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 16,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L16",
+                "text": "proposal.",
+                "section_heading": "Non-collusive bidding certification"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.88,
+            "retrieval_score_percent": 80.2,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-03_DelDOT_102.15.txt",
+              "CC-02_DelDOT_102.8.txt",
+              "CC-11_DelDOT_104.2.txt",
+              "CC-12_DelDOT_104.3.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-04",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Contract execution package governed by Section 103.5 bond requirements.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.88,
+            "explanation": "Addendum_A.pdf explicitly revises the Performance and Payment Bonds provision and governs over the earlier General_Conditions.pdf text (which stated 75% coverage). The Addendum replacement text at lines L7–L8 states bond coverage shall equal 100% of the contract price, subject to the referenced surety conditions — exactly matching the Challenge Reference Rule. The superseded 75% figure in General_Conditions.pdf is not a finding because the Addendum corrects it. No material deviation exists in the governing text.",
+            "recommended_action": "No action required on this provision. Confirm that Addendum_A.pdf has been formally incorporated into the executed contract package and that the earlier General Conditions bond clause is understood to be superseded."
+          },
+          "criteria": {
+            "requirement_id": "CC-04",
+            "requirement_name": "Performance and payment bonds",
+            "reference_source": "DelDOT Standard Specifications",
+            "section": "DelDOT 103.5",
+            "challenge_reference_rule": "For challenge scoring, required performance and payment bond coverage is 100% of the contract price, subject to the referenced surety conditions. Resolve any later governing Addendum before flagging earlier text.",
+            "review_expectation": "Verify performance/payment bond coverage and surety conditions match the reference requirement.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "Addendum_A.pdf",
+            "draft_location": "Addendum_A.pdf, p1, lines 7-8 (section \"Revision to Performance and payment bonds\")",
+            "draft_quote": "Performance and Payment Bonds. Required bond coverage shall equal one hundred percent (100%) of the contract price, subject to the referenced surety conditions.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Addendum_A.pdf",
+                "page": 1,
+                "line_number": 7,
+                "line_id": "Addendum_A.pdf|p1|L7",
+                "text": "Performance and Payment Bonds. Required bond coverage shall equal one hundred percent (100%) of the contract price,",
+                "section_heading": "Revision to Performance and payment bonds"
+              },
+              {
+                "file_name": "Addendum_A.pdf",
+                "page": 1,
+                "line_number": 8,
+                "line_id": "Addendum_A.pdf|p1|L8",
+                "text": "subject to the referenced surety conditions.",
+                "section_heading": "Revision to Performance and payment bonds"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.88,
+            "retrieval_score_percent": 60.9,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-04_DelDOT_103.5.txt",
+              "CC-02_DelDOT_102.8.txt",
+              "CC-13_Right_to_Audit.txt",
+              "CC-15_DelDOT_105.15.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-05",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Successful-bidder execution package governed by Section 103.7.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.85,
+            "explanation": "The governing clause in General_Conditions.pdf (the highest-precedence document addressing this provision) states that the successful bidder shall return required execution documents 'within the reference period' and 'furnish required proof of insurance.' The phrase 'within the reference period' defers to the governing reference rather than restating or contradicting the 20-calendar-day deadline, and 'furnish required proof of insurance' preserves the insurance-before-execution obligation without negating or altering it. Under the operating rules, a clause that defers to the reference instead of repeating its figures is compliant — a missing number is not an omission when the clause contradicts nothing. No Addendum revises this provision. The clause is therefore consistent with the Challenge Reference Rule and does not constitute a material deviation.",
+            "recommended_action": "No action required on this provision. Human reviewer should confirm that the phrase 'reference period' is understood by all parties to mean 20 calendar days after notice of award as specified in DelDOT 103.7, and that the insurance-before-execution sequence is enforced in practice."
+          },
+          "criteria": {
+            "requirement_id": "CC-05",
+            "requirement_name": "Contract execution and proof of insurance",
+            "reference_source": "DelDOT Standard Specifications",
+            "section": "DelDOT 103.7",
+            "challenge_reference_rule": "For challenge scoring, required execution documents must be returned within 20 calendar days after notice of award, and acceptable proof/certificate of insurance must be furnished before contract execution. A later governing Addendum may validly revise a named provision.",
+            "review_expectation": "Verify execution timing and proof-of-insurance requirements are not omitted or materially altered.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "General_Conditions.pdf",
+            "draft_location": "General_Conditions.pdf, p1, lines 8-10 (section \"Contract execution and proof of insurance\")",
+            "draft_quote": "Contract Execution and Insurance. The successful bidder shall return required execution documents within the reference period and furnish required proof of insurance.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 8,
+                "line_id": "General_Conditions.pdf|p1|L8",
+                "text": "Contract execution and proof of insurance",
+                "section_heading": "Contract execution and proof of insurance"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 9,
+                "line_id": "General_Conditions.pdf|p1|L9",
+                "text": "Contract Execution and Insurance. The successful bidder shall return required execution documents within the",
+                "section_heading": "Contract execution and proof of insurance"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 10,
+                "line_id": "General_Conditions.pdf|p1|L10",
+                "text": "reference period and furnish required proof of insurance.",
+                "section_heading": "Contract execution and proof of insurance"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.85,
+            "retrieval_score_percent": 69.7,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-05_DelDOT_103.7.txt",
+              "CC-13_Right_to_Audit.txt",
+              "CC-12_DelDOT_104.3.txt",
+              "CC-04_DelDOT_103.5.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-06",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Delaware construction/maintenance contractor context described by the proposal.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.92,
+            "explanation": "The governing document (Proposal_and_General_Notices.pdf) explicitly states that registration must be 'in place before covered field operations commence.' This directly satisfies the Challenge Reference Rule, which prohibits allowing registration to occur only after work begins. The clause does not permit post-commencement registration; it mandates pre-commencement registration. No Addendum revises this provision. The clause is fully compliant with the reference rule.",
+            "recommended_action": "No action required — the Contractor Registration Act notice clause in Proposal_and_General_Notices.pdf satisfies the reference requirement. Human reviewer should confirm no other package document contradicts this provision."
+          },
+          "criteria": {
+            "requirement_id": "CC-06",
+            "requirement_name": "Contractor Registration Act notice",
+            "reference_source": "Delaware Contractor Registration Act + DelDOT proposal",
+            "section": "19 Del. C. § 3604",
+            "challenge_reference_rule": "For covered Delaware construction/maintenance work, the draft must not allow required contractor registration to occur only after work begins.",
+            "review_expectation": "Verify the draft does not contradict the proposal requirement that contractors register before performing covered work.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "Proposal_and_General_Notices.pdf",
+            "draft_location": "Proposal_and_General_Notices.pdf, p1, lines 17-19 (section \"Contractor Registration Act notice\")",
+            "draft_quote": "Registration. Required Delaware contractor registration must be in place before covered field operations commence.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 17,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L17",
+                "text": "Contractor Registration Act notice",
+                "section_heading": "Contractor Registration Act notice"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 18,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L18",
+                "text": "Registration. Required Delaware contractor registration must be in place before covered field operations",
+                "section_heading": "Contractor Registration Act notice"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 19,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L19",
+                "text": "commence.",
+                "section_heading": "Contractor Registration Act notice"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.92,
+            "retrieval_score_percent": 79.9,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-06_19_Del_C_3604.txt",
+              "CC-07_29_Del_C_6967.txt",
+              "CC-12_DelDOT_104.3.txt",
+              "CC-05_DelDOT_103.7.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-07",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Delaware public works proposal subject to 29 Del. C. 6967 licensing.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.91,
+            "explanation": "Addendum_A.pdf explicitly revises the 'Delaware business / subcontractor licenses' provision and governs over the earlier Proposal_and_General_Notices.pdf text (lines L21-L22), which conflicted with the reference by stating bidder license evidence is not required with the proposal and allowing 60 days for subcontractor licenses. The Addendum replacement text at lines L11-L12 defers entirely to 'the reference timing stated in the applicable contract documents,' which is a compliant incorporation-by-reference formulation. It contradicts nothing in the Challenge Reference Rule and preserves all obligations (prime license with proposal, 30-day and 10-day subcontractor deadlines) by deferring to the governing reference. Per the operating rules, a clause that defers to the reference rather than repeating its figures is compliant. The superseded earlier text is not a finding. No material deviation exists in the governing Addendum text.",
+            "recommended_action": "No action required on this provision. Human reviewer should confirm that the applicable contract documents referenced in the Addendum are accessible to bidders and clearly state the 29 Del. C. § 6967 timing requirements (prime license with proposal; subcontractor licenses within 30 days of contract entry or 10 days if hired more than 20 days after entry)."
+          },
+          "criteria": {
+            "requirement_id": "CC-07",
+            "requirement_name": "Delaware business / subcontractor licenses",
+            "reference_source": "Delaware public works licensing statute + DelDOT proposal",
+            "section": "29 Del. C. § 6967",
+            "challenge_reference_rule": "For challenge scoring, a current prime contractor occupational/business license must accompany the proposal. Subcontractor/independent-contractor license copies must be provided within 30 days after entering the public works contract, or within 10 days after a subcontractor/independent contractor is hired more than 20 days after contract entry.",
+            "review_expectation": "Verify required contractor business-license evidence and stated subcontractor-license submission timing are preserved.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "Addendum_A.pdf",
+            "draft_location": "Addendum_A.pdf, p1, lines 11-12 (section \"Revision to Delaware business / subcontractor licenses\")",
+            "draft_quote": "Licenses. Required Delaware contractor/business and subcontractor license evidence shall be furnished within the reference timing stated in the applicable contract documents.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Addendum_A.pdf",
+                "page": 1,
+                "line_number": 11,
+                "line_id": "Addendum_A.pdf|p1|L11",
+                "text": "Licenses. Required Delaware contractor/business and subcontractor license evidence shall be furnished within the",
+                "section_heading": "Revision to Delaware business / subcontractor licenses"
+              },
+              {
+                "file_name": "Addendum_A.pdf",
+                "page": 1,
+                "line_number": 12,
+                "line_id": "Addendum_A.pdf|p1|L12",
+                "text": "reference timing stated in the applicable contract documents.",
+                "section_heading": "Revision to Delaware business / subcontractor licenses"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.91,
+            "retrieval_score_percent": 77.8,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-07_29_Del_C_6967.txt",
+              "CC-06_19_Del_C_3604.txt",
+              "CC-14_DelDOT_108.1.txt",
+              "CC-05_DelDOT_103.7.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-08",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Project metadata lists issued addenda (Addendum_A).",
+            "predicted_label": "FLAG",
+            "severity": "High",
+            "confidence": 0.87,
+            "explanation": "The governing document (Proposal_and_General_Notices.pdf) affirmatively states that 'later issued Addenda may be disregarded.' This directly conflicts with the Challenge Reference Rule, which requires the package to acknowledge the current (latest) addenda and prohibits treating the original proposal as self-updating. The project metadata confirms that Addendum_A has been issued, making this requirement applicable. No subsequent Addendum revises this specific provision — Addendum_A addresses bonds and licenses, not addenda acknowledgment currency. The clause therefore stands as a material deviation: it explicitly permits ignoring later-issued addenda, which is the exact conduct the reference rule prohibits.",
+            "recommended_action": "Human review required. The addenda acknowledgment clause in Proposal_and_General_Notices.pdf expressly permits disregarding later-issued addenda, directly contradicting the requirement to acknowledge and apply the latest addendum (Addendum_A). The clause should be revised to require acknowledgment of all issued addenda, including Addendum_A, before the package is accepted."
+          },
+          "criteria": {
+            "requirement_id": "CC-08",
+            "requirement_name": "Addenda and Q&A currency",
+            "reference_source": "DelDOT proposal + solicitation record",
+            "section": "Attachments / Addenda",
+            "challenge_reference_rule": "Use the latest provided Addendum/package version. A draft that ignores a later issued Addendum is a finding.",
+            "review_expectation": "Verify the reviewed package acknowledges the current addenda/Q&A and does not treat the original proposal as self-updating.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "Proposal_and_General_Notices.pdf",
+            "draft_location": "Proposal_and_General_Notices.pdf, p1, lines 24-25 (section \"Addenda and Q&A; currency\")",
+            "draft_quote": "Addenda Acknowledgment. Only the Addenda expressly listed in the original proposal need be acknowledged; later issued Addenda may be disregarded.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 24,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L24",
+                "text": "Addenda Acknowledgment. Only the Addenda expressly listed in the original proposal need be acknowledged;",
+                "section_heading": "Addenda and Q&A; currency"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 25,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L25",
+                "text": "later issued Addenda may be disregarded.",
+                "section_heading": "Addenda and Q&A; currency"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.87,
+            "retrieval_score_percent": 64.9,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-08_Addenda_Check.txt",
+              "CC-11_DelDOT_104.2.txt",
+              "CC-10_DelDOT_105.6.txt",
+              "CC-12_DelDOT_104.3.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-09",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Project metadata states Buy America/BABA requirements apply to this federal-aid project.",
+            "predicted_label": "FLAG",
+            "severity": "Critical",
+            "confidence": 0.9,
+            "explanation": "The project metadata explicitly marks this as a federal-aid project with Buy America/BABA applicable (buy_america_baba_applicable: true, federal_aid: true). However, the governing document Proposal_and_General_Notices.pdf affirmatively states 'Federal aid No' and 'Buy America/BABA applicable No' at lines L6 and L7. These statements directly contradict the metadata-confirmed applicability of Buy America/BABA. Under the Challenge Reference Rule, a clause saying Buy America/BABA does not apply when it is in fact applicable is a finding. No Addendum revises this provision. This is a material deviation — the requirement is not merely omitted but is affirmatively negated in the governing document.",
+            "recommended_action": "Human review required. The governing proposal document affirmatively states Buy America/BABA does not apply, directly contradicting the project metadata. The contract package must be corrected to reflect the correct federal-aid status and Buy America/BABA applicability before execution."
+          },
+          "criteria": {
+            "requirement_id": "CC-09",
+            "requirement_name": "Buy America / BABA applicability",
+            "reference_source": "Federal-aid DelDOT proposal General Notices",
+            "section": "Buy America Requirement",
+            "challenge_reference_rule": "Apply Buy America/BABA only when project metadata/reference indicates it applies; if applicable, a clause saying it does not apply is a finding.",
+            "review_expectation": "Verify Buy America/BABA applicability and certification language are not omitted or contradicted for a project explicitly marked as subject to the requirement.",
+            "severity_guidance": "Critical"
+          },
+          "contract_evidence": {
+            "governing_document": "Proposal_and_General_Notices.pdf",
+            "draft_location": "Proposal_and_General_Notices.pdf, p1, lines 6-7 (section \"Federal aid No\")",
+            "draft_quote": "Federal aid No\nBuy America/BABA applicable No",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 6,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L6",
+                "text": "Federal aid No",
+                "section_heading": "Federal aid No"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 7,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L7",
+                "text": "Buy America/BABA applicable No",
+                "section_heading": "Buy America/BABA applicable No"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.9,
+            "retrieval_score_percent": 72.3,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-09_Buy_America_BABA.txt",
+              "CC-11_DelDOT_104.2.txt",
+              "CC-08_Addenda_Check.txt",
+              "CC-15_DelDOT_105.15.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-10",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Multiple contract documents are incorporated and may conflict, so DelDOT 105.6 applies.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.87,
+            "explanation": "The General Conditions clause at lines L12–L13 instructs that all contract documents be read together (complementary treatment) and that conflicts be resolved by applying 'the same priority sequence listed in the applicable contract documents.' This is a deferral to the governing reference rather than a restatement of the specific hierarchy. Under the operating rules, a clause that defers to the reference rather than repeating its figures or sequence is compliant — a missing enumeration is not an omission when the clause contradicts nothing and points back to the applicable contract documents. The clause does not invert, omit, or negate any tier of the DelDOT 105.6 hierarchy; it preserves the obligation by incorporation by reference. No Addendum revises this provision. The finding is NO_FLAG.",
+            "recommended_action": "No action required. Confirm that the project's applicable contract documents (e.g., Standard Specifications) contain the full DelDOT 105.6 hierarchy so the deferral clause has a complete sequence to point to."
+          },
+          "criteria": {
+            "requirement_id": "CC-10",
+            "requirement_name": "Coordination / order of precedence",
+            "reference_source": "DelDOT Standard Specifications",
+            "section": "DelDOT 105.6",
+            "challenge_reference_rule": "Treat contract documents as complementary and resolve conflicts using DelDOT 105.6. General Description > General Notices > Plans > Special Provisions > Standard Construction Details > Standard Specifications > Electronic Design Data Files. A later Addendum that explicitly revises a named provision governs that revised provision for this challenge.",
+            "review_expectation": "Verify contract documents are treated as complementary and conflict resolution follows the stated order of precedence.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "General_Conditions.pdf",
+            "draft_location": "General_Conditions.pdf, p1, lines 11-13 (section \"Coordination / order of precedence\")",
+            "draft_quote": "Document Coordination. Read all contract documents together; when a conflict exists, apply the same priority sequence listed in the applicable contract documents.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 11,
+                "line_id": "General_Conditions.pdf|p1|L11",
+                "text": "Coordination / order of precedence",
+                "section_heading": "Coordination / order of precedence"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 12,
+                "line_id": "General_Conditions.pdf|p1|L12",
+                "text": "Document Coordination. Read all contract documents together; when a conflict exists, apply the same priority",
+                "section_heading": "Coordination / order of precedence"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 13,
+                "line_id": "General_Conditions.pdf|p1|L13",
+                "text": "sequence listed in the applicable contract documents.",
+                "section_heading": "Coordination / order of precedence"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.87,
+            "retrieval_score_percent": 73.8,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-10_DelDOT_105.6.txt",
+              "CC-11_DelDOT_104.2.txt",
+              "CC-12_DelDOT_104.3.txt",
+              "CC-15_DelDOT_105.15.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-11",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Package includes contract-change / differing-site-condition provisions.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.88,
+            "explanation": "The governing document (General_Conditions.pdf) contains a clause under the heading 'Contract changes must follow written process' at lines L14–L16 that directly mirrors the Challenge Reference Rule. It states that scope, price, or time changes require the documented written process and that oral direction alone does not modify the contract. This is substantively identical to the reference requirement. No Addendum revises this provision. The clause does not authorize oral changes, does not make the written process optional, and does not bypass any required mechanism. The requirement is fully satisfied.",
+            "recommended_action": "No action required — the General Conditions clause satisfies CC-11. Confirm no other contract document overrides this provision."
+          },
+          "criteria": {
+            "requirement_id": "CC-11",
+            "requirement_name": "Contract changes must follow written process",
+            "reference_source": "DelDOT Standard Specifications + General Notices",
+            "section": "DelDOT 104.2",
+            "challenge_reference_rule": "Material contract changes must follow the documented written process; oral direction alone must not immediately alter scope/price/time.",
+            "review_expectation": "Verify the draft does not authorize material contract changes solely through oral promises or bypass required written change mechanisms.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "General_Conditions.pdf",
+            "draft_location": "General_Conditions.pdf, p1, lines 14-16 (section \"Contract changes must follow written process\")",
+            "draft_quote": "Contract Changes. Scope, price, or time changes require the documented written process; oral direction alone does not modify the contract.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 14,
+                "line_id": "General_Conditions.pdf|p1|L14",
+                "text": "Contract changes must follow written process",
+                "section_heading": "Contract changes must follow written process"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 15,
+                "line_id": "General_Conditions.pdf|p1|L15",
+                "text": "Contract Changes. Scope, price, or time changes require the documented written process; oral direction alone",
+                "section_heading": "Contract changes must follow written process"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 16,
+                "line_id": "General_Conditions.pdf|p1|L16",
+                "text": "does not modify the contract.",
+                "section_heading": "Contract changes must follow written process"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.88,
+            "retrieval_score_percent": 64.7,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-12_DelDOT_104.3.txt",
+              "CC-11_DelDOT_104.2.txt",
+              "CC-11_DelDOT_104.2.txt",
+              "CC-12_DelDOT_104.3.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-12",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Package includes change-notification requirements under DelDOT 104.3.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.82,
+            "explanation": "The governing clause in General_Conditions.pdf (lines L17–L19) states that alleged changes require 'timely written notice and the reference follow-up documentation within the stated period.' This language defers to the reference rather than repeating specific figures. It does not affirmatively conflict with the Challenge Reference Rule: it does not shorten or extend the 7-calendar-day deadline, does not make notice optional, does not permit oral direction alone to modify scope/price/time (that is separately addressed at L14–L16), and does not negate any required step. Under the operating rules, a clause that defers to the reference timing and conditions rather than restating them is compliant — a missing number is not an omission when the clause contradicts nothing. No Addendum revises this provision. Accordingly, no material deviation is present.",
+            "recommended_action": "Review and confirm — the clause defers to reference timing and conditions rather than specifying the 7-calendar-day deadline explicitly; human reviewer should verify that project participants understand the operative 7-day requirement from the Standard Specifications, but no contractual conflict is present."
+          },
+          "criteria": {
+            "requirement_id": "CC-12",
+            "requirement_name": "Notification of contract changes",
+            "reference_source": "DelDOT Standard Specifications",
+            "section": "DelDOT 104.3",
+            "challenge_reference_rule": "For challenge scoring, an alleged contract change requires immediate oral and written notice, affected work proceeds only after written direction, and the required written follow-up information is due within 7 calendar days of the initial notice unless a later governing document validly revises that provision.",
+            "review_expectation": "Verify required notification steps and key deadlines for alleged changes are not omitted or materially altered.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "General_Conditions.pdf",
+            "draft_location": "General_Conditions.pdf, p1, lines 17-19 (section \"Notification of contract changes\")",
+            "draft_quote": "Change Notification. Alleged changes require timely written notice and the reference follow-up documentation within the stated period.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 17,
+                "line_id": "General_Conditions.pdf|p1|L17",
+                "text": "Notification of contract changes",
+                "section_heading": "Notification of contract changes"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 18,
+                "line_id": "General_Conditions.pdf|p1|L18",
+                "text": "Change Notification. Alleged changes require timely written notice and the reference follow-up documentation",
+                "section_heading": "Notification of contract changes"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 19,
+                "line_id": "General_Conditions.pdf|p1|L19",
+                "text": "within the stated period.",
+                "section_heading": "Notification of contract changes"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.82,
+            "retrieval_score_percent": 66.5,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-12_DelDOT_104.3.txt",
+              "CC-11_DelDOT_104.2.txt",
+              "CC-12_DelDOT_104.3.txt",
+              "CC-13_Right_to_Audit.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-13",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Contract and subcontract performance records are subject to the Right to Audit notice.",
+            "predicted_label": "FLAG",
+            "severity": "Medium",
+            "confidence": 0.93,
+            "explanation": "The package text deviates from the reference in two material respects. First, it limits audit scope to 'only prime-contractor records,' expressly excluding subcontractor records, whereas the reference requires both prime-contractor and subcontractor records to be available for audit. Second, it shortens the retention period from three years (as required) to one (1) year after final payment. No Addendum revises this provision; Addendum_A addresses only bonds and licenses. The governing document (Proposal_and_General_Notices.pdf) therefore contains affirmative conflicts on both scope and duration. Both deviations are provable by direct quotation of the package text.",
+            "recommended_action": "Review and correct the Right to Audit clause to (1) extend audit scope to include subcontractor records and (2) restore the retention period to three years after final payment, consistent with the reference requirement."
+          },
+          "criteria": {
+            "requirement_id": "CC-13",
+            "requirement_name": "Right to audit and record retention",
+            "reference_source": "DelDOT proposal General Notices",
+            "section": "Right to Audit",
+            "challenge_reference_rule": "For challenge scoring, relevant prime-contractor and subcontractor records supporting contract performance must be available for audit and retained for three years after final payment.",
+            "review_expectation": "Verify audit rights are preserved and the stated records-retention period is not shortened.",
+            "severity_guidance": "Medium"
+          },
+          "contract_evidence": {
+            "governing_document": "Proposal_and_General_Notices.pdf",
+            "draft_location": "Proposal_and_General_Notices.pdf, p1, lines 27-28 (section \"Right to audit and record retention\")",
+            "draft_quote": "Only prime-contractor records are subject to audit and records need be retained for one (1) year after final payment.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 27,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L27",
+                "text": "Right to Audit. Only prime-contractor records are subject to audit and records need be retained for one (1) year",
+                "section_heading": "Right to audit and record retention"
+              },
+              {
+                "file_name": "Proposal_and_General_Notices.pdf",
+                "page": 1,
+                "line_number": 28,
+                "line_id": "Proposal_and_General_Notices.pdf|p1|L28",
+                "text": "after final payment.",
+                "section_heading": "Right to audit and record retention"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.93,
+            "retrieval_score_percent": 81.0,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-13_Right_to_Audit.txt",
+              "CC-12_DelDOT_104.3.txt",
+              "CC-11_DelDOT_104.2.txt",
+              "CC-05_DelDOT_103.7.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-14",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Project metadata indicates subcontractors will be used, so DelDOT 108.1 subletting limits apply.",
+            "predicted_label": "FLAG",
+            "severity": "High",
+            "confidence": 0.87,
+            "explanation": "After reviewing every file in the package — General_Conditions.pdf, Addendum_A.pdf, Proposal_and_General_Notices.pdf, and Special_Provisions.pdf — no clause addresses contract subletting. There is no provision establishing the 50% self-performance floor, no written-consent requirement for subletting, and no statement that the prime retains full contract responsibility when work is sublet. The governing document (General_Conditions.pdf) covers bonds, insurance, document coordination, contract changes, and change notification, but is silent on subletting. Addendum_A revises only bonds and licenses. The requirement is entirely absent from the package. Because subcontracting is planned (metadata: subcontracting_planned = true) and the requirement is marked applicable, this complete omission is a material deviation from DelDOT 108.1. Human review is required to determine whether the provision must be added before contract execution.",
+            "recommended_action": "Review required — the contract subletting clause (50% self-performance minimum, written consent for subletting, prime retains responsibility) is absent from the package. Confirm whether it appears in an unproduced document (e.g., Standard Specifications incorporated by reference) or must be added as a special provision before execution."
+          },
+          "criteria": {
+            "requirement_id": "CC-14",
+            "requirement_name": "Contract subletting",
+            "reference_source": "DelDOT Standard Specifications",
+            "section": "DelDOT 108.1",
+            "challenge_reference_rule": "When subcontracting applies, use DelDOT Section 108.1 as the challenge baseline: the prime performs no less than 50% of the total original contract price with its own organization, excluding designated specialty items as provided by the reference; subletting requires written consent and does not relieve the prime of contract responsibility.",
+            "review_expectation": "Verify self-performance, approval, licensing, and flow-down requirements are not materially weakened.",
+            "severity_guidance": "High"
+          },
+          "contract_evidence": {
+            "governing_document": "General_Conditions.pdf",
+            "draft_location": "Addendum_A.pdf, p1, lines 1,13 (section \"Revision to Delaware business / subcontractor licenses\"); General_Conditions.pdf, p1, lines 1,2,14,15,16,20 (section \"GENERAL CONDITIONS\"); Special_Provisions.pdf, p1, lines 1,8 (section \"Liquidated damages schedule / rate logic\")",
+            "draft_quote": "CONTRACT CLAUSE RISK FLAGGING - SAMPLE CONTRACT DOCUMENT / GENERAL CONDITIONS ... DEV-MAPLE-RIDGE | FOR EVALUATION USE ONLY Page 1",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Addendum_A.pdf",
+                "page": 1,
+                "line_number": 1,
+                "line_id": "Addendum_A.pdf|p1|L1",
+                "text": "CONTRACT CLAUSE RISK FLAGGING - SAMPLE CONTRACT DOCUMENT",
+                "section_heading": ""
+              },
+              {
+                "file_name": "Addendum_A.pdf",
+                "page": 1,
+                "line_number": 13,
+                "line_id": "Addendum_A.pdf|p1|L13",
+                "text": "DEV-MAPLE-RIDGE | FOR EVALUATION USE ONLY Page 1",
+                "section_heading": "Revision to Delaware business / subcontractor licenses"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 1,
+                "line_id": "General_Conditions.pdf|p1|L1",
+                "text": "CONTRACT CLAUSE RISK FLAGGING - SAMPLE CONTRACT DOCUMENT",
+                "section_heading": ""
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 2,
+                "line_id": "General_Conditions.pdf|p1|L2",
+                "text": "GENERAL CONDITIONS",
+                "section_heading": "GENERAL CONDITIONS"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 14,
+                "line_id": "General_Conditions.pdf|p1|L14",
+                "text": "Contract changes must follow written process",
+                "section_heading": "Contract changes must follow written process"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 15,
+                "line_id": "General_Conditions.pdf|p1|L15",
+                "text": "Contract Changes. Scope, price, or time changes require the documented written process; oral direction alone",
+                "section_heading": "Contract changes must follow written process"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 16,
+                "line_id": "General_Conditions.pdf|p1|L16",
+                "text": "does not modify the contract.",
+                "section_heading": "Contract changes must follow written process"
+              },
+              {
+                "file_name": "General_Conditions.pdf",
+                "page": 1,
+                "line_number": 20,
+                "line_id": "General_Conditions.pdf|p1|L20",
+                "text": "DEV-MAPLE-RIDGE | FOR EVALUATION USE ONLY Page 1",
+                "section_heading": "Notification of contract changes"
+              },
+              {
+                "file_name": "Special_Provisions.pdf",
+                "page": 1,
+                "line_number": 1,
+                "line_id": "Special_Provisions.pdf|p1|L1",
+                "text": "CONTRACT CLAUSE RISK FLAGGING - SAMPLE CONTRACT DOCUMENT",
+                "section_heading": ""
+              },
+              {
+                "file_name": "Special_Provisions.pdf",
+                "page": 1,
+                "line_number": 8,
+                "line_id": "Special_Provisions.pdf|p1|L8",
+                "text": "DEV-MAPLE-RIDGE | FOR EVALUATION USE ONLY Page 1",
+                "section_heading": "Liquidated damages schedule / rate logic"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.87,
+            "retrieval_score_percent": 72.1,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-14_DelDOT_108.1.txt",
+              "CC-11_DelDOT_104.2.txt",
+              "CC-14_DelDOT_108.1.txt",
+              "CC-15_DelDOT_105.15.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-15",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "DOES_NOT_APPLY",
+            "applicability_reason": "Project metadata records no claim scenario, so the claims procedure is not exercised.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.95,
+            "explanation": "Requirement does not apply to this package. Project metadata records no claim scenario, so the claims procedure is not exercised. No clause comparison was performed.",
+            "recommended_action": "No action; confirm applicability against project metadata."
+          },
+          "criteria": {
+            "requirement_id": "CC-15",
+            "requirement_name": "Claims procedure",
+            "reference_source": "DelDOT Standard Specifications",
+            "section": "DelDOT 105.15",
+            "challenge_reference_rule": "When a claim scenario applies, the challenge benchmark requires the reference notice/documentation process and a written claim within 30 calendar days after completion of the work described in the notice of intent, together with applicable Section 104.3 notice compliance. Harmless paraphrases are not findings.",
+            "review_expectation": "Verify claim prerequisites, notice timing, and supporting-document expectations are represented consistently with the reference.",
+            "severity_guidance": "Medium"
+          },
+          "contract_evidence": {
+            "governing_document": "Proposal_and_General_Notices.pdf",
+            "draft_location": "",
+            "draft_quote": "",
+            "evidence_match_percent": 0.0,
+            "lines": []
+          },
+          "confidence_factors": {
+            "model_confidence": 0.95,
+            "retrieval_score_percent": 0.0,
+            "evidence_match_percent": 0.0,
+            "sources_used_for_confidence": []
+          }
+        },
+        {
+          "requirement_id": "CC-16",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "DOES_NOT_APPLY",
+            "applicability_reason": "Project metadata records no delay scenario, so time-extension review does not apply.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.95,
+            "explanation": "Requirement does not apply to this package. Project metadata records no delay scenario, so time-extension review does not apply. No clause comparison was performed.",
+            "recommended_action": "No action; confirm applicability against project metadata."
+          },
+          "criteria": {
+            "requirement_id": "CC-16",
+            "requirement_name": "Extensions of contract time",
+            "reference_source": "DelDOT Standard Specifications + project metadata",
+            "section": "DelDOT 108.7",
+            "challenge_reference_rule": "When a delay scenario applies, an extension requires an excusable delay, a timely written request/notice under the reference process, and an effect on the critical path/substantial-completion time. Delay does not create an automatic time extension.",
+            "review_expectation": "Verify time-extension language retains timely notice and excusable-delay/critical-path requirements.",
+            "severity_guidance": "Medium"
+          },
+          "contract_evidence": {
+            "governing_document": "General_Conditions.pdf",
+            "draft_location": "",
+            "draft_quote": "",
+            "evidence_match_percent": 0.0,
+            "lines": []
+          },
+          "confidence_factors": {
+            "model_confidence": 0.95,
+            "retrieval_score_percent": 0.0,
+            "evidence_match_percent": 0.0,
+            "sources_used_for_confidence": []
+          }
+        },
+        {
+          "requirement_id": "CC-17",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "APPLIES",
+            "applicability_reason": "Package includes a liquidated-damages provision or governing schedule.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.85,
+            "explanation": "The Special Provisions clause at the highest-precedence document explicitly states that 'the governing contract/reference schedule shall be used' and that 'no single invented flat rate applies to all contract values.' This directly mirrors the Challenge Reference Rule's requirement that rate logic be tied to the applicable reference schedule and that a universal invented flat daily rate is a material deviation. The clause defers to the governing schedule rather than imposing an arbitrary flat amount, which is fully consistent with the reference. No Addendum revises this provision. The clause is compliant.",
+            "recommended_action": "No action required. Confirm that the referenced governing schedule is the DelDOT 108.9 schedule and that no separate exhibit or attachment introduces a flat daily rate inconsistent with that schedule."
+          },
+          "criteria": {
+            "requirement_id": "CC-17",
+            "requirement_name": "Liquidated damages schedule / rate logic",
+            "reference_source": "DelDOT Standard Specifications",
+            "section": "DelDOT 108.9",
+            "challenge_reference_rule": "Use the governing Section 108.9 liquidated-damages schedule/rate logic for the applicable contract value and time basis after resolving Addenda and precedence. A universal invented flat daily rate is a material deviation.",
+            "review_expectation": "Verify liquidated-damages rate logic is tied to the applicable reference schedule rather than an unsupported arbitrary amount.",
+            "severity_guidance": "Medium"
+          },
+          "contract_evidence": {
+            "governing_document": "Special_Provisions.pdf",
+            "draft_location": "Special_Provisions.pdf, p1, lines 5-7 (section \"Liquidated damages schedule / rate logic\")",
+            "draft_quote": "Liquidated Damages. The governing contract/reference schedule shall be used; no single invented flat rate applies to all contract values.",
+            "evidence_match_percent": 100.0,
+            "lines": [
+              {
+                "file_name": "Special_Provisions.pdf",
+                "page": 1,
+                "line_number": 5,
+                "line_id": "Special_Provisions.pdf|p1|L5",
+                "text": "Liquidated damages schedule / rate logic",
+                "section_heading": "Liquidated damages schedule / rate logic"
+              },
+              {
+                "file_name": "Special_Provisions.pdf",
+                "page": 1,
+                "line_number": 6,
+                "line_id": "Special_Provisions.pdf|p1|L6",
+                "text": "Liquidated Damages. The governing contract/reference schedule shall be used; no single invented flat rate",
+                "section_heading": "Liquidated damages schedule / rate logic"
+              },
+              {
+                "file_name": "Special_Provisions.pdf",
+                "page": 1,
+                "line_number": 7,
+                "line_id": "Special_Provisions.pdf|p1|L7",
+                "text": "applies to all contract values.",
+                "section_heading": "Liquidated damages schedule / rate logic"
+              }
+            ]
+          },
+          "confidence_factors": {
+            "model_confidence": 0.85,
+            "retrieval_score_percent": 61.4,
+            "evidence_match_percent": 100.0,
+            "sources_used_for_confidence": [
+              "CC-17_DelDOT_108.9.txt",
+              "CC-15_DelDOT_105.15.txt",
+              "CC-18_DelDOT_109.4.txt",
+              "CC-11_DelDOT_104.2.txt"
+            ]
+          }
+        },
+        {
+          "requirement_id": "CC-18",
+          "document_id": "The_Explora",
+          "decision": {
+            "applicability": "DOES_NOT_APPLY",
+            "applicability_reason": "Project metadata records no changed-work event, so change-pricing review does not apply.",
+            "predicted_label": "NO_FLAG",
+            "severity": "Info",
+            "confidence": 0.95,
+            "explanation": "Requirement does not apply to this package. Project metadata records no changed-work event, so change-pricing review does not apply. No clause comparison was performed.",
+            "recommended_action": "No action; confirm applicability against project metadata."
+          },
+          "criteria": {
+            "requirement_id": "CC-18",
+            "requirement_name": "Compensation for changes",
+            "reference_source": "DelDOT Standard Specifications",
+            "section": "DelDOT 109.4",
+            "challenge_reference_rule": "When changed work applies, the challenge benchmark pricing sequence is: applicable contract unit prices first, then negotiated prices, then force-account pricing if agreement is not reached, subject to the reference notice/documentation process. A fixed arbitrary markup that replaces this workflow is a material deviation.",
+            "review_expectation": "Verify compensation-for-change language preserves the reference pricing-method sequence and timely-notice dependency.",
+            "severity_guidance": "Medium"
+          },
+          "contract_evidence": {
+            "governing_document": "General_Conditions.pdf",
+            "draft_location": "",
+            "draft_quote": "",
+            "evidence_match_percent": 0.0,
+            "lines": []
+          },
+          "confidence_factors": {
+            "model_confidence": 0.95,
+            "retrieval_score_percent": 0.0,
+            "evidence_match_percent": 0.0,
+            "sources_used_for_confidence": []
+          }
+        }
+      ]
+    }
+  ]
+}

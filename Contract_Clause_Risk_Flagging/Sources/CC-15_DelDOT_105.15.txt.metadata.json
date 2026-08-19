@@ -1,0 +1,10 @@
+{
+  "metadataAttributes": {
+    "requirement_id": "CC-15",
+    "tier": "Advanced",
+    "requirement_name": "Claims procedure",
+    "reference_source": "DelDOT Standard Specifications",
+    "section": "DelDOT 105.15",
+    "severity_guidance": "Medium"
+  }
+}
