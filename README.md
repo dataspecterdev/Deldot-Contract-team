@@ -1,8 +1,3 @@
-I'm a planning agent - I can read and analyze code but not modify it. I can help you plan the implementation instead.
-
-Here's the exact content to replace your README.md with:
-
-```markdown
 # Case Study: DORA — DelDOT Orchestrated Review Assistant
 
 ## Overview
