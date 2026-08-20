@@ -2,7 +2,7 @@
 
 ## Overview
 
-DORA is an AI-powered contract clause risk flagging system for Delaware DOT transportationcontracts. It reads contract PDFs, checks 18 critical requirements from the DelDOT Standard Specifications, and flags material deviations — telling you the exact file, page, and line number where a problem exists.
+DORA is an AI-powered contract clause risk flagging system for Delaware DOT transportation contracts. It reads contract PDFs, checks 18 critical requirements from the DelDOT Standard Specifications, and flags material deviations — telling you the exact file, page, and line number where a problem exists.
 
 The system uses Amazon Bedrock (Claude Sonnet 4.6) for contract analysis, with the `Challenge_Reference_Rule` from the Reference Checklist as the sole scoring authority. Sources stored in a Bedrock Knowledge Base are used only for confidence scoring, not for decision-making.
 
