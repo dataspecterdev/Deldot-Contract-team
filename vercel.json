@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "buildCommand": "npm --prefix dora-ui run build",
+  "installCommand": "npm --prefix dora-ui install",
+  "outputDirectory": "dora-ui/dist",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 300
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api"
+    }
+  ]
+}
