@@ -1,2 +1,8 @@
 [tool.vercel]
 entrypoint = "dora_api.main:app"
+
+[tool.vercel.scripts]
+build = "npm --prefix dora-ui run build"
+
+[tool.vercel.fastapi.static]
+exclude = false
