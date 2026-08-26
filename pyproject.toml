@@ -1,0 +1,2 @@
+[tool.vercel]
+entrypoint = "dora_api.main:app"
