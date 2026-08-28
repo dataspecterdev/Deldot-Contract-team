@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://your-railway-app.railway.app/api/:path*"
+      "destination": "https://deldot-contract-team-production.up.railway.app/api/:path*"
     }
   ],
   "buildCommand": "npm run build",
