@@ -11,10 +11,19 @@ WORKSPACE_DIR.mkdir(parents=True, exist_ok=True)
 # Max upload size per file: 50MB
 MAX_UPLOAD_SIZE = 50 * 1024 * 1024
 
-# CORS: allow frontend dev server
+# CORS: allow frontend dev server and production Vercel deployment.
+# Set CORS_ORIGINS env var as a comma-separated list to add more origins at runtime.
+# e.g. CORS_ORIGINS=https://my-app.vercel.app,https://my-custom-domain.com
+_extra_origins = [
+    o.strip()
+    for o in os.environ.get("CORS_ORIGINS", "").split(",")
+    if o.strip()
+]
+
 CORS_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:3000",
     "http://127.0.0.1:5173",
     "http://127.0.0.1:3000",
+    *_extra_origins,
 ]

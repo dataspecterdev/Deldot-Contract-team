@@ -1,5 +1,9 @@
 /**
  * DORA API client — all backend calls go through here.
+ *
+ * In development: proxied to http://127.0.0.1:8000 via vite.config.ts
+ * In production (Vercel): proxied to Railway backend via vercel.json rewrites
+ *   using the relative path /api — no env var needed in the browser bundle.
  */
 
 const BASE = '/api'
