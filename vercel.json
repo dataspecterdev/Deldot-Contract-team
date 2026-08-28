@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "installCommand": "npm --prefix dora-ui install",
+  "outputDirectory": "dora-ui/dist",
+  "functions": {
+    "dora_api/main.py": {
+      "maxDuration": 300
+    }
+  }
+}

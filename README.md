@@ -47,6 +47,27 @@ python -m uvicorn dora_api.main:app --host 0.0.0.0 --port 8000
 - `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`
 - `KB_ID` (Bedrock Knowledge Base ID, default: `QQB54AWRBZ`)
 
+## Deploying to Vercel
+
+The repository includes a Vercel configuration for the React frontend and the
+FastAPI backend. Deploy from the repository root with:
+
+```bash
+npx vercel
+```
+
+In the Vercel project settings, set the following environment variables:
+
+- `AWS_REGION` = `us-east-1`
+- `KB_ID` = `7BKLBOJA7F`
+- `BEDROCK_MODEL_ID` = `us.anthropic.claude-sonnet-4-6`
+
+Use an AWS integration or workload identity for the Vercel deployment so the
+function can call Bedrock. Do not commit AWS access keys. Vercel functions use
+ephemeral storage, so uploaded projects are not durable across function
+instances; use external object storage and a durable job worker for production
+workloads that exceed the function duration limit.
+
 ## Running the Pipeline (CLI)
 
 ```bash
