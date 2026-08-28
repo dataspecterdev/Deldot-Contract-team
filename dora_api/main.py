@@ -506,7 +506,7 @@ async def health():
 @app.get("/api/models")
 async def list_models():
     """Return available Bedrock models for the analysis."""
-    from .config import BEDROCK
+    from contract_review.config import BEDROCK
     return {
         "default": BEDROCK.model_id,
         "models": [
@@ -524,7 +524,7 @@ async def list_models():
 @app.get("/api/models")
 async def list_models():
     """List available Bedrock models for analysis."""
-    from .config import BEDROCK
+    from contract_review.config import BEDROCK
     return {
         "default": BEDROCK.model_id,
         "models": [
