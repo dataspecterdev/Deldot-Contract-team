@@ -1,5 +1,5 @@
 {
-  "installCommand": "npm install",
+  "installCommand": "npm ci --ignore-scripts=false",
   "rewrites": [
     {
       "source": "/api/:path*",
