@@ -3,7 +3,6 @@ __pycache__
 *.pyc
 node_modules
 dora-ui/node_modules
-dora-ui/src
 dora_workspace
 output
 .github
