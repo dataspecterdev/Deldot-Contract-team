@@ -5,7 +5,7 @@
       "destination": "https://deldot-contract-team-production.up.railway.app/api/:path*"
     }
   ],
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build:vercel",
   "outputDirectory": "dist",
   "framework": "vite"
 }
