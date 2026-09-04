@@ -13,6 +13,10 @@ from .models import ProjectMode
 
 
 def _project_dir(project_id: str) -> Path:
+    # Project IDs are generated server-side, but every path entry point still
+    # validates them so a crafted URL cannot escape the workspace.
+    if not project_id or project_id in {".", ".."} or "/" in project_id or "\\" in project_id:
+        raise FileNotFoundError(f"Project {project_id} not found")
     return WORKSPACE_DIR / project_id
 
 
@@ -97,6 +101,8 @@ def update_status(project_id: str, status: str, error: str | None = None) -> Non
     meta["status"] = status
     if error:
         meta["error"] = error
+    else:
+        meta.pop("error", None)
     _write_metadata(project_id, meta)
 
 
@@ -108,6 +114,8 @@ def get_upload_dir(project_id: str) -> Path:
 
 
 def get_output_dir(project_id: str) -> Path:
+    # Do not let a read for a nonexistent project create a phantom directory.
+    _read_metadata(project_id)
     path = _project_dir(project_id) / "outputs"
     path.mkdir(exist_ok=True)
     return path

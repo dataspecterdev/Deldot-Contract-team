@@ -1,4 +1,4 @@
-name: CI sanity check
+name: CI
 
 
 # Trigger of the workflow, runs on push and PR
@@ -17,8 +17,21 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      # Step 2: Print repository structure
-      - name: Show repository structure
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: dora-ui/package-lock.json
+      - name: Check Python application
         run: |
-          echo "Repository contents:"
-          ls -R .
+          pip install -r requirements.txt
+          python -m compileall -q contract_review dora_api
+          python -c "from dora_api.main import app; assert any(r.path == '/api/health' for r in app.routes)"
+      - name: Build frontend
+        working-directory: dora-ui
+        run: |
+          npm ci --ignore-scripts=false
+          npm run build

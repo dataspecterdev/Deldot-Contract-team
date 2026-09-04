@@ -44,6 +44,7 @@ export default function WorkspacePage() {
         listPackages(projectId),
       ])
       setProject(proj)
+      setError(proj.status === 'error' ? (proj.error || 'Analysis failed. Check the backend configuration and try again.') : '')
       setFiles(fileList)
       setOutputs(outputList)
       setPackagesInfo(pkgInfo)
@@ -96,19 +97,27 @@ export default function WorkspacePage() {
     if (project?.status === 'analyzing') {
       pollRef.current = setInterval(async () => {
         if (!projectId) return
-        const status = await getStatus(projectId)
-        if (status.status !== 'analyzing') {
-          if (pollRef.current) clearInterval(pollRef.current)
-          // Capture token usage when complete
-          if (status.tokens) {
-            setTokenInfo(status.tokens)
-            setAnalysisStats({
-              flags: status.total_flags || 0,
-              findings: status.total_findings || 0,
-              packages: status.packages_analyzed || 1,
-            })
+        try {
+          const status = await getStatus(projectId)
+          if (status.status !== 'analyzing') {
+            if (pollRef.current) clearInterval(pollRef.current)
+            if (status.status === 'error') {
+              setError(status.error || 'Analysis failed. Check the backend configuration and try again.')
+            }
+            // Capture token usage when complete
+            if (status.tokens) {
+              setTokenInfo(status.tokens)
+              setAnalysisStats({
+                flags: status.total_flags || 0,
+                findings: status.total_findings || 0,
+                packages: status.packages_analyzed || 1,
+              })
+            }
+            refresh()
           }
-          refresh()
+        } catch (err: any) {
+          if (pollRef.current) clearInterval(pollRef.current)
+          setError(err.message || 'Lost contact with the analysis service.')
         }
       }, 3000)
     }
@@ -235,8 +244,9 @@ export default function WorkspacePage() {
   const handleCancel = async () => {
     if (!projectId) return
     try {
-      await cancelAnalysis(projectId)
-      setProject((prev) => prev ? { ...prev, status: 'ready' } : prev)
+      const result = await cancelAnalysis(projectId)
+      await refresh()
+      if (!result.cancelled) setError(result.message)
       if (pollRef.current) clearInterval(pollRef.current)
     } catch (err: any) {
       setError(err.message)

@@ -68,6 +68,10 @@ ephemeral storage, so uploaded projects are not durable across function
 instances; use external object storage and a durable job worker for production
 workloads that exceed the function duration limit.
 
+The current public frontend is `https://deldot-contract-team.vercel.app`; its
+`/api/*` requests are proxied to the Railway service configured in
+`dora-ui/vercel.json`.
+
 ## Running the Pipeline (CLI)
 
 ```bash

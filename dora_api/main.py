@@ -49,6 +49,17 @@ _executor = ThreadPoolExecutor(max_workers=2)
 _running_analyses: dict[str, asyncio.Future] = {}
 
 
+def _safe_child(root: Path, relative_path: str) -> Path:
+    """Resolve a user-supplied relative path without allowing traversal."""
+    normalized = relative_path.replace("\\", "/").lstrip("/")
+    candidate = (root / normalized).resolve()
+    try:
+        candidate.relative_to(root.resolve())
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail="Invalid file path") from exc
+    return candidate
+
+
 # Background task: clean up stale incognito projects every 30 minutes
 async def _incognito_cleanup_loop():
     """Delete incognito projects older than 2 hours."""
@@ -131,7 +142,9 @@ async def upload_files(project_id: str, files: list[UploadFile] = File(...)):
             continue
         # Preserve the relative path so same-name files in different folders don't collide.
         # Browsers send paths like "folder/sub/file.pdf" for folder uploads.
-        relative_path = file.filename.replace("\\", "/")
+        relative_path = file.filename.replace("\\", "/").lstrip("/")
+        if not relative_path or any(part in {"", ".", ".."} for part in Path(relative_path).parts):
+            raise HTTPException(status_code=400, detail="Invalid file path")
         basename = relative_path.split("/")[-1]
         lower_name = basename.lower()
         if not (lower_name.endswith(".pdf") or lower_name.endswith(".json")):
@@ -146,7 +159,7 @@ async def upload_files(project_id: str, files: list[UploadFile] = File(...)):
             )
 
         # Store in subdirectory to preserve folder structure
-        dest = upload_dir / relative_path
+        dest = _safe_child(upload_dir, relative_path)
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_bytes(content)
         uploaded.append({"file_name": relative_path, "size_bytes": len(content)})
@@ -170,9 +183,7 @@ async def view_file(project_id: str, file_path: str):
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Project not found")
 
-    full_path = upload_dir / file_path
-    if not str(full_path.resolve()).startswith(str(upload_dir.resolve())):
-        raise HTTPException(status_code=400, detail="Invalid file path")
+    full_path = _safe_child(upload_dir, file_path)
     if not full_path.exists():
         raise HTTPException(status_code=404, detail="File not found")
 
@@ -188,10 +199,7 @@ async def delete_file(project_id: str, file_path: str):
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Project not found")
 
-    full_path = upload_dir / file_path
-    # Security: ensure the resolved path is inside upload_dir
-    if not str(full_path.resolve()).startswith(str(upload_dir.resolve())):
-        raise HTTPException(status_code=400, detail="Invalid file path")
+    full_path = _safe_child(upload_dir, file_path)
     if not full_path.exists():
         raise HTTPException(status_code=404, detail="File not found")
     full_path.unlink()
@@ -229,18 +237,15 @@ async def organize_files(project_id: str, body: dict):
     for group_name, file_paths in groups.items():
         # Sanitize group name
         safe_name = group_name.strip().replace("/", "_").replace("\\", "_")
-        if not safe_name:
+        if not safe_name or safe_name in {".", ".."}:
             continue
-        group_dir = upload_dir / safe_name
+        group_dir = _safe_child(upload_dir, safe_name)
         group_dir.mkdir(parents=True, exist_ok=True)
 
         for file_path in file_paths:
-            source = upload_dir / file_path
+            source = _safe_child(upload_dir, file_path)
             if not source.exists():
                 errors.append(f"Not found: {file_path}")
-                continue
-            if not str(source.resolve()).startswith(str(upload_dir.resolve())):
-                errors.append(f"Invalid path: {file_path}")
                 continue
             dest = group_dir / source.name
             # If dest already exists (same name), make unique
@@ -341,14 +346,20 @@ async def cancel_analysis(project_id: str):
         raise HTTPException(status_code=404, detail="No running analysis found")
 
     cancelled = future.cancel()
-    # Also update the project status so the UI stops polling
-    try:
-        project_manager.update_status(project_id, "ready")
-    except FileNotFoundError:
-        pass
-
-    _running_analyses.pop(project_id, None)
-    return {"cancelled": cancelled, "message": "Analysis cancelled" if cancelled else "Analysis could not be cancelled (may have already completed)"}
+    if cancelled:
+        try:
+            project_manager.update_status(project_id, "ready")
+        except FileNotFoundError:
+            pass
+        _running_analyses.pop(project_id, None)
+    return {
+        "cancelled": cancelled,
+        "message": (
+            "Analysis cancelled"
+            if cancelled
+            else "Analysis is already running and cannot be interrupted safely; it will continue in the background"
+        ),
+    }
 
 
 @app.get("/api/projects/{project_id}/status")
@@ -456,44 +467,6 @@ async def download_output(project_id: str, file_name: str):
 
 # --- Download All ---
 
-@app.get("/api/projects/{project_id}/outputs/download-all")
-async def download_all_outputs(project_id: str):
-    """Download all output files as a single zip archive."""
-    import zipfile
-    import tempfile
-
-    try:
-        output_dir = project_manager.get_output_dir(project_id)
-    except FileNotFoundError:
-        raise HTTPException(status_code=404, detail="Project not found")
-
-    # Get project name for the zip filename
-    try:
-        meta = project_manager.get_project(project_id)
-        project_name = meta.get("name", project_id).replace(" ", "_")
-    except FileNotFoundError:
-        project_name = project_id
-
-    output_files = [f for f in output_dir.iterdir() if f.is_file()]
-    if not output_files:
-        raise HTTPException(status_code=404, detail="No output files to download")
-
-    # Create a temporary zip file
-    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".zip")
-    with zipfile.ZipFile(tmp.name, "w", zipfile.ZIP_DEFLATED) as zf:
-        for f in sorted(output_files):
-            # Put files inside a folder named after the project
-            arcname = f"{project_name}_results/{f.name}"
-            zf.write(str(f), arcname)
-    tmp.close()
-
-    return FileResponse(
-        path=tmp.name,
-        filename=f"{project_name}_results.zip",
-        media_type="application/zip",
-    )
-
-
 # --- Health ---
 
 @app.get("/api/health")
@@ -515,24 +488,6 @@ async def list_models():
             {"id": "us.anthropic.claude-haiku-4-20250514", "name": "Claude Haiku 4", "description": "Fastest, lower cost"},
             {"id": "us.amazon.nova-pro-v1:0", "name": "Amazon Nova Pro", "description": "AWS native model"},
             {"id": "us.amazon.nova-lite-v1:0", "name": "Amazon Nova Lite", "description": "Lightweight, fast"},
-        ],
-    }
-
-
-# --- Settings / Models ---
-
-@app.get("/api/models")
-async def list_models():
-    """List available Bedrock models for analysis."""
-    from contract_review.config import BEDROCK
-    return {
-        "default": BEDROCK.model_id,
-        "models": [
-            {"id": "us.anthropic.claude-sonnet-4-6", "name": "Claude Sonnet 4.6", "description": "Best accuracy, moderate speed"},
-            {"id": "us.anthropic.claude-sonnet-4-5-20250514", "name": "Claude Sonnet 4.5", "description": "Balanced accuracy and speed"},
-            {"id": "us.anthropic.claude-haiku-4-5-20250514", "name": "Claude Haiku 4.5", "description": "Fastest, lower cost, good accuracy"},
-            {"id": "us.amazon.nova-pro-v1:0", "name": "Amazon Nova Pro", "description": "AWS native model, fast"},
-            {"id": "us.amazon.nova-lite-v1:0", "name": "Amazon Nova Lite", "description": "Lightweight, lowest cost"},
         ],
     }
 
